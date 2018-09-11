@@ -40,6 +40,8 @@ namespace Manifesto.Repositories
             updateBook.Category = book.Category;
             updateBook.Pages = book.Pages;
             updateBook.ModifiedOn = DateTime.Now;
+
+            _bookDbContext.SaveChanges();
         }
         public void DeleteBookById(int id)
         {
