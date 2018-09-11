@@ -13,7 +13,11 @@ namespace Manifesto.Repositories
         private readonly BookDbContext _bookDbContext = new BookDbContext();
         public IEnumerable<BookDTO> GetAllBooks(string category)
         {
-            return Mapper.Map<IEnumerable<BookDTO>>(_bookDbContext.Books.ToList());
+            if(!string.IsNullOrEmpty(category)) {
+                return Mapper.Map<IEnumerable<BookDTO>>(_bookDbContext.Books.Where(b => b.Category == category).ToList());
+            } else {
+                return Mapper.Map<IEnumerable<BookDTO>>(_bookDbContext.Books.ToList());
+            }
         }
         public BookDetailsDTO GetBookById(int id)
         {
@@ -21,11 +25,11 @@ namespace Manifesto.Repositories
         }
         public int CreateBook(BookInputModel book)
         {
-            var nextId = _bookDbContext.Books.Count() - 1;
             var entity = Mapper.Map<Book>(book);
             _bookDbContext.Books.Add(entity);
             _bookDbContext.SaveChanges();
-            return nextId;
+
+            return entity.Id;
         }
         public void UpdateBookById(BookInputModel book, int id)
         {
@@ -38,7 +42,7 @@ namespace Manifesto.Repositories
             updateBook.ImageUrl = book.ImageUrl;
             updateBook.Isbn = book.Isbn;
             updateBook.Category = book.Category;
-            updateBook.Pages = book.Pages;
+            updateBook.Pages = book.Pages.HasValue ? book.Pages.Value: updateBook.Pages;
             updateBook.ModifiedOn = DateTime.Now;
 
             _bookDbContext.SaveChanges();

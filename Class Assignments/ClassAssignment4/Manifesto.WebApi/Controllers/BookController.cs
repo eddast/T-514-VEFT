@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Manifesto.Models.InputModels;
 using Manifesto.Service;
+using System;
 
 namespace Manifesto.WebApi.Controllers
 {
@@ -22,7 +23,11 @@ namespace Manifesto.WebApi.Controllers
         [Route("{id:int}", Name = "GetBookById")]
         public IActionResult GetBookById(int id)
         {
-            return Ok(_bookService.GetBookById(id));
+            try {
+                return Ok(_bookService.GetBookById(id));
+            } catch (Exception e) {
+                return NotFound(e.Message);
+            }
         }
 
         // http://localhost:5000/api/books [POST]
@@ -42,7 +47,11 @@ namespace Manifesto.WebApi.Controllers
         public IActionResult UpdateBookById(int id, [FromBody] BookInputModel book)
         {
             if (!ModelState.IsValid) { return StatusCode(412, book); }
-            _bookService.UpdateBookById(book, id);
+            try {
+                _bookService.UpdateBookById(book, id);
+            } catch (Exception e) {
+                return NotFound(e.Message);
+            }
 
             return NoContent();
         }
@@ -52,7 +61,12 @@ namespace Manifesto.WebApi.Controllers
         [Route("{id:int}")]
         public IActionResult DeleteBookById(int id)
         {
-            _bookService.DeleteBookById(id);
+            try {
+                _bookService.DeleteBookById(id);
+            } catch (Exception e) {
+                return NotFound(e.Message);
+            }
+            
             
             return NoContent();
         }
