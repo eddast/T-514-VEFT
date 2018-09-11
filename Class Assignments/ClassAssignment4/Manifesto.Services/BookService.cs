@@ -10,9 +10,9 @@ namespace Manifesto.Service
     {
     
         private readonly BookRepository _bookRepository = new BookRepository();
-        public int CreateNewBook(BookInputModel book)
+        public int CreateBook(BookInputModel book)
         {
-            return _bookRepository.CreateNewBook(book);
+            return _bookRepository.CreateBook(book);
         }
         public void DeleteBookById(int id)
         {
@@ -22,7 +22,7 @@ namespace Manifesto.Service
         }
         public IEnumerable<BookDTO> GetAllBooks(string category)
         {
-            return _bookRepository.GetAllBooks(string category);
+            return _bookRepository.GetAllBooks(category);
         }
         public BookDetailsDTO GetBookById(int id)
         {

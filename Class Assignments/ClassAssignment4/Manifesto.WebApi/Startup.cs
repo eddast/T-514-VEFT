@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Manifesto.Models.DTOs;
+using Manifesto.Models.Entities;
+using Manifesto.Models.InputModels;
 using Manifesto.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +40,17 @@ namespace Manifesto.WebApi
             }
 
             app.UseMvc();
+
+            // Map Data Models
+            AutoMapper.Mapper.Initialize(cfg => {
+                cfg.CreateMap<Book, BookDTO>();
+                cfg.CreateMap<BookDetailsDTO, Book>();
+                cfg.CreateMap<BookDTO, Book>();
+                cfg.CreateMap<BookInputModel, Book>()
+                    .ForMember(m => m.CreatedOn, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(m => m.ModifiedBy, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(m => m.ModifiedBy, opt => opt.UseValue("BookstoreKeeper"));
+            });
         }
     }
 }
