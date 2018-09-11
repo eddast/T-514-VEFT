@@ -280,11 +280,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/Manifesto.Models.csproj",
+      "projectUniqueName": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Models/Manifesto.Models.csproj",
       "projectName": "Manifesto.Models",
-      "projectPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/Manifesto.Models.csproj",
+      "projectPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Models/Manifesto.Models.csproj",
       "packagesPath": "/Users/eddarunarsdottir/.nuget/packages/",
-      "outputPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/obj/",
+      "outputPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Models/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

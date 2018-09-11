@@ -12755,11 +12755,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/Manifesto.WebApi.csproj",
+      "projectUniqueName": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.WebApi/Manifesto.WebApi.csproj",
       "projectName": "Manifesto.WebApi",
-      "projectPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/Manifesto.WebApi.csproj",
+      "projectPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.WebApi/Manifesto.WebApi.csproj",
       "packagesPath": "/Users/eddarunarsdottir/.nuget/packages/",
-      "outputPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/obj/",
+      "outputPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.WebApi/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -12776,14 +12776,14 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/Manifesto.Models.csproj": {
-              "projectPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/Manifesto.Models.csproj"
+            "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Models/Manifesto.Models.csproj": {
+              "projectPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Models/Manifesto.Models.csproj"
             },
-            "/Users/eddarunarsdottir/Desktop/template/Manifesto.Repositories/Manifesto.Repositories.csproj": {
-              "projectPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Repositories/Manifesto.Repositories.csproj"
+            "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Repositories/Manifesto.Repositories.csproj": {
+              "projectPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Repositories/Manifesto.Repositories.csproj"
             },
-            "/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/Manifesto.Services.csproj": {
-              "projectPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/Manifesto.Services.csproj"
+            "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Services/Manifesto.Services.csproj": {
+              "projectPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Services/Manifesto.Services.csproj"
             }
           }
         }

@@ -2889,11 +2889,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/Manifesto.Services.csproj",
+      "projectUniqueName": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Services/Manifesto.Services.csproj",
       "projectName": "Manifesto.Services",
-      "projectPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/Manifesto.Services.csproj",
+      "projectPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Services/Manifesto.Services.csproj",
       "packagesPath": "/Users/eddarunarsdottir/.nuget/packages/",
-      "outputPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/obj/",
+      "outputPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Services/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -2910,11 +2910,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/Manifesto.Models.csproj": {
-              "projectPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/Manifesto.Models.csproj"
+            "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Models/Manifesto.Models.csproj": {
+              "projectPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Models/Manifesto.Models.csproj"
             },
-            "/Users/eddarunarsdottir/Desktop/template/Manifesto.Repositories/Manifesto.Repositories.csproj": {
-              "projectPath": "/Users/eddarunarsdottir/Desktop/template/Manifesto.Repositories/Manifesto.Repositories.csproj"
+            "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Repositories/Manifesto.Repositories.csproj": {
+              "projectPath": "/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Class Assignments/ClassAssignment4/Manifesto.Repositories/Manifesto.Repositories.csproj"
             }
           }
         }

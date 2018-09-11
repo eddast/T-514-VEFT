@@ -8,40 +8,34 @@ namespace Manifesto.Service
 {
     public class BookService
     {
-        /*
-        // private readonly RentalRepository _rentalRepository = new RentalRepository();
-        public int CreateNewRental(RentalInputModel rental)
+    
+        private readonly BookRepository _bookRepository = new BookRepository();
+        public int CreateNewBook(BookInputModel book)
         {
-            return _rentalRepository.CreateNewRental(rental);
+            return _bookRepository.CreateNewBook(book);
         }
-        public void DeleteRentalById(int id)
+        public void DeleteBookById(int id)
         {
-            var entity = _rentalRepository.GetRentalById(id);
-            if(entity == null) { throw new Exception($"Rental with id {id} was not found."); }
-            _rentalRepository.DeleteRental(entity);
+            var entity = _bookRepository.GetBookById(id);
+            if(entity == null) { throw new Exception($"Book with id {id} was not found."); }
+            _bookRepository.DeleteBookById(id);
         }
-        public IEnumerable<RentalDTO> GetAllRentals(bool containUnavailable)
+        public IEnumerable<BookDTO> GetAllBooks(string category)
         {
-            return _rentalRepository.GetAllRentals(containUnavailable);
+            return _bookRepository.GetAllBooks(string category);
         }
-        public RentalDTO GetRentalById(int id)
+        public BookDetailsDTO GetBookById(int id)
         {
-            var rental = _rentalRepository.GetRentalById(id);
-            if(rental == null) { throw new Exception($"Rental with id {id} was not found"); }
-            return rental;
+            var book = _bookRepository.GetBookById(id);
+            if(book == null) { throw new Exception($"Book with id {id} was not found"); }
+
+            return book;
         }
-        public void UpdateRentalById(RentalInputModel rental, int id)
+        public void UpdateBookById(BookInputModel book, int id)
         {
-            var entity = _rentalRepository.GetRentalById(id);
-            if(rental == null) { throw new Exception($"Rental with id {id} was not found"); }
-            _rentalRepository.UpdateRentalById(rental, id);
+            var entity = _bookRepository.GetBookById(id);
+            if(entity == null) { throw new Exception($"Book with id {id} was not found"); }
+            _bookRepository.UpdateBookById(book, id);
         }
-        public void UpdateRentalPartiallyById(RentalInputModel rental, int id)
-        {
-            var entity = _rentalRepository.GetRentalById(id);
-            if(rental == null) { throw new Exception($"Rental with id {id} was not found"); }
-            _rentalRepository.UpdateRentalById(rental, id);
-        }
-        */
     }
 }
