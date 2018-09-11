@@ -1,0 +1,28 @@
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Services.deps.json
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Services.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Services.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.csproj.CoreCompileInputs.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.AssemblyInfoInputs.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.AssemblyInfo.cs
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Models.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Repositories.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Repositories.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Models.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.csprojResolveAssemblyReference.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.csproj.CopyComplete
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Services.deps.json
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Services.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Services.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Models.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Repositories.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Repositories.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/bin/Debug/netstandard2.0/Manifesto.Models.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.csprojAssemblyReference.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.csproj.CoreCompileInputs.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.AssemblyInfoInputs.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.AssemblyInfo.cs
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.csproj.CopyComplete
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Services/obj/Debug/netstandard2.0/Manifesto.Services.pdb

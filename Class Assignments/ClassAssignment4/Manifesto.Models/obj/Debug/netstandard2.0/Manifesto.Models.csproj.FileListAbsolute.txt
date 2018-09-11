@@ -1,0 +1,18 @@
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/bin/Debug/netstandard2.0/Manifesto.Models.deps.json
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/bin/Debug/netstandard2.0/Manifesto.Models.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/bin/Debug/netstandard2.0/Manifesto.Models.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.csprojResolveAssemblyReference.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.csproj.CoreCompileInputs.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.AssemblyInfoInputs.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.AssemblyInfo.cs
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/bin/Debug/netstandard2.0/Manifesto.Models.deps.json
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/bin/Debug/netstandard2.0/Manifesto.Models.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/bin/Debug/netstandard2.0/Manifesto.Models.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.csprojAssemblyReference.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.csproj.CoreCompileInputs.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.AssemblyInfoInputs.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.AssemblyInfo.cs
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.Models/obj/Debug/netstandard2.0/Manifesto.Models.pdb

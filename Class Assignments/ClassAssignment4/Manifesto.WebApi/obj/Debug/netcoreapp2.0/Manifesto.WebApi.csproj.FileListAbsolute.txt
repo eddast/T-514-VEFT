@@ -1,0 +1,36 @@
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.deps.json
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.runtimeconfig.json
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.runtimeconfig.dev.json
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.csprojResolveAssemblyReference.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.csproj.CoreCompileInputs.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.AssemblyInfoInputs.cache
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.AssemblyInfo.cs
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Models.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Repositories.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Services.dll
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Models.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Services.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Repositories.pdb
+/Users/arnarleifs/Desktop/Develop/RU/WebServices/Assignments/Class assignments/4/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.csproj.CopyComplete
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.deps.json
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.runtimeconfig.json
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.runtimeconfig.dev.json
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.WebApi.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Models.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Repositories.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Services.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Models.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Services.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/bin/Debug/netcoreapp2.0/Manifesto.Repositories.pdb
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.csprojAssemblyReference.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.csproj.CoreCompileInputs.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.AssemblyInfoInputs.cache
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.AssemblyInfo.cs
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.csproj.CopyComplete
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.dll
+/Users/eddarunarsdottir/Desktop/template/Manifesto.WebApi/obj/Debug/netcoreapp2.0/Manifesto.WebApi.pdb

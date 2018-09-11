@@ -1,0 +1,14 @@
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/bin/Debug/netstandard2.0/RentAWorld.Services.deps.json
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/bin/Debug/netstandard2.0/RentAWorld.Services.dll
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/bin/Debug/netstandard2.0/RentAWorld.Services.pdb
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/bin/Debug/netstandard2.0/RentAWorld.Models.dll
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/bin/Debug/netstandard2.0/RentAWorld.Repositories.dll
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/bin/Debug/netstandard2.0/RentAWorld.Models.pdb
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/bin/Debug/netstandard2.0/RentAWorld.Repositories.pdb
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/obj/Debug/netstandard2.0/RentAWorld.Services.csprojAssemblyReference.cache
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/obj/Debug/netstandard2.0/RentAWorld.Services.csproj.CoreCompileInputs.cache
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/obj/Debug/netstandard2.0/RentAWorld.Services.AssemblyInfoInputs.cache
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/obj/Debug/netstandard2.0/RentAWorld.Services.AssemblyInfo.cs
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/obj/Debug/netstandard2.0/RentAWorld.Services.csproj.CopyComplete
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/obj/Debug/netstandard2.0/RentAWorld.Services.dll
+/Users/eddarunarsdottir/Desktop/RentAWorld/RentAWorld.Services/obj/Debug/netstandard2.0/RentAWorld.Services.pdb
