@@ -1,0 +1,18 @@
+C:/Users/Edda Steinunn/Desktop/template/bin/Debug/netcoreapp2.0/small-assignment-2.deps.json
+C:/Users/Edda Steinunn/Desktop/template/bin/Debug/netcoreapp2.0/small-assignment-2.runtimeconfig.json
+C:/Users/Edda Steinunn/Desktop/template/bin/Debug/netcoreapp2.0/small-assignment-2.runtimeconfig.dev.json
+C:/Users/Edda Steinunn/Desktop/template/obj/Debug/netcoreapp2.0/small-assignment-2.AssemblyInfo.cs
+C:/Users/Edda Steinunn/Desktop/template/obj/Debug/netcoreapp2.0/small-assignment-2.csprojAssemblyReference.cache
+C:/Users/Edda Steinunn/Desktop/template/obj/Debug/netcoreapp2.0/small-assignment-2.csproj.CoreCompileInputs.cache
+C:/Users/Edda Steinunn/Desktop/template/obj/Debug/netcoreapp2.0/small-assignment-2.AssemblyInfoInputs.cache
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/bin/Debug/netcoreapp2.0/small-assignment-2.deps.json
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/bin/Debug/netcoreapp2.0/small-assignment-2.runtimeconfig.json
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/bin/Debug/netcoreapp2.0/small-assignment-2.runtimeconfig.dev.json
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/bin/Debug/netcoreapp2.0/small-assignment-2.dll
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/bin/Debug/netcoreapp2.0/small-assignment-2.pdb
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/obj/Debug/netcoreapp2.0/small-assignment-2.csprojAssemblyReference.cache
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/obj/Debug/netcoreapp2.0/small-assignment-2.csproj.CoreCompileInputs.cache
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/obj/Debug/netcoreapp2.0/small-assignment-2.AssemblyInfoInputs.cache
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/obj/Debug/netcoreapp2.0/small-assignment-2.AssemblyInfo.cs
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/obj/Debug/netcoreapp2.0/small-assignment-2.dll
+/Users/eddarunarsdottir/Desktop/Haust2018/VEFT/Small Assignments/Small Assignment 2 - TinySoilders/obj/Debug/netcoreapp2.0/small-assignment-2.pdb
