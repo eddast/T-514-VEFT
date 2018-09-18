@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.0" />
+    <PackageReference Include="Moq" Version="4.10.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+    <PackageReference Include="nbuilder" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanThatCode.Community.Common\CleanThatCode.Community.Common.csproj" />
+    <ProjectReference Include="..\CleanThatCode.Community.Models\CleanThatCode.Community.Models.csproj" />
+    <ProjectReference Include="..\CleanThatCode.Community.Services\CleanThatCode.Community.Services.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanThatCode.Community.Repositories\CleanThatCode.Community.Repositories.csproj" />
+    <ProjectReference Include="..\CleanThatCode.Community.Models\CleanThatCode.Community.Models.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
