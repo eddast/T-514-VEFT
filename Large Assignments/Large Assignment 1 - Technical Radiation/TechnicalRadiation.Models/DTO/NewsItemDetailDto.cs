@@ -1,7 +1,7 @@
 using System;
 
 namespace TechnicalRadiation.Models.DTO {
-  public class NewsItemDetailDto {
+  public class NewsItemDetailDto : HyperMediaModel {
     public int Id { get; set; }
     public string Title { get; set; }
     public string ImgSource { get; set; }
