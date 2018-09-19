@@ -10,14 +10,14 @@ namespace TechnicalRadiation.WebApi.Controllers {
   [Route ("api/categories")]
   [ApiController]
   [Authorize]
-  public class CategoryController : ControllerBase {
+  public class AuthorController : ControllerBase {
 
     // GET api
     [Produces ("application/json")]
     [HttpGet]
     [Route ("")]
     [AllowAnonymous]
-    public IActionResult GetAllCategories () {
+    public IActionResult GetAllAuthors () {
       // TODO 
       return null;
     }
@@ -25,37 +25,37 @@ namespace TechnicalRadiation.WebApi.Controllers {
     // GET api/categories/5
     [Produces ("application/json")]
     [HttpGet]
-    [Route ("{categoryId}")]
+    [Route ("{authorId}")]
     [AllowAnonymous]
-    public IActionResult GetCategoryById (int categoryId) {
+    public IActionResult GetAuthorById (int authorId) {
       // TODO
       return null;
     }
 
     // POST api/categories
     [HttpPost]
-    public void CreateCategory ([FromBody] CategoryInputModel model) {
+    public void CreateAuthor ([FromBody] CategoryInputModel model) {
       if (!ModelState.IsValid) { /* TODO */ }
       // TODO  
     }
 
     // PUT api/categories/5
-    [HttpPut ("{categoryId}")]
-    public void EditCategory (int categoryId, [FromBody] CategoryInputModel model) {
+    [HttpPut ("{authorId}")]
+    public void EditAuthor (int authorId, [FromBody] CategoryInputModel model) {
       if (!ModelState.IsValid) { /* TODO */ }
       // TODO 
     }
 
     // PUT api/categories/5
-    [HttpPut ("{categoryId}/newsItems/{newsItemId}")]
-    public void LinkCategoryToNewsItem (int categoryId, int newsItemId, [FromBody] CategoryInputModel model) {
+    [HttpPut ("{authorId}/newsItems/{newsItemId}")]
+    public void LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel model) {
       if (!ModelState.IsValid) { /* TODO */ }
       // TODO 
     }
 
     // DELETE api/categories/5
-    [HttpDelete ("{categoryId}")]
-    public void DeleteCategory (int categoryId) {
+    [HttpDelete ("{authorId}")]
+    public void DeleteAuthor (int authorId) {
       // TODO
     }
   }
