@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Repositories.Data.Interfaces;
 
 namespace TechnicalRadiation.Repositories.Data
 {
-    public class NewsItemDataProvider
+    public class NewsItemDataProvider : INewsItemDataProvider
     {
         private static readonly string _adminName = "NewsItem";
-        public static List<NewsItem> Categories = new List<NewsItem> 
+        public List<NewsItem> GetNewsItems() => NewsItems;
+        private static List<NewsItem> NewsItems = new List<NewsItem> 
         {
             new NewsItem
             {
