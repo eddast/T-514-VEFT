@@ -10,4 +10,9 @@
     <PackageReference Include="AutoMapper" Version="7.0.1" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\TechnicalRadiation.Models\TechnicalRadiation.Models.csproj" />
+  </ItemGroup>
+
 </Project>
