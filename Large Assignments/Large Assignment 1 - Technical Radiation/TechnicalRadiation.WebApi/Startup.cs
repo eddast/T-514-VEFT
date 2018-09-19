@@ -13,6 +13,12 @@ using Microsoft.Extensions.Options;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.Repositories;
+using TechnicalRadiation.Repositories.Data;
+using TechnicalRadiation.Repositories.Data.Interfaces;
+using TechnicalRadiation.Repositories.Interfaces;
+using TechnicalRadiation.Services.Implementations;
+using TechnicalRadiation.Services.Interfaces;
 using TechnicalRadiation.WebApi.Extensions;
 
 namespace TechnicalRadiation.WebApi
@@ -29,7 +35,19 @@ namespace TechnicalRadiation.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
+
+            /* setup dependency injection */
+
+            /* from repositories */
+            services.AddTransient<INewsItemRepository, NewsItemRepository>();
+            services.AddSingleton<INewsItemDataProvider, NewsItemDataProvider>();
+
+            /* from services */
+            services.AddTransient<INewsItemService, NewsItemService>();
+
+            /* log service */
+            services.AddTransient<ILogService, LogService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

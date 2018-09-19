@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.Services.Interfaces;
 
 namespace TechnicalRadiation.WebApi.Controllers {
 
@@ -15,7 +16,13 @@ namespace TechnicalRadiation.WebApi.Controllers {
   [Route ("api/newsitems")]
   [ApiController]
   [Authorize]
-  public class NewsItemController : ControllerBase {
+  public class NewsItemController : Controller
+  {
+    private readonly INewsItemService _newsItemService;
+    public NewsItemController(INewsItemService newsItemService)
+    {
+        _newsItemService = newsItemService;
+    }
 
     /// <summary>
     /// Gets all news items
@@ -26,9 +33,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("")]
     [AllowAnonymous]
-    public IActionResult GetAllNewsItems () {
-      // TODO 
-      return null;
+    public IActionResult GetAllNewsItems ()
+    {
+      return Ok(_newsItemService.GetAllNewsItems());
     }
 
     /// <summary>
@@ -42,9 +49,10 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("{id}", Name = "GetNewsItemById")]
     [AllowAnonymous]
-    public IActionResult GetNewsItemById (int newsItemId) {
-      // TODO
-      return null;
+    public IActionResult GetNewsItemById (int id)
+    {
+      var newsItem = _newsItemService.GetNewsItemById(id);
+      return Ok(newsItem);
     }
 
     /// <summary>
@@ -55,9 +63,12 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
     [HttpPost]
-    public void CreateNewsItem ([FromBody] NewsItemInputModel model) {
+    [AllowAnonymous]
+    public IActionResult CreateNewsItem ([FromBody] NewsItemInputModel model)
+    {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO  
+      return Ok();
     }
 
     /// <summary>
@@ -69,9 +80,11 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
     [HttpPut ("{id}")]
-    public void EditNewsItem (int newsItemId, [FromBody] NewsItemInputModel model) {
+    public IActionResult EditNewsItem (int id, [FromBody] NewsItemInputModel model)
+    {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO 
+      return Ok();
 
     }
 
@@ -82,8 +95,10 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <returns>A status code of 204 no content.</returns>
     [ProducesResponseType(204)]
     [HttpDelete ("{id}")]
-    public void DeleteNewsItem (int newsItemId) {
+    public IActionResult DeleteNewsItem (int newsItemId)
+    {
       // TODO
+      return NoContent();
     }
   }
 }
