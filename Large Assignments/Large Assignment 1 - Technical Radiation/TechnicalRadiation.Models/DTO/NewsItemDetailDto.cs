@@ -1,14 +1,12 @@
 using System;
 
-namespace TechnicalRadiation.Models.DTO
-{
-  public class NewsItemDetailDto
-  {
-    private int Id { get; set; }
-    private string Title { get; set; }
-    private string ImgSource { get; set; }
-    private string ShortDescription { get; set; }
-    private string LongDescription { get; set; }
-    private DateTime PublishDate { get; set; }
+namespace TechnicalRadiation.Models.DTO {
+  public class NewsItemDetailDto {
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string ImgSource { get; set; }
+    public string ShortDescription { get; set; }
+    public string LongDescription { get; set; }
+    public DateTime PublishDate { get; set; }
   }
 }

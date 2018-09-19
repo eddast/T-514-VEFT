@@ -1,16 +1,14 @@
 using System;
 
-namespace TechnicalRadiation.Models.Entities
-{
-  public class Author
-  {
+namespace TechnicalRadiation.Models.Entities {
+  public class Author {
 
-    private int Id { get; set; }
-    private string Name { get; set; }
-    private string ProfileImgSource { get; set; }
-    private string Bio { get; set; }
-    private string ModifiedBy { get; set; }
-    private DateTime CreatedDate { get; set; }
-    private DateTime ModifiedDate { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string ProfileImgSource { get; set; }
+    public string Bio { get; set; }
+    public string ModifiedBy { get; set; }
+    public DateTime CreatedDate { get; set; }
+    public DateTime ModifiedDate { get; set; }
   }
 }

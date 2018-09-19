@@ -1,9 +1,15 @@
-namespace TechnicalRadiation.Models.InputModels
-{
-  public class AuthorInputModel
-  {
-    private string Name { get; set; }
-    private string ProfileImgSource { get; set; }
-    private string Bio { get; set; }
+using System.ComponentModel.DataAnnotations;
+
+namespace TechnicalRadiation.Models.InputModels {
+  public class AuthorInputModel {
+    [Required]
+    public string Name { get; set; }
+
+    [Required]
+    [UrlAttribute]
+    public string ProfileImgSource { get; set; }
+
+    [MaxLength (255)]
+    public string Bio { get; set; }
   }
 }

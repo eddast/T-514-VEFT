@@ -1,12 +1,10 @@
-namespace TechnicalRadiation.Models.DTO
-{
-  public class CategoryDetailDto
-  {
+namespace TechnicalRadiation.Models.DTO {
+  public class CategoryDetailDto {
 
-    private int Id { get; set; }
-    private string Name { get; set; }
-    private string Slug { get; set; }
-    private int NumberOfNewsItems { get; set; }
-    private int ParentCategoryId { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Slug { get; set; }
+    public int NumberOfNewsItems { get; set; }
+    public int ParentCategoryId { get; set; }
   }
 }

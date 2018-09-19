@@ -1,8 +1,6 @@
-namespace TechnicalRadiation.Models.DTO
-{
-  public class AuthorDto
-  {
-    private int Id { get; set; }
-    private string Name { get; set; }
+namespace TechnicalRadiation.Models.DTO {
+  public class AuthorDto {
+    public int Id { get; set; }
+    public string Name { get; set; }
   }
 }
