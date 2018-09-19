@@ -4,7 +4,7 @@ namespace TechnicalRadiation.Models.DTO {
   /// <summary>
   /// A more detailed DTO for News Item
   /// </summary>
-  public class NewsItemDetailDto {
+  public class NewsItemDetailDto : HyperMediaModel {
     /// <summary>
     /// The id of the news item
     /// </summary>

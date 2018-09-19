@@ -2,7 +2,7 @@ namespace TechnicalRadiation.Models.DTO {
   /// <summary>
   /// A more detailed DTO for Category
   /// </summary>
-  public class CategoryDetailDto {
+  public class CategoryDetailDto : HyperMediaModel {
 
     /// <summary>
     /// The id of the category

@@ -2,7 +2,7 @@ namespace TechnicalRadiation.Models.DTO {
   /// <summary>
   /// A more detailed DTO for Author
   /// </summary>
-  public class AuthorDetailDto {
+  public class AuthorDetailDto : HyperMediaModel {
 
     /// <summary>
     /// The id of the author
