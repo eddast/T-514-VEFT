@@ -32,11 +32,13 @@ namespace TechnicalRadiation.WebApi.Controllers {
     {
         _newsItemService = newsItemService;
     }
-    
+  
     /// <summary>
-    /// Gets all news items
+    /// Gets a page of a list all news items
     /// </summary>
-    /// <returns>A list of news items</returns>
+    /// <param name="pageNumber">Which page to request, defaults to 1</param>
+    /// <param name="pageSize">How many news items to request per page, defaults to 25</param>
+    /// <returns>Status code 200 and a list of news items</returns>
     [HttpGet]
     [Route ("")]
     [Produces ("application/json")]
@@ -44,7 +46,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [AllowAnonymous]
     public IActionResult GetAllNewsItems ([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25)
     {
-      return Ok(_newsItemService.GetAllNewsItems(pageNumber, pageSize);
+      return Ok(_newsItemService.GetAllNewsItems(pageNumber, pageSize));
     }
 
     /// <summary>
