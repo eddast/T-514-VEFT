@@ -77,7 +77,6 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType (412)]
     public IActionResult CreateNewsItem ([FromBody] NewsItemInputModel newsItem = null)
     {
-      Console.WriteLine(!ModelState.IsValid);
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO  
       return Ok();
