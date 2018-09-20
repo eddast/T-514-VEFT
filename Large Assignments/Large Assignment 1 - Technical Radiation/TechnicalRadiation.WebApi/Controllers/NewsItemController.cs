@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services.Interfaces;
+using TechnicalRadiation.WebApi.Authorization;
+
 
 namespace TechnicalRadiation.WebApi.Controllers {
 
@@ -15,7 +17,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// </summary>
   [Route ("api/newsitems")]
   [ApiController]
-  [Authorize]
+  [HasAuthorizationHeader]
   public class NewsItemController : Controller
   {
     private readonly INewsItemService _newsItemService;
@@ -32,7 +34,6 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType(200)]
     [HttpGet]
     [Route ("")]
-    [AllowAnonymous]
     public IActionResult GetAllNewsItems ()
     {
       return Ok(_newsItemService.GetAllNewsItems());
@@ -48,7 +49,6 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType(404)]
     [HttpGet]
     [Route ("{id}", Name = "GetNewsItemById")]
-    [AllowAnonymous]
     public IActionResult GetNewsItemById (int id)
     {
       var newsItem = _newsItemService.GetNewsItemById(id);
@@ -63,9 +63,11 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
     [HttpPost]
+    [Route("")]
     [AllowAnonymous]
     public IActionResult CreateNewsItem ([FromBody] NewsItemInputModel model)
     {
+      Console.WriteLine(!ModelState.IsValid);
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO  
       return Ok();

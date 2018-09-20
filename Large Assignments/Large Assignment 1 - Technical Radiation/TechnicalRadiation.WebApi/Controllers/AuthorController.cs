@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.WebApi.Authorization;
 
 namespace TechnicalRadiation.WebApi.Controllers {
   [Route ("api/categories")]
   [ApiController]
-  [Authorize]
+  [HasAuthorizationHeader]
   public class AuthorController : ControllerBase {
 
     // GET api
