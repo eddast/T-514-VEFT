@@ -52,7 +52,7 @@ namespace TechnicalRadiation.WebApi
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            /* set up swagger */
+            // set up swagger
             services.AddSwaggerGen(opt => {
                 opt.SwaggerDoc("v1", new Info
                 {
@@ -68,20 +68,20 @@ namespace TechnicalRadiation.WebApi
 
             services.AddMvc();
 
-            /** SETUP DEPENDENCY INJECTION **/
-            /* data providers */
+            // SETUP DEPENDENCY INJECTION
+            // data providers
             services.AddSingleton<INewsItemDataProvider, NewsItemDataProvider>();
             services.AddSingleton<IAuthorDataProvider, AuthorDataProvider>();
             services.AddSingleton<ICategoryDataProvider, CategoryDataProvider>();
-            /* from repositories */
+            // from repositories
             services.AddTransient<INewsItemRepository, NewsItemRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
-            /* from services */
+            // from services
             services.AddTransient<INewsItemService, NewsItemService>();
             services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<ICategoryService, CategoryService>();
-            /* log service */
+            // log service
             services.AddTransient<ILogService, LogService>();
         }
 

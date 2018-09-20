@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Repositories.Data.Interfaces;
 
 namespace TechnicalRadiation.Repositories.Data
 {
-    public class AuthorDataProvider
+    public class AuthorDataProvider : IAuthorDataProvider
     {
+        public List<Author> GetAuthors() => Authors;
         private static readonly string _adminName = "CategoryAdmin";
-        public static List<Author> Categories = new List<Author> 
+        public static List<Author> Authors = new List<Author> 
         {
             new Author
             {

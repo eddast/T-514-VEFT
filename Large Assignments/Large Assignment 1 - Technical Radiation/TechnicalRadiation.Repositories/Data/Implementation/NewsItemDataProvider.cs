@@ -7,8 +7,8 @@ namespace TechnicalRadiation.Repositories.Data
 {
     public class NewsItemDataProvider : INewsItemDataProvider
     {
-        private static readonly string _adminName = "NewsItem";
         public List<NewsItem> GetNewsItems() => NewsItems;
+        private static readonly string _adminName = "NewsItem";
         private static List<NewsItem> NewsItems = new List<NewsItem> 
         {
             new NewsItem

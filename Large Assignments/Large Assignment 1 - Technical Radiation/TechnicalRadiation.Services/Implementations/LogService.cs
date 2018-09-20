@@ -11,7 +11,7 @@ namespace TechnicalRadiation.Services.Implementations
         {
             using (var file = new StreamWriter(logFilePath, true))
             {
-                file.WriteLine($"{DateTime.Now} - {message}");
+                file.WriteLine($"{DateTime.Now}: {message}\n");
             }
         }
     }
