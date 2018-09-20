@@ -32,7 +32,7 @@ namespace TechnicalRadiation.Services.Implementations
         /// <param name="pageNumber">Which number of page to fetch news items of</param>
         /// <param name="pageSize">How many news items to display per page</param>
         /// <returns>list of all news items in descending order</returns>
-        public IEnumerable<NewsItemDto> GetAllNewsItems(int PageSize, int PageNumber)
+        public IEnumerable<NewsItemDto> GetAllNewsItems(int PageNumber, int PageSize)
         {
             return PageService<NewsItemDto>.PageData(_newsItemRepository.GetAllNewsItems(), PageNumber, PageSize);
         }
