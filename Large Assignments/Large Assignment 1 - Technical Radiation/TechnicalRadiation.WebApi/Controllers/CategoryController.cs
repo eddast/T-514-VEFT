@@ -4,60 +4,124 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.WebApi.Authorization;
+using TechnicalRadiation.Services.Interfaces;
 
 namespace TechnicalRadiation.WebApi.Controllers {
-  [Route ("api/categories")]
-  [ApiController]
-  [HasAuthorizationHeader]
-  public class CategoryController : ControllerBase {
 
-    // GET api
-    [Produces ("application/json")]
+  /// <summary>
+  /// Used to manipulate and get information about categories
+  /// </summary>
+  [Route ("api/categories")]
+  [HasAuthorizationHeader]
+  public class CategoryController : Controller {
+
+    /// <summary>
+    /// service used to fetch data
+    /// </summary>
+    private readonly ICategoryService _categoryService;
+
+    /// <summary>
+    /// Set the category service to use
+    /// </summary>
+    /// <param name="categoryService">category service</param>
+    public CategoryController(ICategoryService categoryService)
+    {
+        _categoryService = categoryService;
+    }
+    
+    /// <summary>
+    /// Gets list of all categories
+    /// </summary>
+    /// <returns>all categories in system</returns>
     [HttpGet]
     [Route ("")]
-    [AllowAnonymous]
-    public IActionResult GetAllCategories () {
-      // TODO 
-      return null;
-    }
-
-    // GET api/categories/5
     [Produces ("application/json")]
-    [HttpGet]
-    [Route ("{categoryId}")]
+    [ProducesResponseType (200)]
     [AllowAnonymous]
-    public IActionResult GetCategoryById (int categoryId) {
-      // TODO
-      return null;
+    public IActionResult GetAllCategories ()
+    {
+      return Ok(_categoryService.GetAllCategories());
     }
 
-    // POST api/categories
+    /// <summary>
+    /// Gets a single category by it's id
+    /// </summary>
+    /// <param name="id">id of category to find</param>
+    /// <returns>a single category if found</returns>
+    [HttpGet]
+    [Route ("{id}", Name = "GetCategoryById")]
+    [Produces ("application/json")]
+    [ProducesResponseType (200)]
+    [ProducesResponseType (404)]
+    [AllowAnonymous]
+    public IActionResult GetCategoryById (int id)
+    {
+      return Ok(_categoryService.GetCategoryById(id));
+    }
+
+    /// <summary>
+    /// Creates a new category for the system
+    /// </summary>
+    /// <param name="category">The category input model</param>
+    ///<returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
     [HttpPost]
-    public void CreateCategory ([FromBody] CategoryInputModel model) {
-      if (!ModelState.IsValid) { /* TODO */ }
-      // TODO  
-    }
-
-    // PUT api/categories/5
-    [HttpPut ("{categoryId}")]
-    public void EditCategory (int categoryId, [FromBody] CategoryInputModel model) {
-      if (!ModelState.IsValid) { /* TODO */ }
-      // TODO 
-    }
-
-    // PUT api/categories/5
-    [HttpPut ("{categoryId}/newsItems/{newsItemId}")]
-    public void LinkCategoryToNewsItem (int categoryId, int newsItemId, [FromBody] CategoryInputModel model) {
-      if (!ModelState.IsValid) { /* TODO */ }
-      // TODO 
-    }
-
-    // DELETE api/categories/5
-    [HttpDelete ("{categoryId}")]
-    public void DeleteCategory (int categoryId) {
+    [Consumes ("application/json")]
+    [ProducesResponseType (201)]
+    [ProducesResponseType (412)]
+    public IActionResult CreateCategory ([FromBody] CategoryInputModel category) {
+      if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
       // TODO
+      return Ok();  
+    }
+
+    /// <summary>
+    /// Edits an existing category within the system
+    /// </summary>
+    /// <param name="id">Id which is associated with a category within the system</param>
+    /// <param name="category">The category input model</param>
+    /// <returns>A status code of 200 if input model is valid</returns>
+    [HttpPut]
+    [Route ("{id}")]
+    [Consumes ("application/json")]
+    [ProducesResponseType (200)]
+    [ProducesResponseType (412)]
+    public IActionResult EditCategory (int id, [FromBody] CategoryInputModel category) {
+      if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
+      // TODO
+      return Ok(); 
+    }
+
+    /// <summary>
+    /// Assigns category to news item
+    /// </summary>
+    /// <param name="categoryId">Id which is associated with a category within the system</param>
+    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
+    /// <param name="category"></param>
+    [HttpPut]
+    [Route ("{categoryId}/newsItems/{newsItemId}")]
+    [Consumes ("application/json")]
+    [ProducesResponseType (201)]
+    [ProducesResponseType (412)]
+    public IActionResult LinkCategoryToNewsItem (int categoryId, int newsItemId, [FromBody] CategoryInputModel category) {
+      if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
+      // TODO 
+      return Ok();
+    }
+
+    /// <summary>
+    /// Deletes a category within the system
+    /// </summary>
+    /// <param name="id">Id which is associated with a category within the system</param>
+    /// <returns>A status code of 204 no content.</returns>
+    [HttpDelete]
+    [Route ("{id}")]
+    [ProducesResponseType (204)]
+    public IActionResult DeleteCategory (int id) {
+      // TODO
+      return NoContent();
     }
   }
 }

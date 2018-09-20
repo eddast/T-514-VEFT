@@ -4,60 +4,124 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
-using TechnicalRadiation.WebApi.Authorization;
+using TechnicalRadiation.Services.Interfaces;
 
 namespace TechnicalRadiation.WebApi.Controllers {
-  [Route ("api/categories")]
-  [ApiController]
-  [HasAuthorizationHeader]
-  public class AuthorController : ControllerBase {
+  /// <summary>
+  /// Used to manipulate and get information about authors in system
+  /// </summary>
+  [Route ("api/authors")]
+  [HasAuthorizationHeader]  
+  public class AuthorController : Controller {
 
-    // GET api
-    [Produces ("application/json")]
+    /// <summary>
+    /// service used to fetch data
+    /// </summary>
+    private readonly IAuthorService _authorService;
+
+    /// <summary>
+    /// Set the news item service to use
+    /// </summary>
+    /// <param name="authorService">author service</param>
+    public AuthorController(IAuthorService authorService)
+    {
+        _authorService = authorService;
+    }
+
+    /// <summary>
+    /// Gets list of all authors
+    /// </summary>
+    /// <returns>a list of all authors</returns>
     [HttpGet]
     [Route ("")]
-    [AllowAnonymous]
-    public IActionResult GetAllAuthors () {
-      // TODO 
-      return null;
-    }
-
-    // GET api/categories/5
     [Produces ("application/json")]
-    [HttpGet]
-    [Route ("{authorId}")]
+    [ProducesResponseType (200)]
     [AllowAnonymous]
-    public IActionResult GetAuthorById (int authorId) {
-      // TODO
-      return null;
+    public IActionResult GetAllAuthors ()
+    {
+      return Ok(_authorService.GetAllAuthors());
     }
 
-    // POST api/categories
+    /// <summary>
+    /// Gets an author by his or her id
+    /// </summary>
+    /// <param name="authorId">Id which is associated with author within the system</param>
+    /// <returns>A single author if found, 404 otherwise</returns>
+    [HttpGet]
+    [Route ("{authorId}", Name = "GetAuthorById")]
+    [Produces ("application/json")]
+    [ProducesResponseType (200)]
+    [ProducesResponseType (404)]
+    [AllowAnonymous]
+    public IActionResult GetAuthorById (int authorId)
+    {
+      return Ok(_authorService.GetAuthorById(authorId));
+    }
+
+    /// <summary>
+    /// Creates new author for the system
+    /// </summary>
+    /// <param name="author">The author input model</param>
+    /// <returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
     [HttpPost]
-    public void CreateAuthor ([FromBody] CategoryInputModel model) {
-      if (!ModelState.IsValid) { /* TODO */ }
+    [Consumes ("application/json")]
+    [ProducesResponseType (201)]
+    [ProducesResponseType (412)]
+    public IActionResult CreateAuthor ([FromBody] CategoryInputModel author)
+    {
+      if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
       // TODO  
+      return Ok();
     }
 
-    // PUT api/categories/5
-    [HttpPut ("{authorId}")]
-    public void EditAuthor (int authorId, [FromBody] CategoryInputModel model) {
-      if (!ModelState.IsValid) { /* TODO */ }
+    /// <summary>
+    /// Updates existing author within the system
+    /// </summary>
+    /// <param name="id">Id which is associated with an author within the system</param>
+    /// <param name="author">The author input model</param>
+    /// <returns>A status code of 200 if input model is valid, 412 otherwise</returns>
+    [HttpPut ("{id}")]
+    [Consumes ("application/json")]
+    [ProducesResponseType (200)]
+    [ProducesResponseType (412)]
+    public IActionResult EditAuthor (int id, [FromBody] CategoryInputModel author)
+    {
+      if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
       // TODO 
+      return Ok();
     }
 
-    // PUT api/categories/5
+    /// <summary>
+    /// Links author to a news item with a specified category as well
+    /// </summary>
+    /// <param name="authorId">Id which is associated with an author within the system</param>
+    /// <param name="newsItem">Id which is associated with a news item within the system</param>
+    /// <param name="category">Input model for category</param>
+    /// <returns>Status code of 201 if link was successfully created</returns>
     [HttpPut ("{authorId}/newsItems/{newsItemId}")]
-    public void LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel model) {
-      if (!ModelState.IsValid) { /* TODO */ }
+    [Consumes ("application/json")]
+    [ProducesResponseType (201)]
+    [ProducesResponseType (412)]
+    public IActionResult LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel category)
+    {
+      if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
       // TODO 
+      return Ok();
     }
 
-    // DELETE api/categories/5
+    /// <summary>
+    /// Deletes existing author from the system
+    /// </summary>
+    /// <param name="authorId">Id which is associated with an author within the system</param>
+    /// <returns>A status code of 204 no content.</returns>
     [HttpDelete ("{authorId}")]
-    public void DeleteAuthor (int authorId) {
+    [ProducesResponseType (204)]
+    public IActionResult DeleteAuthor (int authorId)
+    {
       // TODO
+      return NoContent();
     }
   }
 }
