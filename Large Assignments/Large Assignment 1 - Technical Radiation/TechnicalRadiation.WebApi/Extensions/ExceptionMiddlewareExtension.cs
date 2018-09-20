@@ -32,10 +32,9 @@ namespace TechnicalRadiation.WebApi.Extensions
                         statusCode = (int) HttpStatusCode.PreconditionFailed;
                     }
 
-
                     /* log on error */
                     var logService = app.ApplicationServices.GetService(typeof(ILogService)) as ILogService;
-                    logService.LogToFile($"EXCEPTION: ({exception.Message})\n\tStatus Code: {statusCode}\n\tStack trace: {exception.StackTrace}");
+                    logService.LogToFile($"Exception: {exception.Message}\n\tStatus Code: {statusCode}\n\tStack trace:\n{exception.StackTrace}");
 
                     /* JSON format is should always be in the reqest body */
                     context.Response.ContentType = "application/json";
