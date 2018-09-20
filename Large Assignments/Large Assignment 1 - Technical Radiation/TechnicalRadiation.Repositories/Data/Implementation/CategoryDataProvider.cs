@@ -5,10 +5,18 @@ using TechnicalRadiation.Repositories.Data.Interfaces;
 
 namespace TechnicalRadiation.Repositories.Data
 {
+    /// <summary>
+    /// Serves data from source in system
+    /// </summary>
     public class CategoryDataProvider : ICategoryDataProvider
     {
         public List<Category> GetCategories() => Categories;
-        private static readonly string _adminName = "CategoryAdmin";
+        private static readonly string _adminName = "SystemAdmin";
+
+        /// <summary>
+        /// Returns a list of all categories in system
+        /// </summary>
+        /// <returns>List of all categories in system</returns>
         public static List<Category> Categories = new List<Category> 
         {
             new Category

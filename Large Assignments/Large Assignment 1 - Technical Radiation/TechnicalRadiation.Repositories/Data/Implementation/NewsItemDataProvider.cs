@@ -5,10 +5,18 @@ using TechnicalRadiation.Repositories.Data.Interfaces;
 
 namespace TechnicalRadiation.Repositories.Data
 {
+    /// <summary>
+    /// Serves data from source in system
+    /// </summary>
     public class NewsItemDataProvider : INewsItemDataProvider
     {
         public List<NewsItem> GetNewsItems() => NewsItems;
-        private static readonly string _adminName = "NewsItem";
+        private static readonly string _adminName = "SystemAdmin";
+
+        /// <summary>
+        /// Returns list of all news items in system
+        /// </summary>
+        /// <returns>list of all news items in system</returns>
         private static List<NewsItem> NewsItems = new List<NewsItem> 
         {
             new NewsItem

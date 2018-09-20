@@ -5,10 +5,18 @@ using TechnicalRadiation.Repositories.Data.Interfaces;
 
 namespace TechnicalRadiation.Repositories.Data
 {
+    /// <summary>
+    /// Serves data from source in system
+    /// </summary>
     public class AuthorDataProvider : IAuthorDataProvider
     {
         public List<Author> GetAuthors() => Authors;
-        private static readonly string _adminName = "CategoryAdmin";
+        private static readonly string _adminName = "SystemAdmin";
+
+        /// <summary>
+        /// Gets a list of all authors in system
+        /// </summary>
+        /// <returns>List of all authors in system</returns>
         public static List<Author> Authors = new List<Author> 
         {
             new Author
