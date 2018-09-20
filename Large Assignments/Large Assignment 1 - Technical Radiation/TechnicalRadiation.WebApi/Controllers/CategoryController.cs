@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.WebApi.Authorization;
 using TechnicalRadiation.Services.Interfaces;
 
 namespace TechnicalRadiation.WebApi.Controllers {
@@ -14,7 +15,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about categories
   /// </summary>
   [Route ("api/categories")]
-  [Authorize]
+  [HasAuthorizationHeader]
   public class CategoryController : Controller {
 
     /// <summary>

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services.Interfaces;
+using TechnicalRadiation.WebApi.Authorization;
+
 
 namespace TechnicalRadiation.WebApi.Controllers {
 
@@ -14,6 +16,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about news items
   /// </summary>
   [Route ("api")]
+  [HasAuthorizationHeader]
   [Authorize]
   public class NewsItemController : Controller
   {
@@ -37,9 +40,12 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <returns>A list of news items</returns>
     [HttpGet]
     [Route ("")]
+<<<<<<< HEAD
+=======
     [Produces ("application/json")]
     [ProducesResponseType (200)]
     [AllowAnonymous]
+>>>>>>> 16c1be284b22b208faccd0305f80c7c6b82ab77b
     public IActionResult GetAllNewsItems ()
     {
       return Ok(_newsItemService.GetAllNewsItems());
@@ -52,10 +58,13 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <returns>A single news item if found</returns>
     [HttpGet]
     [Route ("{id}", Name = "GetNewsItemById")]
+<<<<<<< HEAD
+=======
     [Produces ("application/json")]
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
     [AllowAnonymous]
+>>>>>>> 16c1be284b22b208faccd0305f80c7c6b82ab77b
     public IActionResult GetNewsItemById (int id)
     {
       return Ok(_newsItemService.GetNewsItemById(id));
@@ -67,12 +76,17 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <param name="newsItem">The news item input model</param>
     /// <returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
     [HttpPost]
+<<<<<<< HEAD
+    [Route("")]
+=======
     [Consumes ("application/json")]
     [ProducesResponseType (201)]
     [ProducesResponseType (412)]
+>>>>>>> 16c1be284b22b208faccd0305f80c7c6b82ab77b
     [AllowAnonymous]
     public IActionResult CreateNewsItem ([FromBody] NewsItemInputModel newsItem = null)
     {
+      Console.WriteLine(!ModelState.IsValid);
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO  
       return Ok();
