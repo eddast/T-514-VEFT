@@ -5,58 +5,113 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.Services.Interfaces;
 
 namespace TechnicalRadiation.WebApi.Controllers {
+  /// <summary>
+  /// Used to manipulate and get information about authors in system
+  /// </summary>
   [Route ("api/categories")]
   [ApiController]
   [Authorize]
-  public class AuthorController : ControllerBase {
+  public class AuthorController : Controller {
 
-    // GET api
+    /// <summary>
+    /// service used to fetch data
+    /// </summary>
+    private readonly IAuthorService _authorService;
+
+    /// <summary>
+    /// Set the news item service to use
+    /// </summary>
+    /// <param name="authorService">author service</param>
+    public AuthorController(IAuthorService authorService)
+    {
+        _authorService = authorService;
+    }
+
+    /// <summary>
+    /// Gets all authors
+    /// </summary>
+    /// <returns></returns>
     [Produces ("application/json")]
     [HttpGet]
     [Route ("")]
     [AllowAnonymous]
     public IActionResult GetAllAuthors () {
       // TODO 
-      return null;
+      return Ok();
     }
 
-    // GET api/categories/5
+    /// <summary>
+    /// Gets author by id
+    /// </summary>
+    /// <param name="authorId">Id which is associated with author within the system</param>
+    /// <returns>A single author if found</returns>
     [Produces ("application/json")]
     [HttpGet]
     [Route ("{authorId}")]
     [AllowAnonymous]
     public IActionResult GetAuthorById (int authorId) {
       // TODO
-      return null;
+      return Ok();
     }
 
-    // POST api/categories
+    /// <summary>
+    /// Creates a new author within the system
+    /// </summary>
+    /// <param name="author">The author input model</param>
+    /// <returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
     [HttpPost]
-    public void CreateAuthor ([FromBody] CategoryInputModel model) {
+    [ProducesResponseType(201)]
+    [ProducesResponseType(412)]
+    public IActionResult CreateAuthor ([FromBody] CategoryInputModel author) {
       if (!ModelState.IsValid) { /* TODO */ }
       // TODO  
+      return Ok();
     }
 
-    // PUT api/categories/5
+    /// <summary>
+    /// Updates author within the system
+    /// </summary>
+    /// <param name="authorId">Id which is associated with an author within the system</param>
+    /// <param name="author">The author input model</param>
+    /// <returns>A status code of 200 and a set Location header.</returns>
     [HttpPut ("{authorId}")]
-    public void EditAuthor (int authorId, [FromBody] CategoryInputModel model) {
+    [ProducesResponseType(201)]
+    [ProducesResponseType(412)]
+    public IActionResult EditAuthor (int authorId, [FromBody] CategoryInputModel author) {
       if (!ModelState.IsValid) { /* TODO */ }
       // TODO 
+      return Ok();
     }
 
-    // PUT api/categories/5
+    /// <summary>
+    /// Links author to a news item with a specified category as well
+    /// </summary>
+    /// <param name="authorId">Id which is associated with an author within the system</param>
+    /// <param name="newsItem">Id which is associated with a news item within the system</param>
+    /// <param name="category">Input model for category item</param>
+    /// <returns></returns>
     [HttpPut ("{authorId}/newsItems/{newsItemId}")]
-    public void LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel model) {
+    [ProducesResponseType(201)]
+    [ProducesResponseType(412)]
+    public IActionResult LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel category) {
       if (!ModelState.IsValid) { /* TODO */ }
       // TODO 
+      return Ok();
     }
 
-    // DELETE api/categories/5
+    /// <summary>
+    /// Deletes a news item from the system
+    /// </summary>
+    /// <param name="authorId">Id which is associated with an author within the system</param>
+    /// <returns>A status code of 204 no content.</returns>
     [HttpDelete ("{authorId}")]
-    public void DeleteAuthor (int authorId) {
+    [ProducesResponseType(204)]
+    public IActionResult DeleteAuthor (int authorId) {
       // TODO
+      return NoContent();
     }
   }
 }

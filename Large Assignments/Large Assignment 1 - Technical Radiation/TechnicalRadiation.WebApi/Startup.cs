@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.InputModels;
@@ -25,16 +28,49 @@ namespace TechnicalRadiation.WebApi
 {
     public class Startup
     {
+        /// <summary>
+        /// Sets up configurations
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Returns configuration
+        /// </summary>
+        /// <value>configuration</value>
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            /* set up swagger */
+            services.AddSwaggerGen(opt => {
+                opt.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Technical Radiation API",
+                    Description = "Used to manipulate resources on news items, news categories and news authors in Technical Radiation system",
+                    TermsOfService = "N/A",
+                    Contact = new Contact
+                    {
+                        Name = "Arnar Leifsson",
+                        Url = "https://arnarleifsson.com",
+                        Email = "arnarl@ru.is"
+                    }
+                });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                opt.IncludeXmlComments(xmlPath);
+            });
+
+
             services.AddMvc();
 
             /** SETUP DEPENDENCY INJECTION **/
@@ -54,13 +90,23 @@ namespace TechnicalRadiation.WebApi
             services.AddTransient<ILogService, LogService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(opt => {
+                opt.RoutePrefix = "api-documentation";
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "Technical Radiation API");
+            });
 
             /* add global exception handling */
             app.ConfigureExceptionHandler();

@@ -18,12 +18,20 @@ namespace TechnicalRadiation.WebApi.Controllers {
   [Authorize]
   public class NewsItemController : Controller
   {
+    /// <summary>
+    /// service used to fetch data
+    /// </summary>
     private readonly INewsItemService _newsItemService;
+
+    /// <summary>
+    /// Set the news item service to use
+    /// </summary>
+    /// <param name="newsItemService">news item service</param>
     public NewsItemController(INewsItemService newsItemService)
     {
         _newsItemService = newsItemService;
     }
-
+    
     /// <summary>
     /// Gets all news items
     /// </summary>
@@ -58,15 +66,20 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <summary>
     /// Creates a new news item within the system
     /// </summary>
-    /// <param name="model">The news item input model</param>
-    /// <returns>A status code of 201 and a set Location header.</returns>
+    /// <param name="newsItem">The news item input model</param>
+    /// <returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
     [HttpPost]
     [AllowAnonymous]
-    public IActionResult CreateNewsItem ([FromBody] NewsItemInputModel model)
+    public IActionResult CreateNewsItem ([FromBody] NewsItemInputModel newsItem = null)
     {
-      if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
+      Console.WriteLine("HELLOHELLOHELLO");
+      if (ModelState.IsValid == false)
+      { 
+        Console.WriteLine("HELLOHELLOHELLO");
+        throw new InputFormatException("News item was not properly formatted.");
+      }
       // TODO  
       return Ok();
     }
@@ -75,12 +88,12 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// Updates a news item within the system
     /// </summary>
     /// <param name="id">Id which is associated with a news item within the system</param>
-    /// <param name="model">The news item input model</param>
+    /// <param name="newsItem">The news item input model</param>
     /// <returns>A status code of 200 and a set Location header.</returns>
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
     [HttpPut ("{id}")]
-    public IActionResult EditNewsItem (int id, [FromBody] NewsItemInputModel model)
+    public IActionResult EditNewsItem (int id, [FromBody] NewsItemInputModel newsItem)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO 
@@ -95,7 +108,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <returns>A status code of 204 no content.</returns>
     [ProducesResponseType(204)]
     [HttpDelete ("{id}")]
-    public IActionResult DeleteNewsItem (int newsItemId)
+    public IActionResult DeleteNewsItem (int id)
     {
       // TODO
       return NoContent();
