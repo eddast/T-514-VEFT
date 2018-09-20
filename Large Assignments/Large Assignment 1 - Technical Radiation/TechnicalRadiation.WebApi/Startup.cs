@@ -26,6 +26,9 @@ using TechnicalRadiation.WebApi.Extensions;
 
 namespace TechnicalRadiation.WebApi
 {
+    /// <summary>
+    /// Setup WebApi project
+    /// </summary>
     public class Startup
     {
         /// <summary>
@@ -56,20 +59,12 @@ namespace TechnicalRadiation.WebApi
                     Version = "v1",
                     Title = "Technical Radiation API",
                     Description = "Used to manipulate resources on news items, news categories and news authors in Technical Radiation system",
-                    TermsOfService = "N/A",
-                    Contact = new Contact
-                    {
-                        Name = "Arnar Leifsson",
-                        Url = "https://arnarleifsson.com",
-                        Email = "arnarl@ru.is"
-                    }
                 });
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 opt.IncludeXmlComments(xmlPath);
             });
-
 
             services.AddMvc();
 

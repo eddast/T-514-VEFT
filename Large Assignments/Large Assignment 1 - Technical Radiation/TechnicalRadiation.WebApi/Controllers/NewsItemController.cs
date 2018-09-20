@@ -14,7 +14,6 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about news items
   /// </summary>
   [Route ("api")]
-  [ApiController]
   [Authorize]
   public class NewsItemController : Controller
   {
@@ -36,10 +35,10 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// Gets all news items
     /// </summary>
     /// <returns>A list of news items</returns>
-    [Produces ("application/json")]
-    [ProducesResponseType(200)]
     [HttpGet]
     [Route ("")]
+    [Produces ("application/json")]
+    [ProducesResponseType (200)]
     [AllowAnonymous]
     public IActionResult GetAllNewsItems ()
     {
@@ -51,11 +50,11 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="id">Id which is associated with a news item within the system</param>
     /// <returns>A single news item if found</returns>
-    [Produces("application/json")]
-    [ProducesResponseType(200)]
-    [ProducesResponseType(404)]
     [HttpGet]
     [Route ("{id}", Name = "GetNewsItemById")]
+    [Produces ("application/json")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
     [AllowAnonymous]
     public IActionResult GetNewsItemById (int id)
     {
@@ -67,18 +66,14 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="newsItem">The news item input model</param>
     /// <returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
-    [ProducesResponseType(201)]
-    [ProducesResponseType(412)]
     [HttpPost]
+    [Consumes ("application/json")]
+    [ProducesResponseType (201)]
+    [ProducesResponseType (412)]
     [AllowAnonymous]
     public IActionResult CreateNewsItem ([FromBody] NewsItemInputModel newsItem = null)
     {
-      Console.WriteLine("HELLOHELLOHELLO");
-      if (ModelState.IsValid == false)
-      { 
-        Console.WriteLine("HELLOHELLOHELLO");
-        throw new InputFormatException("News item was not properly formatted.");
-      }
+      if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO  
       return Ok();
     }
@@ -89,9 +84,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <param name="id">Id which is associated with a news item within the system</param>
     /// <param name="newsItem">The news item input model</param>
     /// <returns>A status code of 200 and a set Location header.</returns>
+    [HttpPut ("{id}")]
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
-    [HttpPut ("{id}")]
     public IActionResult EditNewsItem (int id, [FromBody] NewsItemInputModel newsItem)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
@@ -105,8 +100,8 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="id">Id which is associated with a news item within the system</param>
     /// <returns>A status code of 204 no content.</returns>
-    [ProducesResponseType(204)]
     [HttpDelete ("{id}")]
+    [ProducesResponseType (204)]
     public IActionResult DeleteNewsItem (int id)
     {
       // TODO

@@ -13,7 +13,6 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about authors in system
   /// </summary>
   [Route ("api/authors")]
-  [ApiController]
   [Authorize]
   public class AuthorController : Controller {
 
@@ -32,27 +31,29 @@ namespace TechnicalRadiation.WebApi.Controllers {
     }
 
     /// <summary>
-    /// Gets all authors
+    /// Gets list of all authors
     /// </summary>
-    /// <returns></returns>
-    [Produces ("application/json")]
+    /// <returns>a list of all authors</returns>
     [HttpGet]
     [Route ("")]
+    [Produces ("application/json")]
+    [ProducesResponseType (200)]
     [AllowAnonymous]
     public IActionResult GetAllAuthors ()
     {
-      // TODO 
       return Ok(_authorService.GetAllAuthors());
     }
 
     /// <summary>
-    /// Gets author by id
+    /// Gets an author by his or her id
     /// </summary>
     /// <param name="authorId">Id which is associated with author within the system</param>
-    /// <returns>A single author if found</returns>
-    [Produces ("application/json")]
+    /// <returns>A single author if found, 404 otherwise</returns>
     [HttpGet]
-    [Route ("{authorId}")]
+    [Route ("{authorId}", Name = "GetAuthorById")]
+    [Produces ("application/json")]
+    [ProducesResponseType (200)]
+    [ProducesResponseType (404)]
     [AllowAnonymous]
     public IActionResult GetAuthorById (int authorId)
     {
@@ -60,13 +61,14 @@ namespace TechnicalRadiation.WebApi.Controllers {
     }
 
     /// <summary>
-    /// Creates a new author within the system
+    /// Creates new author for the system
     /// </summary>
     /// <param name="author">The author input model</param>
     /// <returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
     [HttpPost]
-    [ProducesResponseType(201)]
-    [ProducesResponseType(412)]
+    [Consumes ("application/json")]
+    [ProducesResponseType (201)]
+    [ProducesResponseType (412)]
     public IActionResult CreateAuthor ([FromBody] CategoryInputModel author)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
@@ -75,15 +77,16 @@ namespace TechnicalRadiation.WebApi.Controllers {
     }
 
     /// <summary>
-    /// Updates author within the system
+    /// Updates existing author within the system
     /// </summary>
-    /// <param name="authorId">Id which is associated with an author within the system</param>
+    /// <param name="id">Id which is associated with an author within the system</param>
     /// <param name="author">The author input model</param>
-    /// <returns>A status code of 200 and a set Location header.</returns>
-    [HttpPut ("{authorId}")]
-    [ProducesResponseType(201)]
-    [ProducesResponseType(412)]
-    public IActionResult EditAuthor (int authorId, [FromBody] CategoryInputModel author)
+    /// <returns>A status code of 200 if input model is valid, 412 otherwise</returns>
+    [HttpPut ("{id}")]
+    [Consumes ("application/json")]
+    [ProducesResponseType (200)]
+    [ProducesResponseType (412)]
+    public IActionResult EditAuthor (int id, [FromBody] CategoryInputModel author)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
       // TODO 
@@ -95,25 +98,26 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="authorId">Id which is associated with an author within the system</param>
     /// <param name="newsItem">Id which is associated with a news item within the system</param>
-    /// <param name="category">Input model for category item</param>
-    /// <returns></returns>
+    /// <param name="category">Input model for category</param>
+    /// <returns>Status code of 201 if link was successfully created</returns>
     [HttpPut ("{authorId}/newsItems/{newsItemId}")]
-    [ProducesResponseType(201)]
-    [ProducesResponseType(412)]
+    [Consumes ("application/json")]
+    [ProducesResponseType (201)]
+    [ProducesResponseType (412)]
     public IActionResult LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel category)
     {
-      if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
+      if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
       // TODO 
       return Ok();
     }
 
     /// <summary>
-    /// Deletes a news item from the system
+    /// Deletes existing author from the system
     /// </summary>
     /// <param name="authorId">Id which is associated with an author within the system</param>
     /// <returns>A status code of 204 no content.</returns>
     [HttpDelete ("{authorId}")]
-    [ProducesResponseType(204)]
+    [ProducesResponseType (204)]
     public IActionResult DeleteAuthor (int authorId)
     {
       // TODO

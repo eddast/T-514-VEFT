@@ -36,16 +36,17 @@ namespace TechnicalRadiation.WebApi.Extensions
                     var logService = app.ApplicationServices.GetService(typeof(ILogService)) as ILogService;
                     logService.LogToFile($"Exception: {exception.Message}\n\tStatus Code: {statusCode}\n\tStack trace:\n{exception.StackTrace}");
 
-                    /* JSON format is should always be in the reqest body */
+                    /* exception request body always has JSON format */
                     context.Response.ContentType = "application/json";
                     context.Response.StatusCode = statusCode;
 
-                    /* on error, return error model */
-                    await context.Response.WriteAsync(new ExceptionModel
-                    {
-                        StatusCode = statusCode,
-                        Message = exception.Message
-                    }.ToString());
+                    /* on error return the error model as HTTP response */
+                    await context.Response.WriteAsync(
+                        new ExceptionModel
+                        {
+                            StatusCode = statusCode,
+                            Message = exception.Message
+                        }.ToString());
                 });
             });
         }
