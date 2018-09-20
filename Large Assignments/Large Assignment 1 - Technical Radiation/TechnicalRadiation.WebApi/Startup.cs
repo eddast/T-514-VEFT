@@ -70,9 +70,11 @@ namespace TechnicalRadiation.WebApi
 
             // SETUP DEPENDENCY INJECTION
             // data providers
-            services.AddSingleton<INewsItemDataProvider, NewsItemDataProvider>();
             services.AddSingleton<IAuthorDataProvider, AuthorDataProvider>();
+            services.AddSingleton<IAuthorNewsItemRelationsProvider, AuthorNewsItemRelationProvider>();
             services.AddSingleton<ICategoryDataProvider, CategoryDataProvider>();
+            services.AddSingleton<INewsItemCategoryRelationProvider, NewsItemCategoryRelationProvider>();
+            services.AddSingleton<INewsItemDataProvider, NewsItemDataProvider>();
             // from repositories
             services.AddTransient<INewsItemRepository, NewsItemRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();

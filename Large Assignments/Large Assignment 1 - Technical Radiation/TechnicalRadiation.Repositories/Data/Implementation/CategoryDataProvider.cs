@@ -32,16 +32,6 @@ namespace TechnicalRadiation.Repositories.Data
             new Category
             {
                 Id = 2,
-                Name = "The Hottest Gossip",
-                Slug = "the-hottest-gossip",
-                ParentCategoryId = 1,
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new Category
-            {
-                Id = 3,
                 Name = "Politics",
                 Slug = "politics",
                 ParentCategoryId = 0,
@@ -51,17 +41,17 @@ namespace TechnicalRadiation.Repositories.Data
             },
             new Category
             {
-                Id = 4,
+                Id = 3,
                 Name = "Evil Overlord Politics",
                 Slug = "evil-overlord-politics",
-                ParentCategoryId = 3,
+                ParentCategoryId = 2,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
                 ModifiedBy = _adminName
             },
             new Category
             {
-                Id = 5,
+                Id = 4,
                 Name = "Science",
                 Slug = "science",
                 ParentCategoryId = 0,
@@ -71,9 +61,19 @@ namespace TechnicalRadiation.Repositories.Data
             },
             new Category
             {
-                Id = 7,
+                Id = 5,
                 Name = "Health Science",
                 Slug = "health-science",
+                ParentCategoryId = 4,
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                ModifiedBy = _adminName
+            },
+            new Category
+            {
+                Id = 6,
+                Name = "Sports",
+                Slug = "sports",
                 ParentCategoryId = 0,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
@@ -81,9 +81,9 @@ namespace TechnicalRadiation.Repositories.Data
             },
             new Category
             {
-                Id = 8,
-                Name = "Sports",
-                Slug = "sports",
+                Id = 7,
+                Name = "News",
+                Slug = "news",
                 ParentCategoryId = 0,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,

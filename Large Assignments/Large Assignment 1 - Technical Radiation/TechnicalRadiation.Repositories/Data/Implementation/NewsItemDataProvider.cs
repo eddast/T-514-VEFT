@@ -95,7 +95,7 @@ namespace TechnicalRadiation.Repositories.Data
             {
                 Id = 7,
                 Title = "Ron Supports Cedric",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
+                ImgSource = "http://cdn.playbuzz.com/cdn/67f162bb-d65c-464f-8618-3b1f68f641cd/07b416bc-e44f-44af-b8a0-befb53833dd9.gif",
                 ShortDescription = "Ron Suspected of Supporting Cedric over Best Pal",
                 LongDescription = "Ron seems to have had a fall out with best friend Harry and now supports Cedric, Hufflepuff's most SPARKLING student, in the Triwizard Cup. Questioned on the matter, Harry 'wishes he had a fuck to give, but he gave his last to Ginny'.",
                 PublishDate = new DateTime (DateTime.Today.Year-27, DateTime.Today.Month, DateTime.Today.Day),
