@@ -24,7 +24,7 @@ namespace TechnicalRadiation.Repositories.Data
                 Id = 1,
                 Name = "Mojo Jojo",
                 ProfileImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/c/c9/Mojo_jojo_aparincia2.png/revision/latest?cb=20160612021838",
-                Bio = "I am not Bubbles! Bubbles is not my name! For the name Bubbles is not the correct name to address me by, because is not my name! If you were to address me by the name Mojo Jojo, that would be correct, for my name is Mojo Jojo!",
+                Bio = "He is not Bubbles! Bubbles is not his name! For the name Bubbles is not the correct name to address him by! If you were to address him by the name Mojo Jojo, that would be correct, for his name is Mojo Jojo!",
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
                 ModifiedBy = _adminName
@@ -44,7 +44,7 @@ namespace TechnicalRadiation.Repositories.Data
                 Id = 3,
                 Name = "Ed",
                 ProfileImgSource = "https://pre00.deviantart.net/20bb/th/pre/f/2017/260/d/5/ed__edd_n_eddy___ed__2_by_ali_srn-dbnp4ax.png",
-                Bio = "I smell like fresh cut flowers sputing over a babling brook with a hint of lemon",
+                Bio = "Smells like fresh cut flowers sputing over a babling brook with a hint of lemon",
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
                 ModifiedBy = _adminName
@@ -54,7 +54,7 @@ namespace TechnicalRadiation.Repositories.Data
                 Id = 4,
                 Name = "Obi Wan Kenobi",
                 ProfileImgSource = "https://starwarsblog.starwars.com/wp-content/uploads/sites/6/2017/08/star-wars-episode-3-obi-wan-mustafar.jpg",
-                Bio = "I have the high ground.",
+                Bio = "He has the high ground, Anakin.",
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
                 ModifiedBy = _adminName
@@ -62,9 +62,9 @@ namespace TechnicalRadiation.Repositories.Data
             new Author
             {
                 Id = 5,
-                Name = "Anakin Skywalker",
-                ProfileImgSource = "https://vignette.wikia.nocookie.net/starwars/images/6/6f/Anakin_Skywalker_RotS.png/revision/latest?cb=20130621175844",
-                Bio = "I don't like sand. It's coarse and rough and irritating and it gets everywhere. Not like here. Here everything is soft and smooth.",
+                Name = "Harry Potter",
+                ProfileImgSource = "https://timedotcom.files.wordpress.com/2014/07/301386_full1.jpg",
+                Bio = "THE BOY WHO LIVED! Likes to spend inherited money on candy and looking at girls in showers with an invisibility cloak.",
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
                 ModifiedBy = _adminName

@@ -38,6 +38,56 @@ namespace TechnicalRadiation.Repositories.Data
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
                 ModifiedBy = _adminName
+            },
+            new Category
+            {
+                Id = 3,
+                Name = "Politics",
+                Slug = "politics",
+                ParentCategoryId = 0,
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                ModifiedBy = _adminName
+            },
+            new Category
+            {
+                Id = 4,
+                Name = "Evil Overlord Politics",
+                Slug = "evil-overlord-politics",
+                ParentCategoryId = 3,
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                ModifiedBy = _adminName
+            },
+            new Category
+            {
+                Id = 5,
+                Name = "Science",
+                Slug = "science",
+                ParentCategoryId = 0,
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                ModifiedBy = _adminName
+            },
+            new Category
+            {
+                Id = 7,
+                Name = "Health Science",
+                Slug = "health-science",
+                ParentCategoryId = 0,
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                ModifiedBy = _adminName
+            },
+            new Category
+            {
+                Id = 8,
+                Name = "Sports",
+                Slug = "sports",
+                ParentCategoryId = 0,
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                ModifiedBy = _adminName
             }
         };
     }

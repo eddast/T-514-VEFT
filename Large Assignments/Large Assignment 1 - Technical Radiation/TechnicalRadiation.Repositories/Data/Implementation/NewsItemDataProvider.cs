@@ -22,7 +22,7 @@ namespace TechnicalRadiation.Repositories.Data
             new NewsItem
             {
                 Id = 1,
-                Title = "The City of Townsville - OVERTAKEN!",
+                Title = "Townsville Overtaken!",
                 ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
                 ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
                 LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
@@ -34,10 +34,10 @@ namespace TechnicalRadiation.Repositories.Data
             new NewsItem
             {
                 Id = 2,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
+                Title = "World Overtake Fails",
+                ImgSource = "https://i.pinimg.com/736x/2c/26/b5/2c26b51f42e195a85487e1b524bccfa0--s-cartoons-cartoons-love.jpg",
+                ShortDescription = "Pinky and the Brain: They've Failed Once Again",
+                LongDescription = "They're Pinky and the Brain - Yes, Pinky and the Brain. One is a genius, the other's insane. They're laboratory mice, their genes have been spliced. They're Pinky, they're Pinky and the Brain brain brain brain, brain brain brain brain.",
                 PublishDate =  new DateTime (DateTime.Today.Year-1, DateTime.Today.Month, DateTime.Today.Day),
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
@@ -46,10 +46,10 @@ namespace TechnicalRadiation.Repositories.Data
             new NewsItem
             {
                 Id = 3,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
+                Title = "Suspected B-and-E Turns to be Me",
+                ImgSource = "https://i.ytimg.com/vi/xqtNv6i0dlk/hqdefault.jpg",
+                ShortDescription = "Man, I'm pretty.",
+                LongDescription = "I looked in the mirror and thought, 'Wait, who's that handsome guy?' and called 911 and said: 'Hello, 911 emergency? There's a handsome guy in my house! Oh, wait, cancel that. It's only me.'",
                 PublishDate = new DateTime (DateTime.Today.Year-29, DateTime.Today.Month, DateTime.Today.Day),
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
@@ -58,10 +58,10 @@ namespace TechnicalRadiation.Repositories.Data
             new NewsItem
             {
                 Id = 4,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
+                Title = "Like, Who Are Rey's Parents?",
+                ImgSource = "https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Rey_Star_Wars.png/220px-Rey_Star_Wars.png",
+                ShortDescription = "Seriously, Did I Father Her?",
+                LongDescription = "There's been rumors going about that Rey might be my daughter. Could she be? I think it's far fetched - but it's plausible!",
                 PublishDate = new DateTime (DateTime.Today.Year-2, DateTime.Today.Month, DateTime.Today.Day),
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
@@ -70,10 +70,10 @@ namespace TechnicalRadiation.Repositories.Data
             new NewsItem
             {
                 Id = 5,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
+                Title = "Quidditch: Harder Than You'd Think!",
+                ImgSource = "https://vignette.wikia.nocookie.net/harrypotter/images/8/89/Quidditch_Pitch.JPG/revision/latest?cb=20070114195447",
+                ShortDescription = "Quidditch: Harder Sport Than Lightsaber Fighting",
+                LongDescription = "According to recent research papers, Quidditch is more beneficial to your health than lightsaber sword fights. It burns more calories all the while building more muscles. PLUS IT'S SO MUCH FUN!",
                 PublishDate = new DateTime (DateTime.Today.Year-28, DateTime.Today.Month, DateTime.Today.Day),
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
@@ -82,10 +82,10 @@ namespace TechnicalRadiation.Repositories.Data
             new NewsItem
             {
                 Id = 6,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
+                Title = "Glowsticks Over Broomsticks",
+                ImgSource = "https://vignette.wikia.nocookie.net/starwars/images/6/61/Crossguard_lightsaber.png/revision/latest?cb=20160414004941",
+                ShortDescription = "Quidditch Does not Compare to Lightsaber Fighting",
+                LongDescription = "How can people even think that Quidditch has health benefits over light saber fighting? Like seriously - ALL YOU DO IS SIT ON A STICK. We're jumping, doing somersaults and well.. the occasional death is just a you gotta price to pay for COOLNESS!",
                 PublishDate = new DateTime (DateTime.Today.Year-3, DateTime.Today.Month, DateTime.Today.Day),
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
@@ -94,243 +94,15 @@ namespace TechnicalRadiation.Repositories.Data
             new NewsItem
             {
                 Id = 7,
-                Title = "The City of Townsville - OVERTAKEN!",
+                Title = "Ron Supports Cedric",
                 ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
+                ShortDescription = "Ron Suspected of Supporting Cedric over Best Pal",
+                LongDescription = "Ron seems to have had a fall out with best friend Harry and now supports Cedric, Hufflepuff's most SPARKLING student, in the Triwizard Cup. Questioned on the matter, Harry 'wishes he had a fuck to give, but he gave his last to Ginny'.",
                 PublishDate = new DateTime (DateTime.Today.Year-27, DateTime.Today.Month, DateTime.Today.Day),
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
                 ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 8,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-4, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 9,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-26, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 10,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-5, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 11,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-25, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 12,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-6, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 13,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-24, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 14,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-7, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 15,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-23, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 16,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-8, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 17,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-22, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 18,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-9, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 19,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-21, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 20,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-10, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 21,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-20, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 22,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-11, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 23,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-19, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 24,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-12, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 25,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-18, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
-            new NewsItem
-            {
-                Id = 26,
-                Title = "The City of Townsville - OVERTAKEN!",
-                ImgSource = "https://vignette.wikia.nocookie.net/powerpuff/images/a/a7/City_of_townsville_night_2016.png/revision/latest?cb=20160609100038",
-                ShortDescription = "I, Mojo Jojo, am in charge of... the city of Townsville!",
-                LongDescription = "A city that is for some inexplicable reason called \"Town\" but also a \"Ville\" thus making it a city, town and village. Redundant and repetitive if you ask me, which you have no choice but to do, for now I, Mojo Jojo am in charge of the city of Townsville!",
-                PublishDate = new DateTime (DateTime.Today.Year-13, DateTime.Today.Month, DateTime.Today.Day),
-                CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = _adminName
-            },
+            }
         };
     }
 }
