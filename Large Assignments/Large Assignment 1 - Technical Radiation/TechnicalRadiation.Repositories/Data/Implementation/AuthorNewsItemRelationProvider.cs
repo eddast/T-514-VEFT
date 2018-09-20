@@ -10,13 +10,12 @@ namespace TechnicalRadiation.Repositories.Data
     /// </summary>
     public class AuthorNewsItemRelationProvider : IAuthorNewsItemRelationsProvider
     {
-        public List<AuthorNewsItemRelation> GetsAuthorNewsItemRelations() => AuthorNewsItemRelations;
-        private static readonly string _adminName = "SystemAdmin";
-
         /// <summary>
         /// Gets a list of all authors authoring news item in system
         /// </summary>
         /// <returns>List of all authors authoring news item in system</returns>
+        public List<AuthorNewsItemRelation> GetsAuthorNewsItemRelations() => AuthorNewsItemRelations;
+
         public static List<AuthorNewsItemRelation> AuthorNewsItemRelations = new List<AuthorNewsItemRelation> 
         {
             new AuthorNewsItemRelation

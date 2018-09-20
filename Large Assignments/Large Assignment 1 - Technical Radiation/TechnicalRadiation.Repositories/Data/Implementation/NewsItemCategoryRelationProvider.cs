@@ -10,13 +10,12 @@ namespace TechnicalRadiation.Repositories.Data
     /// </summary>
     public class NewsItemCategoryRelationProvider : INewsItemCategoryRelationProvider
     {
-        public List<NewsItemCategoryRelation> GetNewsItemCategoryRelations() => NewsItemCategoryRelations;
-        private static readonly string _adminName = "SystemAdmin";
-
         /// <summary>
         /// Gets a list of all news items belonging to one or more categories in system
         /// </summary>
         /// <returns>List of all news items belonging to one or more categories in system</returns>
+        public List<NewsItemCategoryRelation> GetNewsItemCategoryRelations() => NewsItemCategoryRelations;
+
         public static List<NewsItemCategoryRelation> NewsItemCategoryRelations = new List<NewsItemCategoryRelation> 
         {
             new NewsItemCategoryRelation
