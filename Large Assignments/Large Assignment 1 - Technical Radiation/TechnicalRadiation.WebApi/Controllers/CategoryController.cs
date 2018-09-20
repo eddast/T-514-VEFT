@@ -41,9 +41,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("")]
     [AllowAnonymous]
-    public IActionResult GetAllCategories () {
-      // TODO 
-      return Ok();
+    public IActionResult GetAllCategories ()
+    {
+      return Ok(_categoryService.GetAllCategories());
     }
 
     /// <summary>
@@ -57,9 +57,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("{id}")]
     [AllowAnonymous]
-    public IActionResult GetCategoryById (int id) {
-      // TODO
-      return Ok();
+    public IActionResult GetCategoryById (int id)
+    {
+      return Ok(_categoryService.GetCategoryById(id));
     }
 
     /// <summary>

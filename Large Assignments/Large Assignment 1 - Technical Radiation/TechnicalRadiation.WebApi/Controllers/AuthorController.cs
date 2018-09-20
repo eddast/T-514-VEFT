@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services.Interfaces;
 
@@ -11,7 +12,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// <summary>
   /// Used to manipulate and get information about authors in system
   /// </summary>
-  [Route ("api/categories")]
+  [Route ("api/authors")]
   [ApiController]
   [Authorize]
   public class AuthorController : Controller {
@@ -38,9 +39,10 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("")]
     [AllowAnonymous]
-    public IActionResult GetAllAuthors () {
+    public IActionResult GetAllAuthors ()
+    {
       // TODO 
-      return Ok();
+      return Ok(_authorService.GetAllAuthors());
     }
 
     /// <summary>
@@ -52,9 +54,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("{authorId}")]
     [AllowAnonymous]
-    public IActionResult GetAuthorById (int authorId) {
-      // TODO
-      return Ok();
+    public IActionResult GetAuthorById (int authorId)
+    {
+      return Ok(_authorService.GetAuthorById(authorId));
     }
 
     /// <summary>
@@ -65,8 +67,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpPost]
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
-    public IActionResult CreateAuthor ([FromBody] CategoryInputModel author) {
-      if (!ModelState.IsValid) { /* TODO */ }
+    public IActionResult CreateAuthor ([FromBody] CategoryInputModel author)
+    {
+      if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
       // TODO  
       return Ok();
     }
@@ -80,8 +83,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpPut ("{authorId}")]
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
-    public IActionResult EditAuthor (int authorId, [FromBody] CategoryInputModel author) {
-      if (!ModelState.IsValid) { /* TODO */ }
+    public IActionResult EditAuthor (int authorId, [FromBody] CategoryInputModel author)
+    {
+      if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
       // TODO 
       return Ok();
     }
@@ -96,8 +100,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpPut ("{authorId}/newsItems/{newsItemId}")]
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
-    public IActionResult LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel category) {
-      if (!ModelState.IsValid) { /* TODO */ }
+    public IActionResult LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel category)
+    {
+      if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
       // TODO 
       return Ok();
     }
@@ -109,7 +114,8 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <returns>A status code of 204 no content.</returns>
     [HttpDelete ("{authorId}")]
     [ProducesResponseType(204)]
-    public IActionResult DeleteAuthor (int authorId) {
+    public IActionResult DeleteAuthor (int authorId)
+    {
       // TODO
       return NoContent();
     }

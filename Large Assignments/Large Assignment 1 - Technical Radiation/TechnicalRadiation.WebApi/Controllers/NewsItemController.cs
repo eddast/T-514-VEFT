@@ -13,7 +13,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// <summary>
   /// Used to manipulate and get information about news items
   /// </summary>
-  [Route ("api/newsitems")]
+  [Route ("api")]
   [ApiController]
   [Authorize]
   public class NewsItemController : Controller
@@ -59,8 +59,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [AllowAnonymous]
     public IActionResult GetNewsItemById (int id)
     {
-      var newsItem = _newsItemService.GetNewsItemById(id);
-      return Ok(newsItem);
+      return Ok(_newsItemService.GetNewsItemById(id));
     }
 
     /// <summary>
