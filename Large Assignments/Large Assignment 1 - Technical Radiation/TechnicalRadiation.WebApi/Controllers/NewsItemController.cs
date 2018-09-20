@@ -52,17 +52,17 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <summary>
     /// Gets news item by id
     /// </summary>
-    /// <param name="id">Id which is associated with a news item within the system</param>
+    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
     /// <returns>A single news item if found</returns>
     [HttpGet]
-    [Route ("{id}", Name = "GetNewsItemById")]
+    [Route ("{newsItemId}", Name = "GetNewsItemById")]
     [Produces ("application/json")]
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
     [AllowAnonymous]
-    public IActionResult GetNewsItemById (int id)
+    public IActionResult GetNewsItemById (int newsItemId)
     {
-      return Ok(_newsItemService.GetNewsItemById(id));
+      return Ok(_newsItemService.GetNewsItemById(newsItemId));
     }
 
     /// <summary>
@@ -85,13 +85,13 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <summary>
     /// Updates a news item within the system
     /// </summary>
-    /// <param name="id">Id which is associated with a news item within the system</param>
+    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
     /// <param name="newsItem">The news item input model</param>
     /// <returns>A status code of 200 and a set Location header.</returns>
-    [HttpPut ("{id}")]
+    [HttpPut ("{newsItemId}")]
     [ProducesResponseType(201)]
     [ProducesResponseType(412)]
-    public IActionResult EditNewsItem (int id, [FromBody] NewsItemInputModel newsItem)
+    public IActionResult EditNewsItem (int newsItemId, [FromBody] NewsItemInputModel newsItem)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO 
@@ -102,11 +102,11 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <summary>
     /// Deletes a news item from the system
     /// </summary>
-    /// <param name="id">Id which is associated with a news item within the system</param>
+    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
     /// <returns>A status code of 204 no content.</returns>
-    [HttpDelete ("{id}")]
+    [HttpDelete ("{newsItemId}")]
     [ProducesResponseType (204)]
-    public IActionResult DeleteNewsItem (int id)
+    public IActionResult DeleteNewsItem (int newsItemId)
     {
       // TODO
       return NoContent();
