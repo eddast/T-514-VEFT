@@ -39,6 +39,12 @@ namespace TechnicalRadiation.WebApi.Extensions
                         statusCode = (int) HttpStatusCode.PreconditionFailed;
                     }
 
+                    /* globally track authorization exceptions */
+                    else if (exception is AuthorizationException)
+                    {
+                        statusCode = (int) HttpStatusCode.Unauthorized;
+                    }
+
                     /* log on error */
                     var logService = app.ApplicationServices.GetService(typeof(ILogService)) as ILogService;
                     logService.LogToFile($"Exception: {exception.Message}\n\tStatus Code: {statusCode}\n\tStack trace:\n{exception.StackTrace}");
