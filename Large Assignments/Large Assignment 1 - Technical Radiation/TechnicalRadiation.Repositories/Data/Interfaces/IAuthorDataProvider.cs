@@ -3,6 +3,9 @@ using TechnicalRadiation.Models.Entities;
 
 namespace TechnicalRadiation.Repositories.Data.Interfaces
 {
+    /// <summary>
+    /// Serves data from source in system
+    /// </summary>
     public interface IAuthorDataProvider
     {
         /// <summary>
