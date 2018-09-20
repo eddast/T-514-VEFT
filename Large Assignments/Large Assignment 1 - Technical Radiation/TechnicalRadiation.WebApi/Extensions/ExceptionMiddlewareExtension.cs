@@ -20,10 +20,6 @@ namespace TechnicalRadiation.WebApi.Extensions
                     var exception = exceptionHandlerFeature.Error;
                     var statusCode = (int) HttpStatusCode.InternalServerError;
 
-                    /* log on error */
-                    var logService = app.ApplicationServices.GetService(typeof(ILogService)) as ILogService;
-                    logService.LogToFile($"Message: {exception.Message}. Stack trace: {exception.StackTrace}");
-
                     /* globally track resource not found exceptions */
                     if (exception is ResourceNotFoundException)
                     {
@@ -35,6 +31,11 @@ namespace TechnicalRadiation.WebApi.Extensions
                     {
                         statusCode = (int) HttpStatusCode.PreconditionFailed;
                     }
+
+
+                    /* log on error */
+                    var logService = app.ApplicationServices.GetService(typeof(ILogService)) as ILogService;
+                    logService.LogToFile($"EXCEPTION: ({exception.Message})\n\tStatus Code: {statusCode}\n\tStack trace: {exception.StackTrace}");
 
                     /* JSON format is should always be in the reqest body */
                     context.Response.ContentType = "application/json";

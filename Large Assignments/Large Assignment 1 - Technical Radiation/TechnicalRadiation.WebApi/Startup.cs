@@ -37,15 +37,19 @@ namespace TechnicalRadiation.WebApi
         {
             services.AddMvc();
 
-            /* setup dependency injection */
-
+            /** SETUP DEPENDENCY INJECTION **/
+            /* data providers */
+            services.AddSingleton<INewsItemDataProvider, NewsItemDataProvider>();
+            services.AddSingleton<IAuthorDataProvider, AuthorDataProvider>();
+            services.AddSingleton<ICategoryDataProvider, CategoryDataProvider>();
             /* from repositories */
             services.AddTransient<INewsItemRepository, NewsItemRepository>();
-            services.AddSingleton<INewsItemDataProvider, NewsItemDataProvider>();
-
+            services.AddTransient<IAuthorRepository, AuthorRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
             /* from services */
             services.AddTransient<INewsItemService, NewsItemService>();
-
+            services.AddTransient<IAuthorService, AuthorService>();
+            services.AddTransient<ICategoryService, CategoryService>();
             /* log service */
             services.AddTransient<ILogService, LogService>();
         }
