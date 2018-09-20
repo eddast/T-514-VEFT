@@ -9,6 +9,7 @@ using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services.Interfaces;
 
 namespace TechnicalRadiation.WebApi.Controllers {
+  
   /// <summary>
   /// Used to manipulate and get information about authors in system
   /// </summary>

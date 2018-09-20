@@ -7,8 +7,15 @@ using TechnicalRadiation.Services.Interfaces;
 
 namespace TechnicalRadiation.WebApi.Extensions
 {
+    /// <summary>
+    /// Configures a global exception handling on for app
+    /// </summary>
     public static class ExceptionMiddlewareExtension
     {
+        /// <summary>
+        /// Configures a global exception handling on for app
+        /// </summary>
+        /// <param name="app">app to apply global exception handling on</param>
         public static void ConfigureExceptionHandler(this IApplicationBuilder app)
         {
             app.UseExceptionHandler(error => 
