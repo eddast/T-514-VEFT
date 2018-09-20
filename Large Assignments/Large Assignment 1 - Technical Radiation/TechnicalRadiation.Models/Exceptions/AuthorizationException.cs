@@ -1,3 +1,5 @@
+using System;
+
 namespace TechnicalRadiation.Models.Exceptions
 {
     /// <summary>
@@ -10,18 +12,18 @@ namespace TechnicalRadiation.Models.Exceptions
         /// Default message for exception thrown when user requestes resource they haven't got access to
         /// </summary>
         /// <returns>Exception indicating user requested they haven't got access to</returns>
-        public ResourceNotFoundException() : base("Resource requested was not found.") {}
+        public AuthorizationException() : base("Resource requested was not found.") {}
 
         /// <summary>
         /// Sets message for exception thrown when user requestes resource they haven't got access to
         /// </summary>
         /// <returns>Exception indicating  user requested they haven't got access to</returns>
-        public ResourceNotFoundException(string message) : base(message) {}
+        public AuthorizationException(string message) : base(message) {}
 
         /// <summary>
         /// Default message and exception thrown when resource requested is not found
         /// </summary>
         /// <returns>Exception indicating model resource requested is not found</returns>
-        public ResourceNotFoundException(string message, Exception inner) : base(message, inner) {}
+        public AuthorizationException(string message, Exception inner) : base(message, inner) {}
     }
 }
