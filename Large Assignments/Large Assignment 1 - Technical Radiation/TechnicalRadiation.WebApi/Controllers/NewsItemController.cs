@@ -16,8 +16,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about news items
   /// </summary>
   [Route ("api")]
-  [HasAuthorizationHeader]
-  [Authorize]
+  //[HasAuthorizationHeader]
   public class NewsItemController : Controller
   {
     /// <summary>
@@ -43,9 +42,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [Produces ("application/json")]
     [ProducesResponseType (200)]
     [AllowAnonymous]
-    public IActionResult GetAllNewsItems ()
+    public IActionResult GetAllNewsItems ([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25)
     {
-      return Ok(_newsItemService.GetAllNewsItems());
+      return Ok(_newsItemService.GetAllNewsItems(pageNumber, pageSize);
     }
 
     /// <summary>

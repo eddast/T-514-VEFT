@@ -16,6 +16,6 @@ namespace TechnicalRadiation.Repositories
         }
         public IEnumerable<AuthorDto> GetAllAuthors() => Mapper.Map<IEnumerable<AuthorDto>>(_dataProvider.GetAuthors());
 
-        public AuthorDetailDto GetAuthorsById(int id) => Mapper.Map<AuthorDetailDto>(_dataProvider.GetAuthors().FirstOrDefault(a => a.Id == id));
+        public AuthorDetailDto GetAuthorById(int id) => Mapper.Map<AuthorDetailDto>(_dataProvider.GetAuthors().FirstOrDefault(a => a.Id == id));
     }
 }

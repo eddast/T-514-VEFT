@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services.Interfaces;
+using TechnicalRadiation.WebApi.Authorization;
 
 namespace TechnicalRadiation.WebApi.Controllers {
-  
+
   /// <summary>
   /// Used to manipulate and get information about authors in system
   /// </summary>
   [Route ("api/authors")]
-  [HasAuthorizationHeader]  
+  // [HasAuthorizationHeader]  
   public class AuthorController : Controller {
 
     /// <summary>

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Repositories.Interfaces;
@@ -13,7 +14,10 @@ namespace TechnicalRadiation.Services.Implementations
         {
             _newsItemRepository = newsItemRepository;
         }
-        public IEnumerable<NewsItemDto> GetAllNewsItems() => _newsItemRepository.GetAllNewsItems();
+        public IEnumerable<NewsItemDto> GetAllNewsItems(int PageSize, int PageNumber)
+        {
+            return PageService<NewsItemDto>.PageData(_newsItemRepository.GetAllNewsItems(), PageNumber, PageSize);
+        }
         public NewsItemDetailDto GetNewsItemById(int id) 
         {
             var newsItem = _newsItemRepository.GetNewsItemById(id);

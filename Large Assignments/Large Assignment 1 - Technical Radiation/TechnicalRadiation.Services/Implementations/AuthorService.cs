@@ -16,7 +16,7 @@ namespace TechnicalRadiation.Services.Implementations
         public IEnumerable<AuthorDto> GetAllAuthors() => _authorRepository.GetAllAuthors();
         public AuthorDetailDto GetAuthorById(int id) 
         {
-            var author = _authorRepository.GetAuthorsById(id);
+            var author = _authorRepository.GetAuthorById(id);
             if (author == null) { throw new ResourceNotFoundException($"Author with id {id} was not found."); }
             return author;
         }

@@ -6,7 +6,7 @@ namespace TechnicalRadiation.Repositories.Interfaces
     public interface IAuthorRepository
     {
         IEnumerable<AuthorDto> GetAllAuthors();
-        AuthorDetailDto GetAuthorsById(int id);
+        AuthorDetailDto GetAuthorById(int id);
         
     }
 }
