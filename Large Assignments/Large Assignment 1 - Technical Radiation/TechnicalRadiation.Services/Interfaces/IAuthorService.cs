@@ -22,8 +22,7 @@ namespace TechnicalRadiation.Services.Interfaces
         AuthorDetailDto GetAuthorById(int id);
 
         /// <summary>
-        /// Gets a single author by id with appropriate link relations,
-        /// throws exception if author not found in system by id
+        /// Gets a single author by id with appropriate link relations
         /// </summary>
         /// <param name="id">Id associated with some author in system</param>
         /// <returns>List of news items associated with author</returns>

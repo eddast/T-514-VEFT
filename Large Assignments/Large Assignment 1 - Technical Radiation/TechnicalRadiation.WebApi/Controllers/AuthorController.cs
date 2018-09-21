@@ -64,15 +64,14 @@ namespace TechnicalRadiation.WebApi.Controllers {
     }
 
     /// <summary>
-    /// Gets an author by his or her id
+    /// Gets all news item authored by author specified
     /// </summary>
     /// <param name="authorId">Id which is associated with author within the system</param>
-    /// <returns>A single author if found, 404 otherwise</returns>
+    /// <returns>A list of all news items authored by author with specified Id. List is empty author id is not registered to any news item id in system</returns>
     [HttpGet]
     [Route ("{authorId}/newsItems")]
     [Produces ("application/json")]
     [ProducesResponseType (200, Type = typeof(List<NewsItemDto>))]
-    [ProducesResponseType (404)]
     [AllowAnonymous]
     public IActionResult GetNewsItemsByAuthor (int authorId)
     {

@@ -22,7 +22,7 @@ namespace TechnicalRadiation.Services.Implementations
         /// <summary>
         /// Author to news item relations repository
         /// </summary>
-        private readonly IAuthorNewsItemRelationRepository _authorNewsItemRelationRepository;
+        private readonly IAuthorNewsItemRelationRepository _newsItemRelationRepository;
 
         /// <summary>
         /// Service, used to get news items for author
@@ -33,10 +33,10 @@ namespace TechnicalRadiation.Services.Implementations
         /// Initialize repository
         /// </summary>
         /// <param name="authorRepository">Which implementation of author repository to use</param>
-        public AuthorService(IAuthorRepository authorRepository, IAuthorNewsItemRelationRepository authorNewsItemRelationRepository, INewsItemService newsItemService)
+        public AuthorService(IAuthorRepository authorRepository, IAuthorNewsItemRelationRepository newsItemRelationRepository, INewsItemService newsItemService)
         {
             _authorRepository = authorRepository;
-            _authorNewsItemRelationRepository = authorNewsItemRelationRepository;
+            _newsItemRelationRepository = newsItemRelationRepository;
             _newsItemService = newsItemService;
         }
 
@@ -65,17 +65,20 @@ namespace TechnicalRadiation.Services.Implementations
         }
 
         /// <summary>
-        /// Gets a single author by id with appropriate link relations,
-        /// throws exception if author not found in system by id
+        /// Gets a single author by id with appropriate link relations
         /// </summary>
         /// <param name="id">Id associated with some author in system</param>
         /// <returns>List of news items associated with author</returns>
         public IEnumerable<NewsItemDto> GetNewsItemsByAuthor(int id) 
         {
-            IEnumerable<AuthorNewsItemRelation> relations = _authorNewsItemRelationRepository.GetAllAuthorNewsItemsRelationByAuthorId(id);
-            if (relations == null) { throw new ResourceNotFoundException($"No news item found for author with id {id}."); }
+            // Fetch news items using the relational object we have then populate news item list
+            IEnumerable<AuthorNewsItemRelation> relations = _newsItemRelationRepository.GetAllAuthorNewsItemsRelationByAuthorId(id);
             ICollection<NewsItemDto> newsItemsByAuthor = new List<NewsItemDto>();
-            foreach(var r in relations) newsItemsByAuthor.Add(Mapper.Map<NewsItemDto>(_newsItemService.GetNewsItemById(r.NewsItemId)));
+            foreach(var r in relations)
+            {
+                var newsItem = Mapper.Map<NewsItemDto>(_newsItemService.GetNewsItemById(r.NewsItemId));
+                newsItemsByAuthor.Add(newsItem);
+            }
             return newsItemsByAuthor;
         }
         
