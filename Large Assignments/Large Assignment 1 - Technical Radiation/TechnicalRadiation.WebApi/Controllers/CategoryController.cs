@@ -8,6 +8,7 @@ using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.WebApi.Authorization;
 using TechnicalRadiation.Services.Interfaces;
+using TechnicalRadiation.Models.DTO;
 
 namespace TechnicalRadiation.WebApi.Controllers {
 
@@ -39,7 +40,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("")]
     [Produces ("application/json")]
-    [ProducesResponseType (200)]
+    [ProducesResponseType (200, Type = typeof(IEnumerable<CategoryDto>))]
     [AllowAnonymous]
     public IActionResult GetAllCategories ()
     {
@@ -54,7 +55,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("{id}", Name = "GetCategoryById")]
     [Produces ("application/json")]
-    [ProducesResponseType (200)]
+    [ProducesResponseType (200, Type = typeof(CategoryDetailDto))]
     [ProducesResponseType (404)]
     [AllowAnonymous]
     public IActionResult GetCategoryById (int id)
@@ -67,6 +68,8 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="category">The category input model</param>
     ///<returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
+    /// <response code="201">Created</response>
+    /// <response code="412">Precondition failed</response>
     [HttpPost]
     [Consumes ("application/json")]
     [ProducesResponseType (201)]
@@ -82,16 +85,18 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="id">Id which is associated with a category within the system</param>
     /// <param name="category">The category input model</param>
-    /// <returns>A status code of 200 if input model is valid</returns>
+    /// <returns>A status code of 204 no content if input model is valid</returns>
+    /// <response code="204">No Content</response>
+    /// <response code="412">Precondition failed</response>
     [HttpPut]
     [Route ("{id}")]
     [Consumes ("application/json")]
-    [ProducesResponseType (200)]
+    [ProducesResponseType (204)]
     [ProducesResponseType (412)]
     public IActionResult EditCategory (int id, [FromBody] CategoryInputModel category) {
       if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
       // TODO
-      return Ok(); 
+      return NoContent(); 
     }
 
     /// <summary>
@@ -99,16 +104,16 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="categoryId">Id which is associated with a category within the system</param>
     /// <param name="newsItemId">Id which is associated with a news item within the system</param>
-    /// <param name="category"></param>
+    /// <returns>A status code of 204 no content if input model is valid</returns>
+    /// <response code="204">No Content</response>
     [HttpPut]
     [Route ("{categoryId}/newsItems/{newsItemId}")]
     [Consumes ("application/json")]
-    [ProducesResponseType (201)]
+    [ProducesResponseType (204)]
     [ProducesResponseType (412)]
-    public IActionResult LinkCategoryToNewsItem (int categoryId, int newsItemId, [FromBody] CategoryInputModel category) {
-      if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
+    public IActionResult LinkCategoryToNewsItem (int categoryId, int newsItemId) {
       // TODO 
-      return Ok();
+      return NoContent();
     }
 
     /// <summary>
@@ -116,6 +121,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="id">Id which is associated with a category within the system</param>
     /// <returns>A status code of 204 no content.</returns>
+    /// <response code="204">No Content</response>
     [HttpDelete]
     [Route ("{id}")]
     [ProducesResponseType (204)]

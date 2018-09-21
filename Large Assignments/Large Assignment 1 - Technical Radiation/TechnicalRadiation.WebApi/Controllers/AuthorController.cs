@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services.Interfaces;
@@ -39,7 +40,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("")]
     [Produces ("application/json")]
-    [ProducesResponseType (200)]
+    [ProducesResponseType (200, Type = typeof(IEnumerable<AuthorDto>))]
     [AllowAnonymous]
     public IActionResult GetAllAuthors ()
     {
@@ -54,7 +55,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("{authorId}", Name = "GetAuthorById")]
     [Produces ("application/json")]
-    [ProducesResponseType (200)]
+    [ProducesResponseType (200, Type = typeof(AuthorDetailDto))]
     [ProducesResponseType (404)]
     [AllowAnonymous]
     public IActionResult GetAuthorById (int authorId)
@@ -66,12 +67,14 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// Creates new author for the system
     /// </summary>
     /// <param name="author">The author input model</param>
-    /// <returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
+    /// <returns>A status code of 201 created and a set Location header if model is correctly formatted, otherwise 412.</returns>
+    /// <response code="201">Created</response>
+    /// <response code="412">Precondition failed</response>
     [HttpPost]
     [Consumes ("application/json")]
     [ProducesResponseType (201)]
     [ProducesResponseType (412)]
-    public IActionResult CreateAuthor ([FromBody] CategoryInputModel author)
+    public IActionResult CreateAuthor ([FromBody] AuthorInputModel author)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
       // TODO  
@@ -83,16 +86,18 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="id">Id which is associated with an author within the system</param>
     /// <param name="author">The author input model</param>
-    /// <returns>A status code of 200 if input model is valid, 412 otherwise</returns>
+    /// <returns>A status code of 204 no content if input model is valid, 412 otherwise</returns>
+    /// <response code="204">No Content</response>
+    /// <response code="412">Precondition failed</response>
     [HttpPut ("{id}")]
     [Consumes ("application/json")]
-    [ProducesResponseType (200)]
+    [ProducesResponseType (204)]
     [ProducesResponseType (412)]
-    public IActionResult EditAuthor (int id, [FromBody] CategoryInputModel author)
+    public IActionResult EditAuthor (int id, [FromBody] AuthorInputModel author)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
       // TODO 
-      return Ok();
+      return NoContent();
     }
 
     /// <summary>
@@ -100,17 +105,14 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="authorId">Id which is associated with an author within the system</param>
     /// <param name="newsItem">Id which is associated with a news item within the system</param>
-    /// <param name="category">Input model for category</param>
-    /// <returns>Status code of 201 if link was successfully created</returns>
+    /// <returns>Status code of 204 no content</returns>
+    /// <response code="204">No Content</response>
     [HttpPut ("{authorId}/newsItems/{newsItemId}")]
-    [Consumes ("application/json")]
-    [ProducesResponseType (201)]
-    [ProducesResponseType (412)]
-    public IActionResult LinkAuthorToNewsItem (int authorId, int newsItem, [FromBody] CategoryInputModel category)
+    [ProducesResponseType (204)]
+    public IActionResult LinkAuthorToNewsItem (int authorId, int newsItem)
     {
-      if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
       // TODO 
-      return Ok();
+      return NoContent();
     }
 
     /// <summary>
@@ -118,6 +120,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="authorId">Id which is associated with an author within the system</param>
     /// <returns>A status code of 204 no content.</returns>
+    /// <response code="204">No Content</response>
     [HttpDelete ("{authorId}")]
     [ProducesResponseType (204)]
     public IActionResult DeleteAuthor (int authorId)

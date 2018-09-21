@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services.Interfaces;
@@ -42,7 +43,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("")]
     [Produces ("application/json")]
-    [ProducesResponseType (200)]
+    [ProducesResponseType (200, Type = typeof(IEnumerable<NewsItemDto>))]
     [AllowAnonymous]
     public IActionResult GetAllNewsItems ([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25)
     {
@@ -57,7 +58,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("{newsItemId}", Name = "GetNewsItemById")]
     [Produces ("application/json")]
-    [ProducesResponseType(200)]
+    [ProducesResponseType(200, Type = typeof(NewsItemDetailDto))]
     [ProducesResponseType(404)]
     [AllowAnonymous]
     public IActionResult GetNewsItemById (int newsItemId)
@@ -69,7 +70,9 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// Creates a new news item within the system
     /// </summary>
     /// <param name="newsItem">The news item input model</param>
-    /// <returns>A status code of 201 and a set Location header if model is correctly formatted, otherwise 412.</returns>
+    /// <returns>A status code of 201 created and a set Location header if model is correctly formatted, otherwise 412.</returns>
+    /// <response code="201">Created</response>
+    /// <response code="412">Precondition failed</response>
     [HttpPost]
     [Route("")]
     [Consumes ("application/json")]
@@ -87,15 +90,17 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="newsItemId">Id which is associated with a news item within the system</param>
     /// <param name="newsItem">The news item input model</param>
-    /// <returns>A status code of 200 and a set Location header.</returns>
+    /// <returns>A status code of 204 no content.</returns>
+    /// <response code="204">No Content</response>
+    /// <response code="412">Precondition failed</response>
     [HttpPut ("{newsItemId}")]
-    [ProducesResponseType(201)]
+    [ProducesResponseType(204)]
     [ProducesResponseType(412)]
     public IActionResult EditNewsItem (int newsItemId, [FromBody] NewsItemInputModel newsItem)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
       // TODO 
-      return Ok();
+      return NoContent();
 
     }
 
@@ -104,6 +109,8 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// </summary>
     /// <param name="newsItemId">Id which is associated with a news item within the system</param>
     /// <returns>A status code of 204 no content.</returns>
+    /// <response code="204">No Content</response>
+    /// <response code="412">Precondition failed</response>
     [HttpDelete ("{newsItemId}")]
     [ProducesResponseType (204)]
     public IActionResult DeleteNewsItem (int newsItemId)
