@@ -14,7 +14,7 @@ namespace TechnicalRadiation.Repositories.Data
         /// Gets a list of all authors authoring news item in system
         /// </summary>
         /// <returns>List of all authors authoring news item in system</returns>
-        public List<AuthorNewsItemRelation> GetsAuthorNewsItemRelations() => AuthorNewsItemRelations;
+        public List<AuthorNewsItemRelation> GetAuthorNewsItemRelations() => AuthorNewsItemRelations;
 
         public static List<AuthorNewsItemRelation> AuthorNewsItemRelations = new List<AuthorNewsItemRelation> 
         {

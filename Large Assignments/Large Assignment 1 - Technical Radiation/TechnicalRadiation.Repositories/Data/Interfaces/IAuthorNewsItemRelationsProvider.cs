@@ -9,9 +9,9 @@ namespace TechnicalRadiation.Repositories.Data.Interfaces
     public interface IAuthorNewsItemRelationsProvider
     {
         /// <summary>
-        /// Gets a list of all authors authoring news item in system
+        /// Gets a list of all relations representing authors authoring news item in system
         /// </summary>
-        /// <returns>List of all authors authoring news item in system</returns>
-        List<AuthorNewsItemRelation> GetsAuthorNewsItemRelations();
+        /// <returns>List of all relations representing authors authoring news item in system</returns>
+        List<AuthorNewsItemRelation> GetAuthorNewsItemRelations();
     }
 }

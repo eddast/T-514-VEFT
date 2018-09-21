@@ -20,6 +20,14 @@ namespace TechnicalRadiation.Services.Interfaces
         /// <param name="id">Id associated with some author in system</param>
         /// <returns>A single author detail dto</returns>
         AuthorDetailDto GetAuthorById(int id);
+
+        /// <summary>
+        /// Gets a single author by id with appropriate link relations,
+        /// throws exception if author not found in system by id
+        /// </summary>
+        /// <param name="id">Id associated with some author in system</param>
+        /// <returns>List of news items associated with author</returns>
+       IEnumerable<NewsItemDto> GetNewsItemsByAuthor(int id);
         
     }
 }

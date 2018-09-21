@@ -19,6 +19,7 @@ using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
 using TechnicalRadiation.Repositories.Data;
 using TechnicalRadiation.Repositories.Data.Interfaces;
+using TechnicalRadiation.Repositories.Implementation;
 using TechnicalRadiation.Repositories.Interfaces;
 using TechnicalRadiation.Services.Implementations;
 using TechnicalRadiation.Services.Interfaces;
@@ -79,6 +80,8 @@ namespace TechnicalRadiation.WebApi
             services.AddTransient<INewsItemRepository, NewsItemRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IAuthorNewsItemRelationRepository, AuthorNewsItemRelationRepository>();
+
             // from services
             services.AddTransient<INewsItemService, NewsItemService>();
             services.AddTransient<IAuthorService, AuthorService>();

@@ -51,10 +51,10 @@ namespace TechnicalRadiation.Models.Extensions
         private static void AddNewsItemReferences (this HyperMediaModel HyperMediaModel)
         {
             HyperMediaModel.AddBaseReferences();
-            HyperMediaModel.Links.AddReferenceList("categories", "<categorylink1>");
-            HyperMediaModel.Links.AddReferenceList("categories", "<categorylink2>");
-            HyperMediaModel.Links.AddReferenceList("authors", "<authorlink1>");
-            HyperMediaModel.Links.AddReferenceList("authors", "<authorlink2>");
+            HyperMediaModel.Links.AddToReferenceList("categories", "<categorylink1>");
+            HyperMediaModel.Links.AddToReferenceList("categories", "<categorylink2>");
+            HyperMediaModel.Links.AddToReferenceList("authors", "<authorlink1>");
+            HyperMediaModel.Links.AddToReferenceList("authors", "<authorlink2>");
         }
 
         /// <summary>
@@ -65,8 +65,8 @@ namespace TechnicalRadiation.Models.Extensions
         {
             HyperMediaModel.AddBaseReferences();
             HyperMediaModel.Links.AddReference("newsItems", "<linkToAuthorNewsItems>");
-            HyperMediaModel.Links.AddReferenceList("newsItemsDetails", "<newsItemLink1>");
-            HyperMediaModel.Links.AddReferenceList("newsItemsDetails", "<newsItemLink2>");
+            HyperMediaModel.Links.AddToReferenceList("newsItemsDetails", "<newsItemLink1>");
+            HyperMediaModel.Links.AddToReferenceList("newsItemsDetails", "<newsItemLink2>");
         }
 
         /// <summary>

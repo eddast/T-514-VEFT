@@ -2,7 +2,12 @@ using System.Collections.Generic;
 using System.Dynamic;
 using Newtonsoft.Json;
 
-namespace TechnicalRadiation.Models.DTO {
+namespace TechnicalRadiation.Models.DTO
+{
+  /// <summary>
+  /// Represents the _links property for DTO models to honor HATEOAS
+  /// _links property set as dynamically expandable dictionary object
+  /// </summary>
   public class HyperMediaModel
   {
     /// <summary>
@@ -10,12 +15,11 @@ namespace TechnicalRadiation.Models.DTO {
     /// </summary>
     /// <value></value>
     [JsonProperty (PropertyName = "_links")]
-    public ExpandoObject Links { get; set; }
+    public IDictionary<string, object> Links { get; set; }
 
     /// <summary>
     /// Initialize dictionary of links
     /// </summary>
-    public HyperMediaModel () { Links = new ExpandoObject(); }
-
+    public HyperMediaModel () { Links = new Dictionary<string, object>(); }
   }
 }

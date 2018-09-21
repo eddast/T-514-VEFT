@@ -5,6 +5,10 @@ namespace TechnicalRadiation.Models.DTO
     /// </summary>
     public class HypermediaLink
     {
+        /// <summary>
+        /// Link URL to embedded action/resource
+        /// </summary>
+        /// <value></value>
         public string Href { get; set; }
     }
 }

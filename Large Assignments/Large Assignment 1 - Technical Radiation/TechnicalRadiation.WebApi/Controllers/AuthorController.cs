@@ -64,6 +64,22 @@ namespace TechnicalRadiation.WebApi.Controllers {
     }
 
     /// <summary>
+    /// Gets an author by his or her id
+    /// </summary>
+    /// <param name="authorId">Id which is associated with author within the system</param>
+    /// <returns>A single author if found, 404 otherwise</returns>
+    [HttpGet]
+    [Route ("{authorId}/newsItems")]
+    [Produces ("application/json")]
+    [ProducesResponseType (200, Type = typeof(List<NewsItemDto>))]
+    [ProducesResponseType (404)]
+    [AllowAnonymous]
+    public IActionResult GetNewsItemsByAuthor (int authorId)
+    {
+      return Ok(_authorService.GetNewsItemsByAuthor(authorId));
+    }
+
+    /// <summary>
     /// Creates new author for the system
     /// </summary>
     /// <param name="author">The author input model</param>
