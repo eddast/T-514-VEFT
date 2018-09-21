@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Models.DTO;
+using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Repositories.Interfaces;
 using TechnicalRadiation.Services.Interfaces;
@@ -35,6 +36,8 @@ namespace TechnicalRadiation.Services.Implementations
         public Envelope<NewsItemDto> GetAllNewsItems(int PageNumber, int PageSize)
         {
             var allNewsItems = _newsItemRepository.GetAllNewsItems();
+            IEnumerable<NewsItemDto> pagedNewsItems = PageService<NewsItemDto>.PageData(allNewsItems, PageNumber, PageSize);
+            foreach (var n in pagedNewsItems) n.AddReferences();
             return new Envelope<NewsItemDto>
             {
                 Items = PageService<NewsItemDto>.PageData(allNewsItems, PageNumber, PageSize),
@@ -53,6 +56,7 @@ namespace TechnicalRadiation.Services.Implementations
         {
             var newsItem = _newsItemRepository.GetNewsItemById(id);
             if (newsItem == null) { throw new ResourceNotFoundException($"News item with id {id} was not found."); }
+            newsItem.AddReferences();
             return newsItem;
         }
     }
