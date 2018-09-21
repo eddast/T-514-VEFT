@@ -81,7 +81,7 @@ namespace TechnicalRadiation.WebApi
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IAuthorNewsItemRelationRepository, AuthorNewsItemRelationRepository>();
-
+            services.AddTransient<INewsItemCategoryRelationProvider, NewsItemCategoryRelationProvider>();
             // from services
             services.AddTransient<INewsItemService, NewsItemService>();
             services.AddTransient<IAuthorService, AuthorService>();
@@ -115,8 +115,7 @@ namespace TechnicalRadiation.WebApi
 
             /* map API models via automapper */
             AutoMapper.Mapper.Initialize(cfg => {
-                
-                /* news item mappers */
+                // news item model types mappers
                 cfg.CreateMap<NewsItem, NewsItemDto>();
                 cfg.CreateMap<NewsItem, NewsItemDetailDto>();
                 cfg.CreateMap<NewsItemDetailDto, NewsItem>();
@@ -126,8 +125,7 @@ namespace TechnicalRadiation.WebApi
                     .ForMember(m => m.CreatedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedBy, opt => opt.UseValue("SystemAdmin"));
-
-                /* author mappers */
+                // author model types mappers
                 cfg.CreateMap<Author, AuthorDto>();
                 cfg.CreateMap<Author, AuthorDetailDto>();
                 cfg.CreateMap<AuthorDetailDto, Author>();
@@ -136,8 +134,7 @@ namespace TechnicalRadiation.WebApi
                     .ForMember(m => m.CreatedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedBy, opt => opt.UseValue("SystemAdmin"));
-                
-                /* category mappers */
+                // category model types mappers
                 cfg.CreateMap<Category, CategoryDto>();
                 cfg.CreateMap<Category, CategoryDetailDto>();
                 cfg.CreateMap<CategoryDetailDto, Category>();
