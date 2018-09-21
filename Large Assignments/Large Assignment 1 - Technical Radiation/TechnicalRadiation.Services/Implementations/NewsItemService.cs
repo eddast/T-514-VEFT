@@ -31,10 +31,17 @@ namespace TechnicalRadiation.Services.Implementations
         /// </summary>
         /// <param name="pageNumber">Which number of page to fetch news items of</param>
         /// <param name="pageSize">How many news items to display per page</param>
-        /// <returns>list of all news items in descending order</returns>
-        public IEnumerable<NewsItemDto> GetAllNewsItems(int PageNumber, int PageSize)
+        /// <returns>list of all news items in descending order encapsulated in envelope for paging info</returns>
+        public Envelope<NewsItemDto> GetAllNewsItems(int PageNumber, int PageSize)
         {
-            return PageService<NewsItemDto>.PageData(_newsItemRepository.GetAllNewsItems(), PageNumber, PageSize);
+            var allNewsItems = _newsItemRepository.GetAllNewsItems();
+            return new Envelope<NewsItemDto>
+            {
+                Items = PageService<NewsItemDto>.PageData(allNewsItems, PageNumber, PageSize),
+                PageNumber = PageNumber,
+                PageSize = PageSize,
+                MaxPages = PageService<NewsItemDto>.GetMaxPages(allNewsItems.Count(), PageSize)
+            };
         }
 
         /// <summary>
@@ -48,6 +55,5 @@ namespace TechnicalRadiation.Services.Implementations
             if (newsItem == null) { throw new ResourceNotFoundException($"News item with id {id} was not found."); }
             return newsItem;
         }
-
     }
 }

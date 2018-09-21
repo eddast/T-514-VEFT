@@ -25,6 +25,11 @@ namespace TechnicalRadiation.Repositories.Data
             },
             new NewsItemCategoryRelation
             {
+                NewsItemId = 1,
+                CategoryId = 7
+            },
+            new NewsItemCategoryRelation
+            {
                 NewsItemId = 2,
                 CategoryId = 3
             },

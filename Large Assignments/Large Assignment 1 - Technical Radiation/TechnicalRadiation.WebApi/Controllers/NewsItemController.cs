@@ -43,7 +43,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [HttpGet]
     [Route ("")]
     [Produces ("application/json")]
-    [ProducesResponseType (200, Type = typeof(IEnumerable<NewsItemDto>))]
+    [ProducesResponseType (200, Type = typeof(Envelope<NewsItemDto>))]
     [AllowAnonymous]
     public IActionResult GetAllNewsItems ([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25)
     {

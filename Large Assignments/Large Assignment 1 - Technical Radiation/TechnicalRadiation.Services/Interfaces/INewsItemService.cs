@@ -13,8 +13,8 @@ namespace TechnicalRadiation.Services.Interfaces
         /// </summary>
         /// <param name="pageNumber">Which number of page to fetch news items of</param>
         /// <param name="pageSize">How many news items to display per page</param>
-        /// <returns>list of all news items in descending order</returns>
-        IEnumerable<NewsItemDto> GetAllNewsItems(int pageNumber, int pageSize);
+        /// <returns>list of all news items in descending order encapsulated in envelope for paging info</returns>
+        Envelope<NewsItemDto> GetAllNewsItems(int pageNumber, int pageSize);
 
         /// <summary>
         /// Gets news item from list with specified Id
