@@ -27,11 +27,11 @@ namespace TechnicalRadiation.Models.Extensions
           var links = (item as IDictionary<string, object>);
           if(!links.ContainsKey(ListName))
           {
-            ICollection<HypermediaLink> NewRefList = new List<HypermediaLink>();
-            links.Add(ListName, NewRefList);
+            ICollection<HypermediaLink> NewReferencesList = new List<HypermediaLink>();
+            links.Add(ListName, NewReferencesList);
           }
-          List<HypermediaLink> ReferenceList = links[ListName] as List<HypermediaLink>;
-          ReferenceList.Add(new HypermediaLink { Href = URL });
+          List<HypermediaLink> ReferencesList = links[ListName] as List<HypermediaLink>;
+          ReferencesList.Add(new HypermediaLink { Href = URL });
         }
     }
 }
