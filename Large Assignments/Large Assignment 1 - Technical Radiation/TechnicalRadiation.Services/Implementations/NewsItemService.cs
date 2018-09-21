@@ -9,7 +9,7 @@ using TechnicalRadiation.Services.Interfaces;
 namespace TechnicalRadiation.Services.Implementations
 {
     /// <summary>
-    /// Gets news item data from repository and conducts paging
+    /// Gets news item data from repository and conducts paging and link relations for honoring HATEOAS
     /// </summary>
     public class NewsItemService : INewsItemService
     {
@@ -28,7 +28,7 @@ namespace TechnicalRadiation.Services.Implementations
         }
 
         /// <summary>
-        /// Returns list of all news items paged
+        /// Returns list of all news items paged within envelope with appropriate link relations
         /// </summary>
         /// <param name="pageNumber">Which number of page to fetch news items of</param>
         /// <param name="pageSize">How many news items to display per page</param>
@@ -48,7 +48,7 @@ namespace TechnicalRadiation.Services.Implementations
         }
 
         /// <summary>
-        /// Gets news item from list with specified Id
+        /// Gets news item from list with specified id with appropriate link relations
         /// </summary>
         /// <param name="id">Id associated with news item to fetch</param>
         /// <returns>A single news item by id or throws exception if not found</returns>

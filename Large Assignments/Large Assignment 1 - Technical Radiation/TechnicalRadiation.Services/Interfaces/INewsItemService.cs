@@ -9,7 +9,7 @@ namespace TechnicalRadiation.Services.Interfaces
     public interface INewsItemService
     {
         /// <summary>
-        /// Returns list of all news items paged
+        /// Returns list of all news items paged within envelope
         /// </summary>
         /// <param name="pageNumber">Which number of page to fetch news items of</param>
         /// <param name="pageSize">How many news items to display per page</param>
