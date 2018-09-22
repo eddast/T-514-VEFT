@@ -9,13 +9,14 @@ using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.WebApi.Authorization;
 using TechnicalRadiation.Services.Interfaces;
 using TechnicalRadiation.Models.DTO;
+using TechnicalRadiation.Common;
 
 namespace TechnicalRadiation.WebApi.Controllers {
 
   /// <summary>
   /// Used to manipulate and get information about categories
   /// </summary>
-  [Route ("api/categories")]
+  [Route (Routes.BASE + Routes.CATEGORIES)]
   // [HasAuthorizationHeader]
   public class CategoryController : Controller {
 

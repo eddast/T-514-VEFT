@@ -9,6 +9,7 @@ namespace TechnicalRadiation.Repositories.Interfaces
     /// </summary>
     public interface IAuthorNewsItemRelationRepository
     {
-        IEnumerable<AuthorNewsItemRelation> GetAllAuthorNewsItemsRelationByAuthorId(int id);
+        IEnumerable<AuthorNewsItemRelation> GetAllNewsItemsForAuthor(int authorId);
+        IEnumerable<AuthorNewsItemRelation> GetAuthorsForNewsItems(int newsItemId);
     }
 }

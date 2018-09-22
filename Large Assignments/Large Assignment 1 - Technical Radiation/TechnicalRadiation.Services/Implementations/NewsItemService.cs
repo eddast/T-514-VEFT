@@ -5,6 +5,7 @@ using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Repositories.Interfaces;
 using TechnicalRadiation.Services.Interfaces;
+using TechnicalRadiation.Models.Entities;
 
 namespace TechnicalRadiation.Services.Implementations
 {
@@ -19,12 +20,24 @@ namespace TechnicalRadiation.Services.Implementations
         private readonly INewsItemRepository _newsItemRepository;
 
         /// <summary>
+        /// News item to category relations repository
+        /// </summary>
+        private readonly INewsItemCategoryRelationRepository _categoryRelationRepository;
+
+        /// <summary>
+        /// News item to authors relations repository
+        /// </summary>
+        private readonly IAuthorNewsItemRelationRepository _authorRelationRepository;
+
+        /// <summary>
         /// Initialize respository
         /// </summary>
         /// <param name="newsItemRepository">Which implementation of news item repository to use</param>
-        public NewsItemService(INewsItemRepository newsItemRepository)
+        public NewsItemService(INewsItemRepository newsItemRepository, INewsItemCategoryRelationRepository categoryRelationRepository, IAuthorNewsItemRelationRepository authorRelationRepository)
         {
             _newsItemRepository = newsItemRepository;
+            _categoryRelationRepository = categoryRelationRepository;
+            _authorRelationRepository = authorRelationRepository;
         }
 
         /// <summary>
@@ -37,7 +50,7 @@ namespace TechnicalRadiation.Services.Implementations
         {
             var allNewsItems = _newsItemRepository.GetAllNewsItems();
             IEnumerable<NewsItemDto> pagedNewsItems = PageService<NewsItemDto>.PageData(allNewsItems, PageNumber, PageSize);
-            foreach (var n in pagedNewsItems) n.AddReferences();
+            foreach (var n in pagedNewsItems) n.AddReferences(n.Id, getCategories(n.Id), getAuthors(n.Id));
             return new Envelope<NewsItemDto>
             {
                 Items = PageService<NewsItemDto>.PageData(allNewsItems, PageNumber, PageSize),
@@ -56,8 +69,24 @@ namespace TechnicalRadiation.Services.Implementations
         {
             var newsItem = _newsItemRepository.GetNewsItemById(id);
             if (newsItem == null) { throw new ResourceNotFoundException($"News item with id {id} was not found."); }
-            newsItem.AddReferences();
+            newsItem.AddReferences(newsItem.Id, getCategories(newsItem.Id), getAuthors(newsItem.Id));
             return newsItem;
         }
+
+        /// <summary>
+        /// Gets all relations of news items to categories by id
+        /// </summary>
+        /// <param name="Id">id of news item to get category for</param>
+        /// <returns>all relations of news items to categories by id</returns>
+        private IEnumerable<NewsItemCategoryRelation> getCategories(int Id) =>
+            _categoryRelationRepository.GetAllNewsItemsCategoryRelationsByNewsItemId(Id);
+
+        /// <summary>
+        /// Gets all relations of news items to authors by id
+        /// </summary>
+        /// <param name="Id">id of news item to get authors for</param>
+        /// <returns>all relations of specific news item to authors by id</returns>
+        private IEnumerable<AuthorNewsItemRelation> getAuthors(int newsItemId) =>
+            _authorRelationRepository.GetAuthorsForNewsItems(newsItemId);
     }
 }

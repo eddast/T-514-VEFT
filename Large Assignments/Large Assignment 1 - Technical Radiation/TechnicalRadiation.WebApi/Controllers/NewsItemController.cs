@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Common;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
@@ -16,7 +17,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// <summary>
   /// Used to manipulate and get information about news items
   /// </summary>
-  [Route ("api")]
+  [Route (Routes.BASE)]
   //[HasAuthorizationHeader]
   public class NewsItemController : Controller
   {
@@ -41,7 +42,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <param name="pageSize">How many news items to request per page, defaults to 25</param>
     /// <returns>Status code 200 and a list of news items</returns>
     [HttpGet]
-    [Route ("")]
+    [Route (Routes.NEWS_ITEM)]
     [Produces ("application/json")]
     [ProducesResponseType (200, Type = typeof(Envelope<NewsItemDto>))]
     [AllowAnonymous]
@@ -74,7 +75,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <response code="201">Created</response>
     /// <response code="412">Precondition failed</response>
     [HttpPost]
-    [Route("")]
+    [Route(Routes.NEWS_ITEM)]
     [Consumes ("application/json")]
     [ProducesResponseType (201)]
     [ProducesResponseType (412)]

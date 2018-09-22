@@ -47,7 +47,7 @@ namespace TechnicalRadiation.Services.Implementations
         public IEnumerable<AuthorDto> GetAllAuthors()
         {
             var authors = _authorRepository.GetAllAuthors();
-            foreach(var a in authors) a.AddReferences();
+            foreach(var a in authors) a.AddReferences(a.Id, getNewsItems(a.Id));
             return authors;
         }
         
@@ -60,7 +60,7 @@ namespace TechnicalRadiation.Services.Implementations
         {
             var author = _authorRepository.GetAuthorById(id);
             if (author == null) { throw new ResourceNotFoundException($"Author with id {id} was not found."); }
-            author.AddReferences();
+            author.AddReferences(author.Id, getNewsItems(author.Id));
             return author;
         }
 
@@ -72,7 +72,7 @@ namespace TechnicalRadiation.Services.Implementations
         public IEnumerable<NewsItemDto> GetNewsItemsByAuthor(int id) 
         {
             // Fetch news items using the relational object we have then populate news item list
-            IEnumerable<AuthorNewsItemRelation> relations = _newsItemRelationRepository.GetAllAuthorNewsItemsRelationByAuthorId(id);
+            IEnumerable<AuthorNewsItemRelation> relations = getNewsItems(id);
             ICollection<NewsItemDto> newsItemsByAuthor = new List<NewsItemDto>();
             foreach(var r in relations)
             {
@@ -81,6 +81,14 @@ namespace TechnicalRadiation.Services.Implementations
             }
             return newsItemsByAuthor;
         }
+
+        /// <summary>
+        /// Gets all relations of authors to news items by id
+        /// </summary>
+        /// <param name="Id">id of author to get news items for</param>
+        /// <returns>all relations of authors to news items by id</returns>
+        private IEnumerable<AuthorNewsItemRelation> getNewsItems(int Id) =>
+            _newsItemRelationRepository.GetAllNewsItemsForAuthor(Id);
         
     }
 }

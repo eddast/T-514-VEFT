@@ -18,41 +18,27 @@ namespace TechnicalRadiation.Repositories.Data
 
         public static List<AuthorNewsItemRelation> AuthorNewsItemRelations = new List<AuthorNewsItemRelation> 
         {
-            new AuthorNewsItemRelation
-            {
-                AuthorId = 1,
-                NewsItemId = 1
-            },
-            new AuthorNewsItemRelation
-            {
-                AuthorId = 3,
-                NewsItemId = 2
-            },
-            new AuthorNewsItemRelation
-            {
-                AuthorId = 2,
-                NewsItemId = 3
-            },
-            new AuthorNewsItemRelation
-            {
-                AuthorId = 4,
-                NewsItemId = 4
-            },
-            new AuthorNewsItemRelation
-            {
-                AuthorId = 5,
-                NewsItemId = 5
-            },
-            new AuthorNewsItemRelation
-            {
-                AuthorId = 4,
-                NewsItemId = 6
-            },
-            new AuthorNewsItemRelation
-            {
-                AuthorId = 5,
-                NewsItemId = 7
-            },
+            // Townsville overtaken by Mojo Jojo
+            new AuthorNewsItemRelation { AuthorId = 1, NewsItemId = 1 },
+
+            // World Overtake Fails by Ed and Mojo Jojo
+            new AuthorNewsItemRelation { AuthorId = 3, NewsItemId = 2 },
+            new AuthorNewsItemRelation { AuthorId = 1, NewsItemId = 2 },
+
+            // Suspected B-and-E Turns to be Me by Johnny Bravo
+            new AuthorNewsItemRelation { AuthorId = 2, NewsItemId = 3 },
+
+            // Like, Who Are Rey's Parents? by Obi
+            new AuthorNewsItemRelation { AuthorId = 4, NewsItemId = 4 },
+
+            // Quidditch: Harder Than You'd Think! by Harry Potter
+            new AuthorNewsItemRelation { AuthorId = 5, NewsItemId = 5 },
+
+            // Glowsticks Over Broomsticks by Obi
+            new AuthorNewsItemRelation { AuthorId = 4, NewsItemId = 6 },
+            
+            // Ron Supports Cedric by Harry Potter
+            new AuthorNewsItemRelation { AuthorId = 5, NewsItemId = 7 },
         };
     }
 }

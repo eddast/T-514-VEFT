@@ -81,7 +81,7 @@ namespace TechnicalRadiation.WebApi
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IAuthorNewsItemRelationRepository, AuthorNewsItemRelationRepository>();
-            services.AddTransient<INewsItemCategoryRelationProvider, NewsItemCategoryRelationProvider>();
+            services.AddTransient<INewsItemCategoryRelationRepository, NewsItemCategoryRelationRepository>();
             // from services
             services.AddTransient<INewsItemService, NewsItemService>();
             services.AddTransient<IAuthorService, AuthorService>();

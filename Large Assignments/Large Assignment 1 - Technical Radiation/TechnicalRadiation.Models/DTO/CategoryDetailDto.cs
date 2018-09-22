@@ -13,7 +13,7 @@ namespace TechnicalRadiation.Models.DTO {
     /// </summary>
     public string Name { get; set; }
     /// <summary>
-    /// The name of the category in lowercase with hyphen instead of spaces
+    /// /// The name of the category in lowercase with hyphen instead of spaces
     /// </summary>
     public string Slug { get; set; }
     /// <summary>

@@ -33,8 +33,16 @@ namespace TechnicalRadiation.Repositories.Implementation
         /// Gets all relations of authors to news items by author from relational data provider
         /// </summary>
         /// <param name="id">author id</param>
-        /// <returns>all relations of authors to news items</returns>
-        public IEnumerable<AuthorNewsItemRelation> GetAllAuthorNewsItemsRelationByAuthorId(int id) =>
-            _relationalDataProvider.GetAuthorNewsItemRelations().Where(r => r.AuthorId == id);
+        /// <returns>all relations of specific author to news items</returns>
+        public IEnumerable<AuthorNewsItemRelation> GetAllNewsItemsForAuthor(int authorId) =>
+            _relationalDataProvider.GetAuthorNewsItemRelations().Where(r => r.AuthorId == authorId);
+
+        /// <summary>
+        /// Gets all relations of news item to authors by news item id from relational data provider
+        /// </summary>
+        /// <param name="id">news item id</param>
+        /// <returns>all relations of specific news item to authors</returns>
+        public IEnumerable<AuthorNewsItemRelation> GetAuthorsForNewsItems(int newsItemId) =>
+            _relationalDataProvider.GetAuthorNewsItemRelations().Where(r => r.NewsItemId == newsItemId);
     }
 }

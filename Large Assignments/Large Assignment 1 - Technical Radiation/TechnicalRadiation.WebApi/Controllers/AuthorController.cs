@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Common;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
@@ -15,7 +16,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// <summary>
   /// Used to manipulate and get information about authors in system
   /// </summary>
-  [Route ("api/authors")]
+  [Route (Routes.BASE + Routes.AUTHORS)]
   // [HasAuthorizationHeader]  
   public class AuthorController : Controller {
 

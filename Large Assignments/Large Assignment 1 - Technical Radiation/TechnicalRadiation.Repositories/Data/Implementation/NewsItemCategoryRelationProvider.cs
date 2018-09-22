@@ -18,71 +18,32 @@ namespace TechnicalRadiation.Repositories.Data
 
         public static List<NewsItemCategoryRelation> NewsItemCategoryRelations = new List<NewsItemCategoryRelation> 
         {
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 1,
-                CategoryId = 3
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 1,
-                CategoryId = 7
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 2,
-                CategoryId = 3
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 3,
-                CategoryId = 7
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 3,
-                CategoryId = 1
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 4,
-                CategoryId = 1
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 5,
-                CategoryId = 4
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 5,
-                CategoryId = 5
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 5,
-                CategoryId = 6
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 6,
-                CategoryId = 6
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 6,
-                CategoryId = 2
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 7,
-                CategoryId = 1
-            },
-            new NewsItemCategoryRelation
-            {
-                NewsItemId = 7,
-                CategoryId = 2
-            },
+            // Townsville overtaken belongs to evil overtakes and news categories
+            new NewsItemCategoryRelation { NewsItemId = 1, CategoryId = 3 },
+            new NewsItemCategoryRelation { NewsItemId = 1, CategoryId = 7 },
+
+            // World Overtake Fails belongs to evil overtakes category
+            new NewsItemCategoryRelation { NewsItemId = 2, CategoryId = 3 },
+
+            // Suspected B-and-E Turns to be Me belongs to gossip and news categories
+            new NewsItemCategoryRelation { NewsItemId = 3, CategoryId = 1 },
+            new NewsItemCategoryRelation { NewsItemId = 3, CategoryId = 7 },
+
+            // Like, Who Are Rey's Parents? belongs to gossip category
+            new NewsItemCategoryRelation { NewsItemId = 4, CategoryId = 1 },
+
+            // Quidditch: Harder Than You'd Think! belongs to science, health science and sports categories
+            new NewsItemCategoryRelation { NewsItemId = 5, CategoryId = 4 },
+            new NewsItemCategoryRelation { NewsItemId = 5, CategoryId = 5 },
+            new NewsItemCategoryRelation { NewsItemId = 5, CategoryId = 6 },
+
+            // Glowsticks Over Broomsticks belongs to sports and politics categories
+            new NewsItemCategoryRelation { NewsItemId = 6, CategoryId = 2 },
+            new NewsItemCategoryRelation { NewsItemId = 6, CategoryId = 6 },
+
+            // Ron Supports Cedric belongs to gossip and politics categories
+            new NewsItemCategoryRelation { NewsItemId = 7, CategoryId = 1 },
+            new NewsItemCategoryRelation { NewsItemId = 7, CategoryId = 2 },
         };
     }
 }

@@ -33,7 +33,7 @@ namespace TechnicalRadiation.Services.Implementations
         public IEnumerable<CategoryDto> GetAllCategories()
         {
             var categories = _categoryRepository.GetAllCategories();
-            foreach(var c in categories) c.AddReferences();
+            foreach(var c in categories) c.AddReferences(c.Id);
             return categories;
         }
 
@@ -46,7 +46,7 @@ namespace TechnicalRadiation.Services.Implementations
         {
             var category = _categoryRepository.GetCategoryById(id);
             if (category == null) { throw new ResourceNotFoundException($"Author with id {id} was not found."); }
-            category.AddReferences();
+            category.AddReferences(category.Id);
             return category;
         }
     }
