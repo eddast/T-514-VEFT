@@ -96,7 +96,7 @@ namespace TechnicalRadiation.Models.Extensions
             string authorRoute = Routes.BASE + Routes.AUTHORS;
 
             // add get, edit and update links for actions on this resource
-            HyperMediaModel.AddBaseReferences(Id, Routes.AUTHORS);
+            HyperMediaModel.AddBaseReferences(Id, authorRoute);
 
             // add links to get list of all authored items for this resource
             string linkToAllAuthoredNewsItems = authorRoute + "/" + Id + "/newsItems";
