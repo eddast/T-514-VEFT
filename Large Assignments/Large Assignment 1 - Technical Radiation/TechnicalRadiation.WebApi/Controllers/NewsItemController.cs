@@ -18,7 +18,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about news items
   /// </summary>
   [Route (Routes.BASE)]
-  //[HasAuthorizationHeader]
+  [Authorize(Policy = "HasSharedKey")]
   public class NewsItemController : Controller
   {
     /// <summary>
@@ -46,7 +46,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [Produces ("application/json")]
     [ProducesResponseType (200, Type = typeof(Envelope<NewsItemDto>))]
     [AllowAnonymous]
-    public IActionResult GetAllNewsItems ([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25)
+    public IActionResult GetAllNewsItems([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25)
     {
       return Ok(_newsItemService.GetAllNewsItems(pageNumber, pageSize));
     }
@@ -54,17 +54,17 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <summary>
     /// Gets news item by id
     /// </summary>
-    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
+    /// <param name="id">Id which is associated with a news item within the system</param>
     /// <returns>A single news item if found</returns>
     [HttpGet]
-    [Route ("{newsItemId}", Name = "GetNewsItemById")]
+    [Route ("{id:int}", Name = "GetNewsItemById")]
     [Produces ("application/json")]
     [ProducesResponseType(200, Type = typeof(NewsItemDetailDto))]
     [ProducesResponseType(404)]
     [AllowAnonymous]
-    public IActionResult GetNewsItemById (int newsItemId)
+    public IActionResult GetNewsItemById(int id)
     {
-      return Ok(_newsItemService.GetNewsItemById(newsItemId));
+      return Ok(_newsItemService.GetNewsItemById(id));
     }
 
     /// <summary>
@@ -75,15 +75,16 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <response code="201">Created</response>
     /// <response code="412">Precondition failed</response>
     [HttpPost]
-    [Route(Routes.NEWS_ITEM)]
+    [Route (Routes.NEWS_ITEM)]
     [Consumes ("application/json")]
     [ProducesResponseType (201)]
     [ProducesResponseType (412)]
-    public IActionResult CreateNewsItem ([FromBody] NewsItemInputModel newsItem = null)
+    public IActionResult CreateNewsItem([FromBody] NewsItemInputModel newsItem)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
-      // TODO  
+      // TODO!!!
       return Ok();
+      // ATH Á AÐ RETURNA LOCATION HEADER, s.s. return CreatedAtRoute("GetNewsItemById", new { id }, null);
     }
 
     /// <summary>
@@ -94,29 +95,28 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <returns>A status code of 204 no content.</returns>
     /// <response code="204">No Content</response>
     /// <response code="412">Precondition failed</response>
-    [HttpPut ("{newsItemId}")]
+    [HttpPut ("{newsItemId:int}")]
     [ProducesResponseType(204)]
     [ProducesResponseType(412)]
-    public IActionResult EditNewsItem (int newsItemId, [FromBody] NewsItemInputModel newsItem)
+    public IActionResult EditNewsItem(int newsItemId, [FromBody] NewsItemInputModel newsItem)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
-      // TODO 
+      // TODO!!!
       return NoContent();
-
     }
 
     /// <summary>
     /// Deletes a news item from the system
     /// </summary>
-    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
+    /// <param name="id">Id which is associated with a news item within the system</param>
     /// <returns>A status code of 204 no content.</returns>
     /// <response code="204">No Content</response>
     /// <response code="412">Precondition failed</response>
-    [HttpDelete ("{newsItemId}")]
+    [HttpDelete ("{id:int}")]
     [ProducesResponseType (204)]
-    public IActionResult DeleteNewsItem (int newsItemId)
+    public IActionResult DeleteNewsItem(int id)
     {
-      // TODO
+      // TODO!!!
       return NoContent();
     }
   }

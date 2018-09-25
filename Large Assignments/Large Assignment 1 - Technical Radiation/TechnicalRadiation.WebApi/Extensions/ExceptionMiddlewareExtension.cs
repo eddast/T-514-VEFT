@@ -20,46 +20,32 @@ namespace TechnicalRadiation.WebApi.Extensions
         {
             app.UseExceptionHandler(error => 
             {
-                /* globally track exceptions to return appropriate http responses and status codes */
+                // Globally track exceptions to return appropriate http responses and status codes
                 error.Run(async context => 
                 {
+                    // Set up exception handler to listen for exception
                     var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                     var exception = exceptionHandlerFeature.Error;
-                    var statusCode = (int) HttpStatusCode.InternalServerError;
 
-                    /* globally track resource not found exceptions */
-                    if (exception is ResourceNotFoundException)
-                    {
-                        statusCode = (int) HttpStatusCode.NotFound;
-                    }
-                    
-                    /* globally track exceptions on badly formatted input */
-                    else if (exception is InputFormatException)
-                    {
-                        statusCode = (int) HttpStatusCode.PreconditionFailed;
-                    }
+                    // Set default status code for exception is 500 (Internal Server Error) if exception does not match those traced
+                    var statusCode = (int) HttpStatusCode.InternalServerError; 
 
-                    /* globally track authorization exceptions */
-                    else if (exception is AuthorizationException)
-                    {
-                        statusCode = (int) HttpStatusCode.Unauthorized;
-                    }
+                    // Globally track resource not found exceptions (404),
+                    // Badly formatted input exception (412) when model input is invalid
+                    // And unauthorization exception (401) when user fails to meet authorization requirement
+                    if      (exception is ResourceNotFoundException)    statusCode = (int) HttpStatusCode.NotFound;
+                    else if (exception is InputFormatException)         statusCode = (int) HttpStatusCode.PreconditionFailed;
+                    else if (exception is AuthorizationException)       statusCode = (int) HttpStatusCode.Unauthorized;
 
-                    /* log on error */
+                    // Log explicit exception message when exception occurs to log file
                     var logService = app.ApplicationServices.GetService(typeof(ILogService)) as ILogService;
                     logService.LogToFile($"Exception: {exception.Message}\n\tStatus Code: {statusCode}\n\tStack trace:\n{exception.StackTrace}");
 
-                    /* exception request body always has JSON format */
+                    // On exception respond with the error model format as a HTTP response back to client
                     context.Response.ContentType = "application/json";
                     context.Response.StatusCode = statusCode;
-
-                    /* on error return the error model as HTTP response */
-                    await context.Response.WriteAsync(
-                        new ExceptionModel
-                        {
-                            StatusCode = statusCode,
-                            Message = exception.Message
-                        }.ToString());
+                    var exceptionResponse = new ExceptionModel { StatusCode = statusCode, Message = exception.Message };
+                    await context.Response.WriteAsync(exceptionResponse.ToString());
                 });
             });
         }

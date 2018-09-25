@@ -17,7 +17,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about authors in system
   /// </summary>
   [Route (Routes.BASE + Routes.AUTHORS)]
-  // [HasAuthorizationHeader]  
+  [Authorize(Policy = "HasSharedKey")]
   public class AuthorController : Controller {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [Produces ("application/json")]
     [ProducesResponseType (200, Type = typeof(IEnumerable<AuthorDto>))]
     [AllowAnonymous]
-    public IActionResult GetAllAuthors ()
+    public IActionResult GetAllAuthors()
     {
       return Ok(_authorService.GetAllAuthors());
     }
@@ -51,17 +51,17 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <summary>
     /// Gets an author by his or her id
     /// </summary>
-    /// <param name="authorId">Id which is associated with author within the system</param>
+    /// <param name="id">Id which is associated with author within the system</param>
     /// <returns>A single author if found, 404 otherwise</returns>
     [HttpGet]
-    [Route ("{authorId}", Name = "GetAuthorById")]
+    [Route ("{id:int}", Name = "GetAuthorById")]
     [Produces ("application/json")]
     [ProducesResponseType (200, Type = typeof(AuthorDetailDto))]
     [ProducesResponseType (404)]
     [AllowAnonymous]
-    public IActionResult GetAuthorById (int authorId)
+    public IActionResult GetAuthorById(int id)
     {
-      return Ok(_authorService.GetAuthorById(authorId));
+      return Ok(_authorService.GetAuthorById(id));
     }
 
     /// <summary>
@@ -70,13 +70,14 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <param name="authorId">Id which is associated with author within the system</param>
     /// <returns>A list of all news items authored by author with specified Id. List is empty author id is not registered to any news item id in system</returns>
     [HttpGet]
-    [Route ("{authorId}/newsItems")]
+    [Route ("{authorId:int}/newsItems")]
     [Produces ("application/json")]
     [ProducesResponseType (200, Type = typeof(List<NewsItemDto>))]
     [AllowAnonymous]
-    public IActionResult GetNewsItemsByAuthor (int authorId)
+    public IActionResult GetNewsItemsByAuthor(int authorId)
     {
-      return Ok(_authorService.GetNewsItemsByAuthor(authorId));
+      // TODO!!!
+      return Ok();
     }
 
     /// <summary>
@@ -90,11 +91,12 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [Consumes ("application/json")]
     [ProducesResponseType (201)]
     [ProducesResponseType (412)]
-    public IActionResult CreateAuthor ([FromBody] AuthorInputModel author)
+    public IActionResult CreateAuthor([FromBody] AuthorInputModel author)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
-      // TODO  
+      // TODO!!!
       return Ok();
+      // Á AÐ RETURNA LOCATION HEADER s.s. return CreatedAtRoute("GetAuthorById", new { id }, null);
     }
 
     /// <summary>
@@ -104,15 +106,35 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <param name="author">The author input model</param>
     /// <returns>A status code of 204 no content if input model is valid, 412 otherwise</returns>
     /// <response code="204">No Content</response>
-    /// <response code="412">Precondition failed</response>
-    [HttpPut ("{id}")]
+    /// <response code="412">Precondition Failed</response>
+    /// <response code="404">Not Found</response>
+    [HttpPut]
+    [Route("{id:int}")]
     [Consumes ("application/json")]
     [ProducesResponseType (204)]
     [ProducesResponseType (412)]
-    public IActionResult EditAuthor (int id, [FromBody] AuthorInputModel author)
+    [ProducesResponseType (404)]
+    public IActionResult EditAuthor(int id, [FromBody] AuthorInputModel author)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
-      // TODO 
+      // TODO!!!
+      return NoContent();
+    }
+
+    /// <summary>
+    /// Deletes existing author from the system
+    /// </summary>
+    /// <param name="id">Id which is associated with an author within the system</param>
+    /// <returns>A status code of 204 no content.</returns>
+    /// <response code="204">No Content</response>
+    /// <response code="404">Not Found</response>
+    [HttpDelete]
+    [Route("{id:int}")]
+    [ProducesResponseType (204)]
+    [ProducesResponseType (404)]
+    public IActionResult DeleteAuthor(int id)
+    {
+      // TODO!!!
       return NoContent();
     }
 
@@ -120,28 +142,17 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// Links author to a news item with a specified category as well
     /// </summary>
     /// <param name="authorId">Id which is associated with an author within the system</param>
-    /// <param name="newsItem">Id which is associated with a news item within the system</param>
+    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
     /// <returns>Status code of 204 no content</returns>
     /// <response code="204">No Content</response>
-    [HttpPut ("{authorId}/newsItems/{newsItemId}")]
+    /// <response code="404">Not Found</response>
+    [HttpPatch]
+    [Route("{authorId:int}/newsItems/{newsItemId:int}")]
     [ProducesResponseType (204)]
-    public IActionResult LinkAuthorToNewsItem (int authorId, int newsItem)
+    [ProducesResponseType (404)]
+    public IActionResult LinkAuthorToNewsItem(int authorId, int newsItemId)
     {
-      // TODO 
-      return NoContent();
-    }
-
-    /// <summary>
-    /// Deletes existing author from the system
-    /// </summary>
-    /// <param name="authorId">Id which is associated with an author within the system</param>
-    /// <returns>A status code of 204 no content.</returns>
-    /// <response code="204">No Content</response>
-    [HttpDelete ("{authorId}")]
-    [ProducesResponseType (204)]
-    public IActionResult DeleteAuthor (int authorId)
-    {
-      // TODO
+      // TODO!!!
       return NoContent();
     }
   }
