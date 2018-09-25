@@ -9,9 +9,9 @@ namespace TechnicalRadiation.Repositories.Data.Interfaces
     public interface INewsItemDataProvider
     {
         /// <summary>
-        /// Returns list of all news items in system
+        /// Gets a list of all news items in system
         /// </summary>
-        /// <returns>list of all news items in system</returns>
-        List<NewsItem> GetNewsItems();
+        /// <returns>List of all news items in system</returns>
+        List<NewsItem> GetAllNewsItems();
     }
 }

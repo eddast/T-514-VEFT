@@ -9,6 +9,24 @@ namespace TechnicalRadiation.Repositories.Interfaces
     /// </summary>
     public interface INewsItemCategoryRelationRepository
     {
+        /// <summary>
+        /// Gets all relations of news items to categories by news item from relational data provider
+        /// </summary>
+        /// <param name="id">news item id</param>
+        /// <returns>all relations of news items to categories</returns>
         IEnumerable<NewsItemCategoryRelation>  GetAllNewsItemsCategoryRelationsByNewsItemId(int id);
+
+        /// <summary>
+        /// Gets all relations of news items to categories by category id from relational data provider
+        /// </summary>
+        /// <param name="id">category id</param>
+        /// <returns>all relations of news items to categories</returns>
+        IEnumerable<NewsItemCategoryRelation> GetAllNewsItemsCategoryRelationsByCategoryId(int id);
+
+        /// <summary>
+        /// Deletes relation from relational list
+        /// </summary>
+        /// <param name="relation">the relation to delete</param>
+        void DeleteRelation(NewsItemCategoryRelation relation);
     }
 }

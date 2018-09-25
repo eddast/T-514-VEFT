@@ -12,6 +12,6 @@ namespace TechnicalRadiation.Repositories.Data.Interfaces
         /// Gets a list of all authors in system
         /// </summary>
         /// <returns>List of all authors in system</returns>
-         List<Author> GetAuthors();
+        List<Author> GetAllAuthors();
     }
 }

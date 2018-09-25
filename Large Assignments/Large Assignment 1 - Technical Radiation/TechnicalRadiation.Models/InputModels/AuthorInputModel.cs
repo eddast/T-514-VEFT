@@ -23,6 +23,6 @@ namespace TechnicalRadiation.Models.InputModels {
     /// </summary>
     /// <value>Should be of maximum length 225 characters</value>
     [MaxLength (255)]
-    public string Bio { get; set; }
+    public string Bio { get; set; } = "";
   }
 }

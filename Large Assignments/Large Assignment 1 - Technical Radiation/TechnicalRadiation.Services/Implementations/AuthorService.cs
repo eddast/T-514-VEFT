@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using AutoMapper;
+using System.Linq;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.Extensions;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Interfaces;
 using TechnicalRadiation.Services.Interfaces;
 
@@ -71,15 +73,57 @@ namespace TechnicalRadiation.Services.Implementations
         /// <returns>List of news items associated with author</returns>
         public IEnumerable<NewsItemDto> GetNewsItemsByAuthor(int id) 
         {
-            // Fetch news items using the relational object we have then populate news item list
-            IEnumerable<AuthorNewsItemRelation> relations = getNewsItems(id);
-            ICollection<NewsItemDto> newsItemsByAuthor = new List<NewsItemDto>();
-            foreach(var r in relations)
-            {
-                var newsItem = Mapper.Map<NewsItemDto>(_newsItemService.GetNewsItemById(r.NewsItemId));
-                newsItemsByAuthor.Add(newsItem);
-            }
-            return newsItemsByAuthor;
+            // TODO!!!
+            return null;
+        }
+
+        /// <summary>
+        /// Creates new author to system
+        /// </summary>
+        /// <param name="author">new author to add</param>
+        /// <returns>the id of new author</returns>
+        public int CreateAuthor(AuthorInputModel author)
+        {
+            // TODO!!!
+            return 0;
+        }
+
+        /// <summary>
+        /// Updates author by id
+        /// </summary>
+        /// <param name="author">new information on author to switch to</param>
+        /// <param name="id">id of author to update</param>
+        public void UpdateAuthorById(AuthorInputModel author, int id)
+        {
+            // Check if author exists, if it does delete him or her from list
+            var oldAuthor = _authorRepository.GetAuthorById(id);
+            if (oldAuthor == null) { throw new ResourceNotFoundException($"Author with id {id} was not found."); }
+
+            // TODO!!!
+        }
+
+        /// <summary>
+        /// Deletes author by id
+        /// </summary>
+        /// <param name="id">id of author to delete</param>
+        public void DeleteAuthorById(int id)
+        {
+            // Check if author exists, if it does delete him or her from list
+            var author = _authorRepository.GetAuthorById(id);
+            if (author == null) { throw new ResourceNotFoundException($"Author with id {id} was not found."); }
+            
+            // TODO!!!
+        }
+
+        /// <summary>
+        /// Links a news item to author by their ids
+        /// </summary>
+        /// <param name="authorId">id of author to link to news item</param>
+        /// <param name="newsItemId">id of news item to link to author</param>
+        public void LinkNewsItemToAuthor(int authorId, int newsItemId)
+        {
+            // TODO!!!
+            // TODO also check if author exists and news item exists
         }
 
         /// <summary>
@@ -88,7 +132,7 @@ namespace TechnicalRadiation.Services.Implementations
         /// <param name="Id">id of author to get news items for</param>
         /// <returns>all relations of authors to news items by id</returns>
         private IEnumerable<AuthorNewsItemRelation> getNewsItems(int Id) =>
-            _newsItemRelationRepository.GetAllNewsItemsForAuthor(Id);
+             _newsItemRelationRepository.GetAllNewsItemsForAuthor(Id);
         
     }
 }
