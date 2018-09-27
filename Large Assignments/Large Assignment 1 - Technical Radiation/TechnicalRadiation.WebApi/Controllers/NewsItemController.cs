@@ -82,8 +82,14 @@ namespace TechnicalRadiation.WebApi.Controllers {
     public IActionResult CreateNewsItem([FromBody] NewsItemInputModel newsItem)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("News item was not properly formatted."); }
+<<<<<<< HEAD
       int id = _newsItemService.CreateNewsItem(newsItem);
       return CreatedAtRoute("GetNewsItemById", new { id }, null);
+=======
+      // TODO!!!
+      return Ok();
+      // ATH Á AÐ RETURNA LOCATION HEADER, s.s. return CreatedAtRoute("GetNewsItemById", new { id }, null);
+>>>>>>> 994237b5d7de418430440944ce00dd08a4f6939a
     }
 
     /// <summary>

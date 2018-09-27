@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using TechnicalRadiation.Models.DTO;
+using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.InputModels;
@@ -19,12 +21,24 @@ namespace TechnicalRadiation.Services.Implementations
         private readonly ICategoryRepository _categoryRepository;
 
         /// <summary>
+        /// Category to news item relations repository
+        /// </summary>
+        private readonly INewsItemCategoryRelationRepository _newsItemRelationRepository;
+
+        /// <summary>
+        /// Service, used to get news items for author
+        /// </summary>
+        private readonly INewsItemService _newsItemService;
+
+        /// <summary>
         /// Initialize repository
         /// </summary>
         /// <param name="categoryRepository">Which implementation of category repository to use</param>
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository, INewsItemCategoryRelationRepository newsItemRelationRepository, INewsItemService newsItemService)
         {
             _categoryRepository = categoryRepository;
+            _newsItemRelationRepository = newsItemRelationRepository;
+            _newsItemService = newsItemService;
         }
 
         public int CreateCategory(CategoryInputModel category)
@@ -35,7 +49,7 @@ namespace TechnicalRadiation.Services.Implementations
         /// <summary>
         /// Returns list of all categories with appropriate link relations
         /// </summary>
-        /// <returns></returns>
+        /// <returns>list of all categories with appropriate link relations</returns>
         public IEnumerable<CategoryDto> GetAllCategories()
         {
             var categories = _categoryRepository.GetAllCategories();
@@ -47,11 +61,12 @@ namespace TechnicalRadiation.Services.Implementations
         /// Gets a single category with appropriate link relations, throws exception if category not found in system by id
         /// </summary>
         /// <param name="id">id associated with a category in system</param>
-        /// <returns></returns>
+        /// <returns>single category with appropriate link relations</returns>
         public CategoryDetailDto GetCategoryById(int id) 
         {
             var category = _categoryRepository.GetCategoryById(id);
-            if (category == null) { throw new ResourceNotFoundException($"Author with id {id} was not found."); }
+            if (category == null) { throw new ResourceNotFoundException($"Category with id {id} was not found."); }
+            category.NumberOfNewsItems = _newsItemRelationRepository.GetAllNewsItemsCategoryRelationsByCategoryId(id).Count();
             category.AddReferences(category.Id);
             return category;
         }

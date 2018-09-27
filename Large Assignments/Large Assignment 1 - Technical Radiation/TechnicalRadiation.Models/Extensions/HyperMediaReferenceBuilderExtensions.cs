@@ -73,13 +73,13 @@ namespace TechnicalRadiation.Models.Extensions
             // add get, edit and update links for actions on this resource
             HyperMediaModel.AddBaseReferences(Id, newsItemRoute);
         
-            // For each category associated with resouce, add link for getting detail info on it
-            Func<int, string> linkCategoryDetailByNewsItem = categoryId => categoriesRoute + "/" + categoryId;
-            foreach(var item in categoryRelations) HyperMediaModel.Links.AddToReferenceList("categories", linkCategoryDetailByNewsItem(item.CategoryId));
-            
             // For each author associated with resouce, add link for getting detail info on it
             Func<int, string> linkAuthorByNewsItem = authorId => authorRoute + "/" + authorId;
             foreach(var item in authorRelations) HyperMediaModel.Links.AddToReferenceList("authors", linkAuthorByNewsItem(item.AuthorId));
+        
+            // For each category associated with resouce, add link for getting detail info on it
+            Func<int, string> linkCategoryDetailByNewsItem = categoryId => categoriesRoute + "/" + categoryId;
+            foreach(var item in categoryRelations) HyperMediaModel.Links.AddToReferenceList("categories", linkCategoryDetailByNewsItem(item.CategoryId));    
         }
 
         /// <summary>

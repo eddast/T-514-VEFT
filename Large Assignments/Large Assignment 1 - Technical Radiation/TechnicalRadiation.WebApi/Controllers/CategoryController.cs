@@ -43,7 +43,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [Produces ("application/json")]
     [ProducesResponseType (200, Type = typeof(IEnumerable<CategoryDto>))]
     [AllowAnonymous]
-    public IActionResult GetAllCategories ()
+    public IActionResult GetAllCategories()
     {
       return Ok(_categoryService.GetAllCategories());
     }
@@ -59,7 +59,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType (200, Type = typeof(CategoryDetailDto))]
     [ProducesResponseType (404)]
     [AllowAnonymous]
-    public IActionResult GetCategoryById (int id)
+    public IActionResult GetCategoryById(int id)
     {
       return Ok(_categoryService.GetCategoryById(id));
     }
@@ -75,10 +75,12 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [Consumes ("application/json")]
     [ProducesResponseType (201)]
     [ProducesResponseType (412)]
-    public IActionResult CreateCategory ([FromBody] CategoryInputModel category) {
+    public IActionResult CreateCategory([FromBody] CategoryInputModel category)
+    {
       if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
-      // TODO
-      return Ok();  
+      // TODO!!!
+      return Ok();
+      // ATH Á AÐ RETURNA LOCATION HEADER s.s. return CreatedAtRoute("GetCategoryById", new { id }, null);
     }
 
     /// <summary>
@@ -88,32 +90,18 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <param name="category">The category input model</param>
     /// <returns>A status code of 204 no content if input model is valid</returns>
     /// <response code="204">No Content</response>
-    /// <response code="412">Precondition failed</response>
+    /// <response code="412">Precondition Failed</response>
+    /// <response code="404">Not Found</response>
     [HttpPut]
     [Route ("{id}")]
     [Consumes ("application/json")]
     [ProducesResponseType (204)]
     [ProducesResponseType (412)]
-    public IActionResult EditCategory (int id, [FromBody] CategoryInputModel category) {
+    [ProducesResponseType (404)]
+    public IActionResult EditCategory(int id, [FromBody] CategoryInputModel category)
+    {
       if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
-      // TODO
-      return NoContent(); 
-    }
-
-    /// <summary>
-    /// Assigns category to news item
-    /// </summary>
-    /// <param name="categoryId">Id which is associated with a category within the system</param>
-    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
-    /// <returns>A status code of 204 no content if input model is valid</returns>
-    /// <response code="204">No Content</response>
-    [HttpPut]
-    [Route ("{categoryId}/newsItems/{newsItemId}")]
-    [Consumes ("application/json")]
-    [ProducesResponseType (204)]
-    [ProducesResponseType (412)]
-    public IActionResult LinkCategoryToNewsItem (int categoryId, int newsItemId) {
-      // TODO 
+      // TODO!!!
       return NoContent();
     }
 
@@ -123,11 +111,33 @@ namespace TechnicalRadiation.WebApi.Controllers {
     /// <param name="id">Id which is associated with a category within the system</param>
     /// <returns>A status code of 204 no content.</returns>
     /// <response code="204">No Content</response>
+    /// <response code="404">Not Found</response>
     [HttpDelete]
     [Route ("{id}")]
     [ProducesResponseType (204)]
-    public IActionResult DeleteCategory (int id) {
-      // TODO
+    [ProducesResponseType (404)]
+    public IActionResult DeleteCategory(int id)
+    {
+      // TODO!!!
+      return NoContent();
+    }
+
+    /// <summary>
+    /// Assigns category to news item
+    /// </summary>
+    /// <param name="categoryId">Id which is associated with a category within the system</param>
+    /// <param name="newsItemId">Id which is associated with a news item within the system</param>
+    /// <returns>A status code of 204 no content if input model is valid</returns>
+    /// <response code="204">No Content</response>
+    /// <response code="204">Not Found</response>
+    [HttpPatch]
+    [Route ("{categoryId}/newsItems/{newsItemId}")]
+    [Consumes ("application/json")]
+    [ProducesResponseType (204)]
+    [ProducesResponseType (404)]
+    public IActionResult LinkCategoryToNewsItem(int categoryId, int newsItemId)
+    {
+      // TODO!!!
       return NoContent();
     }
   }

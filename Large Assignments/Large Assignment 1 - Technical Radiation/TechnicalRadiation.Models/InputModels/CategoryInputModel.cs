@@ -10,14 +10,11 @@ namespace TechnicalRadiation.Models.InputModels {
     /// </summary>
     /// <value>Is required</value>
     [Required]
+    [MaxLength(60)]
     public string Name { get; set; }
-    /// <summary>
-    /// Name of category in lowercase with a hyphen instead of spaces
-    /// </summary>
-    public string Slug { get; set; }
     /// <summary>
     /// Id of category's parent category
     /// </summary>
-    public int ParentCategoryId { get; set; }
+    public int? ParentCategoryId { get; set; }
   }
 }

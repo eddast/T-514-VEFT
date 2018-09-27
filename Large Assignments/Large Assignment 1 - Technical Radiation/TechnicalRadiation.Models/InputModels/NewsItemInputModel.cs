@@ -5,7 +5,8 @@ namespace TechnicalRadiation.Models.InputModels {
   /// <summary>
   /// News item input model
   /// </summary>
-  public class NewsItemInputModel {
+  public class NewsItemInputModel
+  {
     /// <summary>
     /// The title of the news item
     /// </summary>
@@ -24,14 +25,14 @@ namespace TechnicalRadiation.Models.InputModels {
     /// </summary>
     /// <value>Is required and is at most 50 characters</value>
     [Required]
-    [MaxLength (50)]
+    [MaxLength(50)]
     public string ShortDescription { get; set; }
     /// <summary>
     /// Long description of a news item
     /// </summary>
     /// <value>Is at least 50 characters and at most 255 characters</value>
-    [MinLength (50)]
-    [MaxLength (255)]
+    [MinLength(50)]
+    [MaxLength(255)]
     public string LongDescription { get; set; }
     /// <summary>
     /// Date when news item is publised
