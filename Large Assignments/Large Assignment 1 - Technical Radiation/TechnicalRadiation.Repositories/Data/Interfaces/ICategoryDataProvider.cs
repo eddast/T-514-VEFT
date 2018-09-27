@@ -9,9 +9,9 @@ namespace TechnicalRadiation.Repositories.Data.Interfaces
     public interface ICategoryDataProvider
     {
         /// <summary>
-        /// Returns a list of all categories in system
+        /// Gets a list of all category in system
         /// </summary>
-        /// <returns>List of all categories in system</returns>
-         List<Category> GetCategories();
+        /// <returns>List of all category in system</returns>
+        List<Category> GetAllCategories();
     }
 }

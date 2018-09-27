@@ -6,6 +6,7 @@ using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Repositories.Interfaces;
 using TechnicalRadiation.Services.Interfaces;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
 
 namespace TechnicalRadiation.Services.Implementations
 {
@@ -71,6 +72,44 @@ namespace TechnicalRadiation.Services.Implementations
             if (newsItem == null) { throw new ResourceNotFoundException($"News item with id {id} was not found."); }
             newsItem.AddReferences(newsItem.Id, getCategories(newsItem.Id), getAuthors(newsItem.Id));
             return newsItem;
+        }
+
+        /// <summary>
+        /// Creates new news item to system
+        /// </summary>
+        /// <param name="newsItem">new news item to add</param>
+        /// <returns>the id of new news item</returns>
+        public int CreateNewsItem(NewsItemInputModel newsItem) =>
+            _newsItemRepository.CreateNewsItem(newsItem);
+
+        /// <summary>
+        /// Updates news item by id
+        /// </summary>
+        /// <param name="newsItem">new information on news item to switch to</param>
+        /// <param name="id">id of news item to update</param>
+        public void UpdateNewsItemById(NewsItemInputModel newsItem, int id)
+        {
+            var oldNewsItem = _newsItemRepository.GetNewsItemById(id);
+            if (oldNewsItem == null) { throw new ResourceNotFoundException($"News item with id {id} was not found."); }
+            _newsItemRepository.UpdateNewsItemById(newsItem, id);
+        }
+
+        /// <summary>
+        /// Deletes news item by id
+        /// </summary>
+        /// <param name="id">id of news item to delete</param>
+        public void DeleteNewsItemById(int id)
+        {
+            // Check if news item exist, if it does delete it
+            var newsItem = _newsItemRepository.GetNewsItemById(id);
+            if (newsItem == null) { throw new ResourceNotFoundException($"News item with id {id} was not found."); }
+            _newsItemRepository.DeleteNewsItem(id);
+
+            // delete all relations from list associated with news item
+            var categoryRelations = _categoryRelationRepository.GetAllNewsItemsCategoryRelationsByNewsItemId(id).ToList();
+            var authorRelations = _authorRelationRepository.GetAuthorsForNewsItems(id).ToList();
+            foreach(var relation in categoryRelations) _categoryRelationRepository.DeleteRelation(relation);
+            foreach(var relation in authorRelations) _authorRelationRepository.DeleteRelation(relation);
         }
 
         /// <summary>

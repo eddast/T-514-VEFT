@@ -17,7 +17,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about categories
   /// </summary>
   [Route (Routes.BASE + Routes.CATEGORIES)]
-  // [HasAuthorizationHeader]
+  [Authorize(Policy = "HasSharedKey")]
   public class CategoryController : Controller {
 
     /// <summary>

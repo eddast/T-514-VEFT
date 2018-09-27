@@ -25,17 +25,37 @@ namespace TechnicalRadiation.Repositories.Implementation
         /// Initiate data provider
         /// </summary>
         /// <param name="dataProvider">the author data provider to use</param>
-        public NewsItemCategoryRelationRepository(INewsItemCategoryRelationProvider relationalDataProvider)
-        {
+        public NewsItemCategoryRelationRepository(INewsItemCategoryRelationProvider relationalDataProvider) =>
             _relationalDataProvider = relationalDataProvider;
-        }
 
         /// <summary>
         /// Gets all relations of news items to categories by news item from relational data provider
         /// </summary>
-        /// <param name="id">author id</param>
+        /// <param name="id">news item id</param>
         /// <returns>all relations of news items to categories</returns>
         public IEnumerable<NewsItemCategoryRelation> GetAllNewsItemsCategoryRelationsByNewsItemId(int id) =>
             _relationalDataProvider.GetNewsItemCategoryRelations().Where(r => r.NewsItemId == id);
+
+        /// <summary>
+        /// Gets all relations of news items to categories by category id from relational data provider
+        /// </summary>
+        /// <param name="id">category id</param>
+        /// <returns>all relations of news items to categories</returns>
+        public IEnumerable<NewsItemCategoryRelation> GetAllNewsItemsCategoryRelationsByCategoryId(int id) =>
+            _relationalDataProvider.GetNewsItemCategoryRelations().Where(r => r.CategoryId == id);
+
+        /// <summary>
+        /// Deletes relation from relational list
+        /// </summary>
+        /// <param name="relation">the relation to delete</param>
+        public void DeleteRelation(NewsItemCategoryRelation relation) =>
+            _relationalDataProvider.GetNewsItemCategoryRelations().Remove(relation);
+
+        /// <summary>
+        /// Deletes relation from relational list
+        /// </summary>
+        /// <param name="relation">the relation to delete</param>
+        public void AddRelation(NewsItemCategoryRelation relation) =>
+            _relationalDataProvider.GetNewsItemCategoryRelations().Add(relation);
     }
 }

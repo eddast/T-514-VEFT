@@ -10,14 +10,22 @@ namespace TechnicalRadiation.Repositories.Data
     /// </summary>
     public class CategoryDataProvider : ICategoryDataProvider
     {
-        public List<Category> GetCategories() => Categories;
+        /// <summary>
+        /// Gets a list of all category in system
+        /// </summary>
+        /// <returns>List of all category in system</returns>
+        public List<Category> GetAllCategories() => Categories;
+
+        /// <summary>
+        /// Admin that authors modification of category
+        /// </summary>
         private static readonly string _adminName = "SystemAdmin";
 
         /// <summary>
-        /// Returns a list of all categories in system
+        /// List of all categories in system
         /// </summary>
-        /// <returns>List of all categories in system</returns>
-        public static List<Category> Categories = new List<Category> 
+        /// <returns>category entity model list</returns>
+        private static List<Category> Categories = new List<Category> 
         {
             new Category
             {

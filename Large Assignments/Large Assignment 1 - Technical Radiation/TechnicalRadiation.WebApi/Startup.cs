@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Entities;
@@ -23,7 +27,9 @@ using TechnicalRadiation.Repositories.Implementation;
 using TechnicalRadiation.Repositories.Interfaces;
 using TechnicalRadiation.Services.Implementations;
 using TechnicalRadiation.Services.Interfaces;
+using TechnicalRadiation.WebApi.Authorization;
 using TechnicalRadiation.WebApi.Extensions;
+using TechnicalRadiation.WebApi.Resolvers;
 
 namespace TechnicalRadiation.WebApi
 {
@@ -53,7 +59,9 @@ namespace TechnicalRadiation.WebApi
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            // set up swagger
+            // Setup Swagger for API documentation of the system
+            // Uses the in-code XML comments and MVC tags to generate understandable description for routes and models
+            // Documentation available when server is running at localhost:5000/api-documentation
             services.AddSwaggerGen(opt => {
                 opt.SwaggerDoc("v1", new Info
                 {
@@ -68,25 +76,38 @@ namespace TechnicalRadiation.WebApi
             });
 
             services.AddMvc();
+            services.AddHttpContextAccessor();
 
-            // SETUP DEPENDENCY INJECTION
-            // data providers
-            services.AddSingleton<IAuthorDataProvider, AuthorDataProvider>();
+            // Set up the authentication policy for system as a user requirement
+            // I.e. tells system to force a requirement client must fulfill to access restricted routes in system
+            // (In this case, client authorization header value must match a secret string/shared key) 
+            services.AddAuthorization(options =>
+                options.AddPolicy("HasSharedKey", policy => policy.Requirements.Add(new UserAuthorizationRequirement())));
+
+            // Set up automatic dependency injection of concrete classes to interfaces
+            // CLASSES RELATED TO AUTHORIZATION
+            services.AddSingleton<IAuthorizationHandler, UserAuthorizationRequirementHandler>();
+
+            // CLASSES RELATED TO DATA PROVIDERS (DATA CONTEXT)
             services.AddSingleton<IAuthorNewsItemRelationsProvider, AuthorNewsItemRelationProvider>();
-            services.AddSingleton<ICategoryDataProvider, CategoryDataProvider>();
             services.AddSingleton<INewsItemCategoryRelationProvider, NewsItemCategoryRelationProvider>();
+            services.AddSingleton<IAuthorDataProvider, AuthorDataProvider>();
+            services.AddSingleton<ICategoryDataProvider, CategoryDataProvider>();
             services.AddSingleton<INewsItemDataProvider, NewsItemDataProvider>();
-            // from repositories
+
+            // CLASSES RELATED TO THE REPOSITORY LAYER
             services.AddTransient<INewsItemRepository, NewsItemRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IAuthorNewsItemRelationRepository, AuthorNewsItemRelationRepository>();
             services.AddTransient<INewsItemCategoryRelationRepository, NewsItemCategoryRelationRepository>();
-            // from services
+           
+            // CLASSES RELATED TO THE SERVICE LAYER
             services.AddTransient<INewsItemService, NewsItemService>();
             services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<ICategoryService, CategoryService>();
-            // log service
+            
+            // LOG SERVICE (USED IN GLOBAL EXCEPTION HANDLING)
             services.AddTransient<ILogService, LogService>();
         }
 
@@ -97,35 +118,46 @@ namespace TechnicalRadiation.WebApi
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
+            // Enable Swagger for API documentation of the system
+            // Documentation available when server is running at localhost:5000/api-documentation
             app.UseSwagger();
-            app.UseSwaggerUI(opt => {
+            app.UseSwaggerUI(opt =>{
                 opt.RoutePrefix = "api-documentation";
                 opt.SwaggerEndpoint("/swagger/v1/swagger.json", "Technical Radiation API");
             });
 
-            /* add global exception handling */
+            // Sets up global exception handling and exception logging
+            // On exceptions, an automatic HTTP response to client with error message
+            // Handles the custom exceptions that yield HTTP responses of
+            //      404s (ResourceNotFoundException),
+            //      412s (InputFormatException),
+            //      401 (AuthorizationException) and
+            //      500 (Default for any other exception)
             app.ConfigureExceptionHandler();
+
+            // Require authentication mechanism in system,
+            // I.e. force a requirement client must fulfill to access specified restricted routes in system
+            // (In this case, client authorization header value must match a secret string/shared key)
+            app.UseAuthentication();
 
             app.UseMvc();
 
-            /* map API models via automapper */
+            // Create support for automatic mapping of model in system
             AutoMapper.Mapper.Initialize(cfg => {
-                // news item model types mappers
+
+                // MODELS REPRESENTING NEWS ITEM RESOURCES IN SYSTEM
                 cfg.CreateMap<NewsItem, NewsItemDto>();
                 cfg.CreateMap<NewsItem, NewsItemDetailDto>();
                 cfg.CreateMap<NewsItemDetailDto, NewsItem>();
                 cfg.CreateMap<NewsItemDto, NewsItem>();
                 cfg.CreateMap<NewsItemInputModel, NewsItem>()
-                    .ForMember(m => m.PublishDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.CreatedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedBy, opt => opt.UseValue("SystemAdmin"));
-                // author model types mappers
+
+                // MODELS REPRESENTING AUTHOR RESOURCES IN SYSTEM
                 cfg.CreateMap<Author, AuthorDto>();
                 cfg.CreateMap<Author, AuthorDetailDto>();
                 cfg.CreateMap<AuthorDetailDto, Author>();
@@ -134,17 +166,18 @@ namespace TechnicalRadiation.WebApi
                     .ForMember(m => m.CreatedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedBy, opt => opt.UseValue("SystemAdmin"));
-                // category model types mappers
+
+                // MODELS REPRESENTING CATEGORY RESOURCES IN SYSTEM
                 cfg.CreateMap<Category, CategoryDto>();
                 cfg.CreateMap<Category, CategoryDetailDto>();
                 cfg.CreateMap<CategoryDetailDto, Category>();
                 cfg.CreateMap<CategoryDto, Category>();
                 cfg.CreateMap<CategoryInputModel, Category>()
+                    .ForMember(m => m.Slug, opt => opt.ResolveUsing<SlugResolver>())
                     .ForMember(m => m.CreatedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedDate, opt => opt.UseValue(DateTime.Now))
                     .ForMember(m => m.ModifiedBy, opt => opt.UseValue("SystemAdmin"));
             });
-            
         }
     }
 }

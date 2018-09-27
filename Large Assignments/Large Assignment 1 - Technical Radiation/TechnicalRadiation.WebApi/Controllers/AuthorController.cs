@@ -17,7 +17,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
   /// Used to manipulate and get information about authors in system
   /// </summary>
   [Route (Routes.BASE + Routes.AUTHORS)]
-  // [HasAuthorizationHeader]  
+  [Authorize(Policy = "HasSharedKey")]
   public class AuthorController : Controller {
 
     /// <summary>

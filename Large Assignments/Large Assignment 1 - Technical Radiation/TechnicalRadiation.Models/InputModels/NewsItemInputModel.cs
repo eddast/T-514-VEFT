@@ -38,6 +38,6 @@ namespace TechnicalRadiation.Models.InputModels {
     /// </summary>
     /// <value>Is required</value>
     [Required]
-    public DateTime PublishDate { get; set; }
+    public DateTime? PublishDate { get; set; }
   }
 }

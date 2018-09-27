@@ -10,13 +10,21 @@ namespace TechnicalRadiation.Repositories.Data
     /// </summary>
     public class NewsItemDataProvider : INewsItemDataProvider
     {
-        public List<NewsItem> GetNewsItems() => NewsItems;
+        /// <summary>
+        /// Gets a list of all news items in system
+        /// </summary>
+        /// <returns>List of all news items in system</returns>
+        public List<NewsItem> GetAllNewsItems() => NewsItems;
+
+        /// <summary>
+        /// Admin that authors modification of news items
+        /// </summary>
         private static readonly string _adminName = "SystemAdmin";
 
         /// <summary>
-        /// Returns list of all news items in system
+        /// list of all news item in system
         /// </summary>
-        /// <returns>list of all news items in system</returns>
+        /// <value>news item entity model list</value>
         private static List<NewsItem> NewsItems = new List<NewsItem> 
         {
             new NewsItem

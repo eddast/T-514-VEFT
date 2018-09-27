@@ -44,5 +44,19 @@ namespace TechnicalRadiation.Repositories.Implementation
         /// <returns>all relations of specific news item to authors</returns>
         public IEnumerable<AuthorNewsItemRelation> GetAuthorsForNewsItems(int newsItemId) =>
             _relationalDataProvider.GetAuthorNewsItemRelations().Where(r => r.NewsItemId == newsItemId);
+
+        /// <summary>
+        /// Deletes relation from relational list
+        /// </summary>
+        /// <param name="relation">the relation to delete</param>
+        public void DeleteRelation(AuthorNewsItemRelation relation) =>
+            _relationalDataProvider.GetAuthorNewsItemRelations().Remove(relation);
+        
+        /// <summary>
+        /// Deletes relation from relational list
+        /// </summary>
+        /// <param name="relation">the relation to delete</param>
+        public void AddRelation(AuthorNewsItemRelation relation) =>
+            _relationalDataProvider.GetAuthorNewsItemRelations().Add(relation);
     }
 }
