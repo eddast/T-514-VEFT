@@ -28,14 +28,11 @@ namespace TechnicalRadiation.Repositories.Interfaces
         /// </summary>
         /// <param name="relation">the relation to delete</param>
         void DeleteRelation(NewsItemCategoryRelation relation);
-<<<<<<< HEAD
 
         /// <summary>
         /// Deletes relation from relational list
         /// </summary>
         /// <param name="relation">the relation to delete</param>
         void AddRelation(NewsItemCategoryRelation relation);
-=======
->>>>>>> 994237b5d7de418430440944ce00dd08a4f6939a
     }
 }

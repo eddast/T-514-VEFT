@@ -127,49 +127,6 @@ namespace TechnicalRadiation.Services.Implementations
         }
 
         /// <summary>
-        /// Creates new author to system
-        /// </summary>
-        /// <param name="author">new author to add</param>
-        /// <returns>the id of new author</returns>
-        public int CreateAuthor(AuthorInputModel author)
-        {
-            // TODO!!
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// Deletes author by id
-        /// </summary>
-        /// <param name="id">id of author to delete</param>
-        public void DeleteAuthorById(int id)
-        {
-            // TODO!!
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// Updates author by id
-        /// </summary>
-        /// <param name="author">new information on author to switch to</param>
-        /// <param name="id">id of author to update</param>
-        public void UpdateAuthorById(AuthorInputModel author, int id)
-        {
-            // TODO!!
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// Links a news item to author by their ids
-        /// </summary>
-        /// <param name="authorId">id of author to link to news item</param>
-        /// <param name="newsItemId">id of news item to link to author</param>
-        public void LinkNewsItemToAuthor(int authorId, int newsItemId)
-        {
-            // TODO!!
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
         /// Gets all relations of authors to news items by id
         /// </summary>
         /// <param name="Id">id of author to get news items for</param>
