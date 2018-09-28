@@ -41,5 +41,6 @@ namespace TechnicalRadiation.Repositories.Interfaces
         /// </summary>
         /// <param name="id">the id of the author to delete from system</param>
         void DeleteAuthorById(int id);
+        
     }
 }

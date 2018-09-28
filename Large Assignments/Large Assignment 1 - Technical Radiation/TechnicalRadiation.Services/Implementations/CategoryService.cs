@@ -41,11 +41,6 @@ namespace TechnicalRadiation.Services.Implementations
             _newsItemService = newsItemService;
         }
 
-        public int CreateCategory(CategoryInputModel category)
-        {
-            throw new System.NotImplementedException();
-        }
-
         /// <summary>
         /// Returns list of all categories with appropriate link relations
         /// </summary>
@@ -72,14 +67,23 @@ namespace TechnicalRadiation.Services.Implementations
         }
 
         /// <summary>
+        /// Creates new category and adds to system
+        /// </summary>
+        /// <param name="newsItem">new category to add</param>
+        /// <returns>the id of new category</returns>
+        public int CreateCategory(CategoryInputModel category) =>
+            _categoryRepository.CreateCategory(category);
+
+        /// <summary>
         /// Updates category by id
         /// </summary>
         /// <param name="category">new information on category to switch to</param>
         /// <param name="id">id of category to update</param>
         public void UpdateCategoryById(CategoryInputModel category, int id)
         {
-            // TODO!!
-            throw new System.NotImplementedException();
+            var oldCategory = _categoryRepository.GetCategoryById(id);
+            if (oldCategory == null) { throw new ResourceNotFoundException($"Category with id {id} was not found."); }
+            _categoryRepository.UpdateCategoryById(category, id);
         }
 
         /// <summary>
@@ -88,8 +92,14 @@ namespace TechnicalRadiation.Services.Implementations
         /// <param name="id">id of category to delete</param>
         public void DeleteCategoryById(int id)
         {
-            // TODO!!
-            throw new System.NotImplementedException();
+            // Check if author exists, if it does delete it from list
+            var category = _categoryRepository.GetCategoryById(id);
+            if (category == null) { throw new ResourceNotFoundException($"Category with id {id} was not found."); }
+            _categoryRepository.DeleteCategory(id);
+
+            // Delete all relations from list associated with category
+            var newsItemRelations = _newsItemRelationRepository.GetAllNewsItemsCategoryRelationsByCategoryId(id).ToList();
+            foreach(var relation in newsItemRelations) _newsItemRelationRepository.DeleteRelation(relation);
         }
 
         /// <summary>
@@ -99,8 +109,15 @@ namespace TechnicalRadiation.Services.Implementations
         /// <param name="newsItemId">id of news item to link to category</param>
         public void LinkNewsItemToCategory(int categoryId, int newsItemId)
         {
-            // TODO !!
-            throw new System.NotImplementedException();
+            // Check if category and news item exist by id
+            GetCategoryById(categoryId);
+            _newsItemService.GetNewsItemById(newsItemId);
+
+            // if no resource not found exception is thrown, add relation if it doesn't already exist
+            var newRelation = new NewsItemCategoryRelation { CategoryId = categoryId, NewsItemId = newsItemId };
+            if(_newsItemRelationRepository.GetAllNewsItemsCategoryRelationsByCategoryId(categoryId).ToList().Where(x => x.CategoryId == categoryId && x.NewsItemId == newsItemId).Count() == 0){
+                 _newsItemRelationRepository.AddRelation(newRelation);
+            }
         }
     }
 }

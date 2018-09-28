@@ -55,5 +55,6 @@ namespace TechnicalRadiation.Services.Interfaces
         /// <param name="authorId">id of author to link to news item</param>
         /// <param name="newsItemId">id of news item to link to author</param>
         void LinkNewsItemToAuthor(int authorId, int newsItemId);
+        
     }
 }

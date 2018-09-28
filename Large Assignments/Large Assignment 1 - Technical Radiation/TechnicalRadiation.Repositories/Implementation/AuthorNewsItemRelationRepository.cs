@@ -58,5 +58,6 @@ namespace TechnicalRadiation.Repositories.Implementation
         /// <param name="relation">the relation to delete</param>
         public void AddRelation(AuthorNewsItemRelation relation) =>
             _relationalDataProvider.GetAuthorNewsItemRelations().Add(relation);
+
     }
 }

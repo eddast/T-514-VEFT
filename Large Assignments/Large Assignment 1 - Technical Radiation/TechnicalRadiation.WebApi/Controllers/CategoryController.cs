@@ -78,9 +78,8 @@ namespace TechnicalRadiation.WebApi.Controllers {
     public IActionResult CreateCategory([FromBody] CategoryInputModel category)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
-      // TODO!!!
-      return Ok();
-      // ATH Á AÐ RETURNA LOCATION HEADER s.s. return CreatedAtRoute("GetCategoryById", new { id }, null);
+      int id = _categoryService.CreateCategory(category);
+      return CreatedAtRoute("GetCategoryById", new { id }, null);
     }
 
     /// <summary>
@@ -101,7 +100,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     public IActionResult EditCategory(int id, [FromBody] CategoryInputModel category)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Category input model was not properly formatted."); }
-      // TODO!!!
+      _categoryService.UpdateCategoryById(category, id);
       return NoContent();
     }
 
@@ -118,7 +117,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType (404)]
     public IActionResult DeleteCategory(int id)
     {
-      // TODO!!!
+      _categoryService.DeleteCategoryById(id);
       return NoContent();
     }
 
@@ -137,7 +136,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType (404)]
     public IActionResult LinkCategoryToNewsItem(int categoryId, int newsItemId)
     {
-      // TODO!!!
+      _categoryService.LinkNewsItemToCategory(categoryId, newsItemId);
       return NoContent();
     }
   }

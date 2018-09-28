@@ -73,8 +73,15 @@ namespace TechnicalRadiation.Services.Implementations
         /// <returns>List of news items associated with author</returns>
         public IEnumerable<NewsItemDto> GetNewsItemsByAuthor(int id) 
         {
-            // TODO!!!
-            return null;
+            // Fetch news items using the relational object we have then populate news item list
+            IEnumerable<AuthorNewsItemRelation> relations = getNewsItems(id);
+            ICollection<NewsItemDto> newsItemsByAuthor = new List<NewsItemDto>();
+            foreach(var r in relations)
+            {
+                var newsItem = Mapper.Map<NewsItemDto>(_newsItemService.GetNewsItemById(r.NewsItemId));
+                newsItemsByAuthor.Add(newsItem);
+            }
+            return newsItemsByAuthor;
         }
 
         /// <summary>
@@ -82,11 +89,16 @@ namespace TechnicalRadiation.Services.Implementations
         /// </summary>
         /// <param name="author">new author to add</param>
         /// <returns>the id of new author</returns>
-        public int CreateAuthor(AuthorInputModel author)
-        {
-            // TODO!!!
-            return 0;
-        }
+        public int CreateAuthor(AuthorInputModel author) =>
+            _authorRepository.CreateAuthor(author);
+
+        /// <summary>
+        /// Gets all relations of authors to news items by id
+        /// </summary>
+        /// <param name="Id">id of author to get news items for</param>
+        /// <returns>all relations of authors to news items by id</returns>
+        private IEnumerable<AuthorNewsItemRelation> getNewsItems(int Id) =>
+            _newsItemRelationRepository.GetAllNewsItemsForAuthor(Id);
 
         /// <summary>
         /// Updates author by id
@@ -95,11 +107,9 @@ namespace TechnicalRadiation.Services.Implementations
         /// <param name="id">id of author to update</param>
         public void UpdateAuthorById(AuthorInputModel author, int id)
         {
-            // Check if author exists, if it does delete him or her from list
             var oldAuthor = _authorRepository.GetAuthorById(id);
             if (oldAuthor == null) { throw new ResourceNotFoundException($"Author with id {id} was not found."); }
-
-            // TODO!!!
+            _authorRepository.UpdateAuthorById(author, id);
         }
 
         /// <summary>
@@ -111,8 +121,11 @@ namespace TechnicalRadiation.Services.Implementations
             // Check if author exists, if it does delete him or her from list
             var author = _authorRepository.GetAuthorById(id);
             if (author == null) { throw new ResourceNotFoundException($"Author with id {id} was not found."); }
-            
-            // TODO!!!
+            _authorRepository.DeleteAuthorById(id);
+
+            // delete all relations from list associated with news item
+            var newsItemRelations = _newsItemRelationRepository.GetAllNewsItemsForAuthor(id).ToList();
+            foreach(var relation in newsItemRelations) _newsItemRelationRepository.DeleteRelation(relation);
         }
 
         /// <summary>
@@ -122,17 +135,15 @@ namespace TechnicalRadiation.Services.Implementations
         /// <param name="newsItemId">id of news item to link to author</param>
         public void LinkNewsItemToAuthor(int authorId, int newsItemId)
         {
-            // TODO!!!
-            // TODO also check if author exists and news item exists
-        }
+            // Check if author and news item exist by id
+            GetAuthorById(authorId);
+            _newsItemService.GetNewsItemById(newsItemId);
 
-        /// <summary>
-        /// Gets all relations of authors to news items by id
-        /// </summary>
-        /// <param name="Id">id of author to get news items for</param>
-        /// <returns>all relations of authors to news items by id</returns>
-        private IEnumerable<AuthorNewsItemRelation> getNewsItems(int Id) =>
-             _newsItemRelationRepository.GetAllNewsItemsForAuthor(Id);
-        
+            // if no resource not found exception is thrown, add relation if it doesn't already exist
+            var newRelation = new AuthorNewsItemRelation { AuthorId = authorId, NewsItemId = newsItemId };
+            if(getNewsItems(authorId).Where(x => x.AuthorId == authorId && x.NewsItemId == newsItemId).Count() == 0){
+                 _newsItemRelationRepository.AddRelation(newRelation);
+            }
+        }
     }
 }

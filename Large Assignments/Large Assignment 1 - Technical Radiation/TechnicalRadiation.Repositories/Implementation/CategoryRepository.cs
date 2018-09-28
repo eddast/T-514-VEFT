@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using TechnicalRadiation.Models.DTO;
+using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.Repositories.Data;
 using TechnicalRadiation.Repositories.Data.Interfaces;
 using TechnicalRadiation.Repositories.Interfaces;
 
@@ -50,8 +52,13 @@ namespace TechnicalRadiation.Repositories
         /// <returns>the id of the new news item</returns>
         public int CreateCategory(CategoryInputModel category)
         {
-            // TODO !!
-            throw new System.NotImplementedException();
+            // Get highest id in list and add one to ensure unique id
+            var categories = _dataProvider.GetAllCategories();
+            var newCategoryId = categories.OrderByDescending(item => item.Id).First().Id + 1;
+            var newCategory = Mapper.Map<Category>(category);
+            newCategory.Id = newCategoryId;
+            categories.Add(newCategory);
+            return newCategoryId;
         }
 
         /// <summary>
@@ -61,8 +68,14 @@ namespace TechnicalRadiation.Repositories
         /// <param name="id">id of category to update</param>
         public void UpdateCategoryById(CategoryInputModel category, int id)
         {
-            // TODO !!
-            throw new System.NotImplementedException();
+            // Update properties for entity model
+            var newCategory = Mapper.Map<Category>(category);
+            var oldCategory = _dataProvider.GetAllCategories().FirstOrDefault(c => c.Id == id);
+            oldCategory.Name = newCategory.Name;
+            oldCategory.Slug = newCategory.Slug;
+            if (category.ParentCategoryId.HasValue) oldCategory.ParentCategoryId = category.ParentCategoryId.Value;
+            oldCategory.ModifiedBy = "SystemAdmin";
+            oldCategory.ModifiedDate = DateTime.Now;
         }
 
         /// <summary>
@@ -71,8 +84,9 @@ namespace TechnicalRadiation.Repositories
         /// <param name="id">id of the category to delete from system</param>
         public void DeleteCategory(int id)
         {
-            // TODO !!
-            throw new System.NotImplementedException();
+            var categories = _dataProvider.GetAllCategories();
+            var toRemove = categories.FirstOrDefault(c => c.Id == id);
+            categories.Remove(toRemove);
         }
     }
 }

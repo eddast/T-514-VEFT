@@ -76,8 +76,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [AllowAnonymous]
     public IActionResult GetNewsItemsByAuthor(int authorId)
     {
-      // TODO!!!
-      return Ok();
+      return Ok(_authorService.GetNewsItemsByAuthor(authorId));
     }
 
     /// <summary>
@@ -94,9 +93,8 @@ namespace TechnicalRadiation.WebApi.Controllers {
     public IActionResult CreateAuthor([FromBody] AuthorInputModel author)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
-      // TODO!!!
-      return Ok();
-      // Á AÐ RETURNA LOCATION HEADER s.s. return CreatedAtRoute("GetAuthorById", new { id }, null);
+      int id = _authorService.CreateAuthor(author);
+      return CreatedAtRoute("GetAuthorById", new { id }, null);
     }
 
     /// <summary>
@@ -117,7 +115,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     public IActionResult EditAuthor(int id, [FromBody] AuthorInputModel author)
     {
       if (!ModelState.IsValid) { throw new InputFormatException("Author input model was not properly formatted."); }
-      // TODO!!!
+      _authorService.UpdateAuthorById(author, id);
       return NoContent();
     }
 
@@ -134,7 +132,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType (404)]
     public IActionResult DeleteAuthor(int id)
     {
-      // TODO!!!
+      _authorService.DeleteAuthorById(id);
       return NoContent();
     }
 
@@ -152,7 +150,7 @@ namespace TechnicalRadiation.WebApi.Controllers {
     [ProducesResponseType (404)]
     public IActionResult LinkAuthorToNewsItem(int authorId, int newsItemId)
     {
-      // TODO!!!
+      _authorService.LinkNewsItemToAuthor(authorId, newsItemId);
       return NoContent();
     }
   }
