@@ -1,0 +1,28 @@
+New platform for renting houses all over the world has emerged, Rent-A-World!
+
+1. Start by creating a single Web API project called RentAWorld.WebApi
+2. Add a controller called RentalController
+3. Within the controller six routes should reside with appropriate HTTP verb:
+    1. GetAllRentals()
+    2. GetRentalById()
+    3. CreateNewRental()
+    4. UpdateRentalById()
+    5. UpdateRentalPartiallyById()
+    6. DeleteRentalById()
+4. Add query parameter to GetAllRentals() called containUnavailable (boolean)
+5. Add URL parameter id to all routes that make use of it
+6. Accept a string request body in CreateNewRental and return it when new rental is created
+7. Create folder Models and add model Rental with id, name and description
+8. Accept Rental as request body to CreateNewRental instead of string
+9. Add inline constraints to ids passed in as URL parameters
+10. Get GetRentalById Route a name
+11. Break application down into four projects
+    1. RentAWorld.WebApi - should reference RentAWorld.Models and RentAWorld.Services
+    2. RentAWorld.Services - should reference RentAWorld.Models and RentAWorld.Repositories
+    3. RentAWorld.Repositories - should reference RentAWorld.Models
+    4. RentAWorld.Models - no references
+12. Create three folders within RentAWorld.Models called DTOs/, InputModels/ and Entities/
+13. Add representation for a Rental Model to all folders
+14. Add Data folder to RentAWorld.Repositories and add class DataProvider and paste data provided by file system
+15. Implement the repository layer, the service layer and the routes.
+19. Add AutoMapper and configure mappings between the InputModel, DTO and Entity.
