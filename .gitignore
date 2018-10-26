@@ -31,6 +31,7 @@ msbuild.err
 msbuild.wrn
 bin/
 obj/
+node_modules/
 
 # Visual Studio 2015
 .vs/
