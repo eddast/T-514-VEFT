@@ -1,0 +1,138 @@
+# 1.	Get total count of all films
+query getTotalCountOfFilms {
+  allFilms {
+    totalCount
+  }
+}
+
+# 2.	Get the title, director and release date for all films
+query getAllFilms {
+  allFilms {
+    films {
+      title
+      director
+      releaseDate
+    }
+  }
+}
+
+# 3.	Get the title and release date of the last three films
+query getLastThreeFilms {
+  allFilms(last:3) {
+    films {
+      title
+      director
+      releaseDate
+    }
+  }
+}
+
+# 4.	Get the id, title and opening crawl of a film which has the id ZmlsbXM6MQ==
+query getFilmById {
+  film(id: "ZmlsbXM6MQ==") { 
+    id
+    title
+    openingCrawl
+  }
+}
+
+# 5.	Get the name, designation, average height and average lifespan of each species
+#			in the movie The Empire Strikes back
+#			(Empire Strikes back has the id ZmlsbXM6Mg==)
+query getEmpireStrikesAndSpecies {
+  film(id: "ZmlsbXM6Mg==") { 
+    speciesConnection {
+      species {
+        name
+        designation
+        averageHeight
+        averageLifespan
+      }
+    }
+  }
+}
+
+# 6.	Get the name, terrain and associated film title for every planet
+query getAllPlanetsTerrainsAndFilms {
+  allPlanets {
+    planets {
+      name
+      terrains
+      filmConnection {
+        films {
+          title
+        }
+      }
+    }
+  }
+}
+
+# 7.	For all starships, get their name, pilot names and the name of the home world
+#			for each pilot associated with the starship
+query getAllStarshipsAndTheirPilots {
+  allStarships {
+    starships {
+      name
+      pilotConnection {
+        pilots {
+          name
+          homeworld {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+
+# 8.	For all species, get their name and each persons name and eye color which is a
+#			part of that species
+query getAllSpeciesAndTheirPersons {
+  allSpecies {
+    species {
+      name
+      personConnection {
+        people {
+          name
+          eyeColor
+        }
+      }
+    }
+  }
+}
+
+# 9.	For all species, get their name and each persons name and hair color which
+#			is a part of that species and for each person which is a part of that species
+#			get the name, model, vehicle class and manufacturer for each vehicle
+#			associated with them
+query getAllSpeciesAndTheirPersonsAndTheirVehicles {
+  allSpecies {
+    species {
+      name
+      personConnection {
+        people {
+          name
+          hairColor
+          vehicleConnection {
+            vehicles {
+              name
+              model
+              vehicleClass
+              manufacturers
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#10.	Find Vader’s name, birth year, height and mass (Darth has the id cGVvcGxlOjQ=)
+query getDarthVader {
+  person(id: "cGVvcGxlOjQ=") {
+    name
+    birthYear
+    height
+    mass
+  }
+}
