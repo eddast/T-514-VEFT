@@ -1,5 +1,5 @@
 const request = require('request');
-const { NotFoundError, InternalServerError } = require('../errors');
+const { NotFoundError, InternalServerError, BadRequest } = require('../errors');
 
 /**
  * Contains logic to connect and use the basketball field web service
@@ -37,6 +37,7 @@ const basketballFieldService = () => {
     const getBasketballFieldById = id => {
         const requestRoute = `${ webAPIBaseURL }/${ id }`;
         return new Promise( (res, err) => {
+            if (id === "" || id === undefined || id === null) err(new BadRequest(`Basketball field id is required`)); 
             request (requestRoute, (error, response, body) => {
                 if( error || response && response.statusCode !== 200 || body === null ) {
                     if( response && response.statusCode === 404 || body === null ) {
