@@ -1,0 +1,4 @@
+Log: {"email":"arnar-freyr@hotmail.com","items":[{"description":"Girlfriend","quantity":1,"unitPrice":0}]}
+
+Log: {"email":"eddasteinunn@hotmail.com","items":[{"description":"Girlfriend","quantity":1,"unitPrice":0}]}
+
