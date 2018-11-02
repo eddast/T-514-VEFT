@@ -2,3 +2,13 @@ Log: {"email":"arnar-freyr@hotmail.com","items":[{"description":"Girlfriend","qu
 
 Log: {"email":"eddasteinunn@hotmail.com","items":[{"description":"Girlfriend","quantity":1,"unitPrice":0}]}
 
+Log: {"email":"eddasteinunn@hotmail.com","items":[{"description":"Poison","quantity":1,"unitPrice":600},{"description":"Arrows","quantity":6,"unitPrice":100}]}
+
+Log: {"email":"eddasteinunn@hotmail.com","items":[{"description":"Poison","quantity":1,"unitPrice":600},{"description":"Arrows","quantity":6,"unitPrice":100}]}
+
+Log: {"email":"eddasteinunn@hotmail.com","items":[{"description":"Poison","quantity":1,"unitPrice":600},{"description":"Arrows","quantity":6,"unitPrice":100}]}
+
+Log: {"email":"eddasteinunn@hotmail.com","items":[{"description":"Bread","quantity":1,"unitPrice":600},{"description":"Mini Muffins","quantity":6,"unitPrice":100}]}
+
+Log: {"email":"eddasteinunn@hotmail.com","items":[{"description":"Lindt Chocolate Ball (Milk)","quantity":1,"unitPrice":600},{"description":"Cookies","quantity":3,"unitPrice":100}]}
+
