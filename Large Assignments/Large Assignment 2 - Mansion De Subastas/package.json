@@ -9,7 +9,7 @@
   "author": "Edda Steinunn Rúnarsdóttir",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.3.1",
+    "mongoose": "^5.7.5",
     "body-parser": "^1.18.3",
     "express": "^4.16.3"
   }
