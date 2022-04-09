@@ -16,7 +16,7 @@
   "dependencies": {
     "apollo-server": "^2.1.0",
     "graphql": "^14.0.2",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "mongoose": "^5.3.4",
     "request": "^2.88.0"
   }
